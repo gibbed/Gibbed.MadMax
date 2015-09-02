@@ -1,4 +1,4 @@
-; 125/139 (89%)
+; 137/139 (98%)
 __unsorted/character_global.fsb
 __unsorted/character_npc_dog.fsb
 __unsorted/character_npc_generic.fsb
@@ -105,6 +105,18 @@ locations/a00/character/madmax/upgrade/max_upgrade_knuckleduster_lvl0.bl
 locations/a00/character/madmax/upgrade/max_upgrade_knuckleduster_off.bl
 locations/a00/character/madmax/upgrade/max_upgrade_shotgun_disabled.bl
 locations/a00/character/madmax/upgrade/max_upgrade_wristguard_lvl0.bl
+locations/a00/vehicles/s001/a00_vh_s001_location.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_armour0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_boarderdef0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_bodywork0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_decal_t0_c0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_engine0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_exhaust0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_harpoon0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_rammer0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_sideburner0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_wheel_armour0.bl
+locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_wheel0.bl
 missions/missions.bl
 missions/restartpoints.bl
 scripts/dialogue/dialogue_conditions.xvmc
