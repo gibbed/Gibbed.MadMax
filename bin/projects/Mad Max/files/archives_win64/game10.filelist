@@ -1,0 +1,13 @@
+; 12/348 (3%)
+locations/a00/vehicles/s002/a00_vh_s002_location.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_armour0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_boarderdef0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_bodywork0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_decal_t0_c0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_engine0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_exhaust0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_harpoon0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_rammer0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_sideburner0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel_armour0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel0.bl
