@@ -1,1 +1,20 @@
-; 0/467 (0%)
+; 19/467 (4%)
+locations/a02/encounters/random_encounters/a02_et_random_encounters_00.nl
+locations/a02/landscape_locations/a02_patch_20-21_34-35.nl
+locations/a02/loot_locations/a02_loot_pinkeye01_06.nl
+locations/a02/road_locations/a02_south_02_roads.nl
+missions/main_missions/mm1030/mm1032.outpost_snipers.nl
+missions/main_missions/mm1030/mm1032.stank_gum_attack.nl
+missions/main_missions/mm1030/mm1032.stank_gum_attack_effects.nl
+missions/main_missions/mm1030/mm1034.mission_starter.nl
+missions/main_missions/mm1030/mm1038.cs030_starter.nl
+missions/main_missions/mm1030/mm1038.mission_starter.nl
+missions/praise_system/intel/intel_j_convoy.nl
+missions/praise_system/intel/intel1015.nl
+missions/praise_system/intel/intelfd1080.nl
+missions/praise_system/intel/intelsd1030.nl
+missions/praise_system/intel/intelsd1190.nl
+missions/praise_system/intel/intelsd1270.nl
+missions/praise_system/intel/intelsd1290.nl
+missions/praise_system/intel/intelsd1300.nl
+missions/praise_system/intel/intelsd1330.nl

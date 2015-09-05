@@ -1,4 +1,4 @@
-; 1191/2158 (55%)
+; 1192/2158 (55%)
 __unsorted/24_44.navmeshc
 __unsorted/24_45.navmeshc
 __unsorted/24_46.navmeshc
@@ -1106,6 +1106,7 @@ gui/side_mission_prompt.bl
 gui/sniper.bl
 gui/statistics.bl
 locations/a00/areasets/a01.bl
+locations/a00/character/madmax/props/a00_max_props_dog_food.bl
 locations/a00/character/madmax/props/a00_max_props_wire.bl
 locations/a00/character/madmax/upgrade/max_upgrade_armor_lvl2a_clean.bl
 locations/a00/character/madmax/upgrade/max_upgrade_inventory_lvl1.bl
