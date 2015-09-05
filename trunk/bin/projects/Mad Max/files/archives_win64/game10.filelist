@@ -1,13 +1,25 @@
-; 12/348 (3%)
+; 24/348 (6%)
 locations/a00/vehicles/s002/a00_vh_s002_location.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_armour0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_armour1.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_boarderdef0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_boarderdef1.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_bodywork0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_bodywork2.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_decal_t0_c0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_decal_t6_c3.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_decal_t6_router.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_engine0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_engine1.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_exhaust0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_exhaust1.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_harpoon0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_harpoon2.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_harpoon3.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_rammer0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_rammer1.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_sideburner0.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel_armour0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel_armour1.bl
 locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel0.bl
+locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel1.bl
