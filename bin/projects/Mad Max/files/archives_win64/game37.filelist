@@ -1,4 +1,4 @@
-; 1512/4334 (34%)
+; 1582/4334 (36%)
 __unsorted/terrain_h_09_39.dat
 __unsorted/terrain_h_09_40.dat
 __unsorted/terrain_h_09_41.dat
@@ -7,6 +7,7 @@ __unsorted/terrain_h_09_43.dat
 __unsorted/terrain_h_09_44.dat
 __unsorted/terrain_h_09_45.dat
 __unsorted/terrain_h_09_46.dat
+__unsorted/terrain_h_10_38.dat
 __unsorted/terrain_h_10_39.dat
 __unsorted/terrain_h_10_40.dat
 __unsorted/terrain_h_10_41.dat
@@ -15,6 +16,8 @@ __unsorted/terrain_h_10_43.dat
 __unsorted/terrain_h_10_44.dat
 __unsorted/terrain_h_10_45.dat
 __unsorted/terrain_h_10_46.dat
+__unsorted/terrain_h_11_38.dat
+__unsorted/terrain_h_11_39.dat
 __unsorted/terrain_h_11_40.dat
 __unsorted/terrain_h_11_41.dat
 __unsorted/terrain_h_11_42.dat
@@ -23,6 +26,9 @@ __unsorted/terrain_h_11_44.dat
 __unsorted/terrain_h_11_45.dat
 __unsorted/terrain_h_11_46.dat
 __unsorted/terrain_h_11_47.dat
+__unsorted/terrain_h_12_37.dat
+__unsorted/terrain_h_12_38.dat
+__unsorted/terrain_h_12_39.dat
 __unsorted/terrain_h_12_40.dat
 __unsorted/terrain_h_12_41.dat
 __unsorted/terrain_h_12_42.dat
@@ -31,6 +37,10 @@ __unsorted/terrain_h_12_44.dat
 __unsorted/terrain_h_12_45.dat
 __unsorted/terrain_h_12_46.dat
 __unsorted/terrain_h_12_47.dat
+__unsorted/terrain_h_13_36.dat
+__unsorted/terrain_h_13_37.dat
+__unsorted/terrain_h_13_38.dat
+__unsorted/terrain_h_13_39.dat
 __unsorted/terrain_h_13_40.dat
 __unsorted/terrain_h_13_41.dat
 __unsorted/terrain_h_13_42.dat
@@ -40,6 +50,14 @@ __unsorted/terrain_h_13_45.dat
 __unsorted/terrain_h_13_46.dat
 __unsorted/terrain_h_13_47.dat
 __unsorted/terrain_h_13_48.dat
+__unsorted/terrain_h_14_28.dat
+__unsorted/terrain_h_14_29.dat
+__unsorted/terrain_h_14_30.dat
+__unsorted/terrain_h_14_31.dat
+__unsorted/terrain_h_14_32.dat
+__unsorted/terrain_h_14_33.dat
+__unsorted/terrain_h_14_34.dat
+__unsorted/terrain_h_14_35.dat
 __unsorted/terrain_h_14_37.dat
 __unsorted/terrain_h_14_38.dat
 __unsorted/terrain_h_14_39.dat
@@ -52,6 +70,12 @@ __unsorted/terrain_h_14_45.dat
 __unsorted/terrain_h_14_46.dat
 __unsorted/terrain_h_14_47.dat
 __unsorted/terrain_h_14_48.dat
+__unsorted/terrain_h_15_30.dat
+__unsorted/terrain_h_15_31.dat
+__unsorted/terrain_h_15_32.dat
+__unsorted/terrain_h_15_33.dat
+__unsorted/terrain_h_15_34.dat
+__unsorted/terrain_h_15_35.dat
 __unsorted/terrain_h_15_36.dat
 __unsorted/terrain_h_15_37.dat
 __unsorted/terrain_h_15_38.dat
@@ -65,6 +89,10 @@ __unsorted/terrain_h_15_45.dat
 __unsorted/terrain_h_15_46.dat
 __unsorted/terrain_h_15_47.dat
 __unsorted/terrain_h_15_48.dat
+__unsorted/terrain_h_16_32.dat
+__unsorted/terrain_h_16_33.dat
+__unsorted/terrain_h_16_34.dat
+__unsorted/terrain_h_16_35.dat
 __unsorted/terrain_h_16_36.dat
 __unsorted/terrain_h_16_37.dat
 __unsorted/terrain_h_16_38.dat
@@ -111,6 +139,8 @@ __unsorted/terrain_h_18_45.dat
 __unsorted/terrain_h_18_46.dat
 __unsorted/terrain_h_18_47.dat
 __unsorted/terrain_h_18_48.dat
+__unsorted/terrain_h_19_30.dat
+__unsorted/terrain_h_19_31.dat
 __unsorted/terrain_h_19_32.dat
 __unsorted/terrain_h_19_33.dat
 __unsorted/terrain_h_19_34.dat
@@ -128,6 +158,9 @@ __unsorted/terrain_h_19_45.dat
 __unsorted/terrain_h_19_46.dat
 __unsorted/terrain_h_19_47.dat
 __unsorted/terrain_h_19_48.dat
+__unsorted/terrain_h_20_30.dat
+__unsorted/terrain_h_20_31.dat
+__unsorted/terrain_h_20_32.dat
 __unsorted/terrain_h_20_33.dat
 __unsorted/terrain_h_20_34.dat
 __unsorted/terrain_h_20_35.dat
@@ -144,6 +177,8 @@ __unsorted/terrain_h_20_45.dat
 __unsorted/terrain_h_20_46.dat
 __unsorted/terrain_h_20_47.dat
 __unsorted/terrain_h_20_48.dat
+__unsorted/terrain_h_21_31.dat
+__unsorted/terrain_h_21_32.dat
 __unsorted/terrain_h_21_33.dat
 __unsorted/terrain_h_21_34.dat
 __unsorted/terrain_h_21_35.dat
@@ -153,6 +188,11 @@ __unsorted/terrain_h_21_38.dat
 __unsorted/terrain_h_21_39.dat
 __unsorted/terrain_h_21_40.dat
 __unsorted/terrain_h_21_41.dat
+__unsorted/terrain_h_22_28.dat
+__unsorted/terrain_h_22_29.dat
+__unsorted/terrain_h_22_30.dat
+__unsorted/terrain_h_22_31.dat
+__unsorted/terrain_h_22_32.dat
 __unsorted/terrain_h_22_33.dat
 __unsorted/terrain_h_22_34.dat
 __unsorted/terrain_h_22_35.dat
@@ -162,6 +202,8 @@ __unsorted/terrain_h_22_38.dat
 __unsorted/terrain_h_22_39.dat
 __unsorted/terrain_h_22_40.dat
 __unsorted/terrain_h_22_41.dat
+__unsorted/terrain_h_23_31.dat
+__unsorted/terrain_h_23_32.dat
 __unsorted/terrain_h_23_33.dat
 __unsorted/terrain_h_23_34.dat
 __unsorted/terrain_h_23_35.dat
@@ -199,6 +241,7 @@ __unsorted/terrain_h_26_38.dat
 __unsorted/terrain_h_26_39.dat
 __unsorted/terrain_h_26_40.dat
 __unsorted/terrain_h_26_41.dat
+__unsorted/terrain_h_27_31.dat
 __unsorted/terrain_h_27_32.dat
 __unsorted/terrain_h_27_33.dat
 __unsorted/terrain_h_27_34.dat
@@ -209,6 +252,9 @@ __unsorted/terrain_h_27_38.dat
 __unsorted/terrain_h_27_39.dat
 __unsorted/terrain_h_27_40.dat
 __unsorted/terrain_h_27_41.dat
+__unsorted/terrain_h_28_31.dat
+__unsorted/terrain_h_28_32.dat
+__unsorted/terrain_h_28_33.dat
 __unsorted/terrain_h_28_34.dat
 __unsorted/terrain_h_28_35.dat
 __unsorted/terrain_h_28_36.dat
@@ -217,6 +263,10 @@ __unsorted/terrain_h_28_38.dat
 __unsorted/terrain_h_28_39.dat
 __unsorted/terrain_h_28_40.dat
 __unsorted/terrain_h_28_41.dat
+__unsorted/terrain_h_29_31.dat
+__unsorted/terrain_h_29_32.dat
+__unsorted/terrain_h_29_33.dat
+__unsorted/terrain_h_29_34.dat
 __unsorted/terrain_h_29_35.dat
 __unsorted/terrain_h_29_36.dat
 __unsorted/terrain_h_29_37.dat
@@ -232,15 +282,26 @@ __unsorted/terrain_h_29_46.dat
 __unsorted/terrain_h_29_47.dat
 __unsorted/terrain_h_29_48.dat
 __unsorted/terrain_h_29_49.dat
+__unsorted/terrain_h_30_32.dat
+__unsorted/terrain_h_30_33.dat
+__unsorted/terrain_h_30_34.dat
+__unsorted/terrain_h_30_35.dat
+__unsorted/terrain_h_30_36.dat
 __unsorted/terrain_h_30_37.dat
 __unsorted/terrain_h_30_38.dat
 __unsorted/terrain_h_30_47.dat
 __unsorted/terrain_h_30_48.dat
+__unsorted/terrain_h_31_32.dat
+__unsorted/terrain_h_31_33.dat
+__unsorted/terrain_h_31_34.dat
+__unsorted/terrain_h_31_35.dat
 __unsorted/terrain_h_31_36.dat
 __unsorted/terrain_h_31_37.dat
 __unsorted/terrain_h_31_38.dat
 __unsorted/terrain_h_31_39.dat
 __unsorted/terrain_h_31_48.dat
+__unsorted/terrain_h_32_33.dat
+__unsorted/terrain_h_32_34.dat
 __unsorted/terrain_h_32_35.dat
 __unsorted/terrain_h_32_36.dat
 __unsorted/terrain_h_32_37.dat
@@ -272,6 +333,8 @@ graphs/a01/encampments/enc1010/a01_enc1010_locations.gsrc
 graphs/a01/encampments/enc1010/spawn_sail.gsrc
 graphs/a01/encampments/enc1020/a01_enc1020_locations.gsrc
 graphs/a01/encampments/enc1020/a01_enc1020_searchlight_control.gsrc
+graphs/a02/enc2010/a02_enc2010_enable_spawns.gsrc
+graphs/a02/enc2010/a02_enc2010_locations.gsrc
 graphs/characters/character_send_event_when_still.gsrc
 graphs/check_time_of_day.gsrc
 graphs/constants_loading/ai_constants_profiles_loading.gsrc
@@ -342,6 +405,7 @@ graphs/missions/mm1034/mm1034_upgrade_installed_check.gsrc
 graphs/missions/mm1034/mm1034_upgrade_ready_play_control.gsrc
 graphs/missions/mm1038/mm1038_mission_unlock_requirements.gsrc
 graphs/missions/mm1039/mm1039_mission_unlock_requirements.gsrc
+graphs/missions/mm1039/mm1039_side_mission_unlocked_check.gsrc
 graphs/missions/mm2030/mm2030_mission_unlock_requirements.gsrc
 graphs/missions/mm2050/mm2050_mission_unlock_requirements.gsrc
 graphs/missions/mm3020/mm3020_hideout_entrance.gsrc
@@ -1501,13 +1565,19 @@ textures/a00/gui/streamed/skills/a00_gui_streamed_skills_wall_shiv_dif.ddsc
 textures/a00/gui/streamed/skills/a00_gui_streamed_skills_weapon_execution_dif.ddsc
 textures/a00/gui/streamed/skills/a00_gui_streamed_skills_weapon_parry_dif.ddsc
 textures/a00/gui/streamed/upgrades/a00_gui_streamed_upgrades_perks_atlas_dif.ddsc
+vehicles/engines/big_hoss_truck.revc
 vehicles/engines/camaro_gen_2_v1_mono.revc
+vehicles/engines/camaro_gen2.revc
 vehicles/engines/camaro_z28-68_v1.revc
 vehicles/engines/camazon_remap_v1_mono.revc
 vehicles/engines/interceptor.revc
 vehicles/engines/mustang_svt.revc
 vehicles/engines/mustang-71.revc
+vehicles/engines/roadrunner_v1_2_mono.revc
 vehicles/engines/stingray_502_v1.revc
 vehicles/engines/v6_1.revc
+vehicles/engines/v6_2.revc
+vehicles/engines/v6_3.revc
+vehicles/engines/v6_4.revc
 vehicles/engines/v8_carrier.revc
 vehicles/wbplay_reward.vehupgrexc

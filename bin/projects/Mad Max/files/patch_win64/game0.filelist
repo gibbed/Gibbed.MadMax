@@ -1,4 +1,4 @@
-; 2629/2808 (93%)
+; 2653/2808 (94%)
 __unsorted/11_40.navmeshc
 __unsorted/11_41.navmeshc
 __unsorted/12_40.navmeshc
@@ -13,12 +13,23 @@ __unsorted/15_45.navmeshc
 __unsorted/16_43.navmeshc
 __unsorted/16_44.navmeshc
 __unsorted/16_45.navmeshc
+__unsorted/17_31.navmeshc
+__unsorted/17_32.navmeshc
 __unsorted/17_41.navmeshc
+__unsorted/18_30.navmeshc
+__unsorted/18_31.navmeshc
+__unsorted/18_32.navmeshc
+__unsorted/18_33.navmeshc
 __unsorted/18_39.navmeshc
 __unsorted/18_40.navmeshc
 __unsorted/18_41.navmeshc
 __unsorted/18_42.navmeshc
 __unsorted/18_45.navmeshc
+__unsorted/19_30.navmeshc
+__unsorted/19_31.navmeshc
+__unsorted/19_32.navmeshc
+__unsorted/19_36.navmeshc
+__unsorted/19_38.navmeshc
 __unsorted/19_41.navmeshc
 __unsorted/19_44.navmeshc
 __unsorted/19_45.navmeshc
@@ -46,6 +57,7 @@ __unsorted/22_40.navmeshc
 __unsorted/22_41.navmeshc
 __unsorted/22_44.navmeshc
 __unsorted/22_45.navmeshc
+__unsorted/23_33.navmeshc
 __unsorted/23_34.navmeshc
 __unsorted/23_35.navmeshc
 __unsorted/23_36.navmeshc
@@ -58,6 +70,7 @@ __unsorted/23_42.navmeshc
 __unsorted/23_44.navmeshc
 __unsorted/23_45.navmeshc
 __unsorted/23_46.navmeshc
+__unsorted/24_32.navmeshc
 __unsorted/24_34.navmeshc
 __unsorted/24_35.navmeshc
 __unsorted/24_36.navmeshc
@@ -70,6 +83,8 @@ __unsorted/24_42.navmeshc
 __unsorted/24_43.navmeshc
 __unsorted/24_45.navmeshc
 __unsorted/24_46.navmeshc
+__unsorted/25_32.navmeshc
+__unsorted/25_35.navmeshc
 __unsorted/25_37.navmeshc
 __unsorted/25_38.navmeshc
 __unsorted/25_41.navmeshc
@@ -78,16 +93,24 @@ __unsorted/25_43.navmeshc
 __unsorted/25_44.navmeshc
 __unsorted/25_45.navmeshc
 __unsorted/25_46.navmeshc
+__unsorted/26_32.navmeshc
+__unsorted/26_33.navmeshc
 __unsorted/26_43.navmeshc
 __unsorted/26_45.navmeshc
 __unsorted/26_46.navmeshc
+__unsorted/27_33.navmeshc
 __unsorted/27_45.navmeshc
 __unsorted/27_46.navmeshc
 __unsorted/28_44.navmeshc
 __unsorted/28_45.navmeshc
+__unsorted/29_35.navmeshc
+__unsorted/29_36.navmeshc
+__unsorted/29_37.navmeshc
 __unsorted/29_38.navmeshc
 __unsorted/29_43.navmeshc
 __unsorted/29_44.navmeshc
+__unsorted/30_36.navmeshc
+__unsorted/30_37.navmeshc
 __unsorted/30_38.navmeshc
 __unsorted/30_39.navmeshc
 __unsorted/35_44.navmeshc
@@ -135,6 +158,7 @@ __unsorted/terrain_h_20_36.dat
 __unsorted/terrain_h_20_38.dat
 __unsorted/terrain_h_20_39.dat
 __unsorted/terrain_h_21_36.dat
+__unsorted/terrain_v_15_28.dat
 __unsorted/terrain_v_20_36.dat
 __unsorted/terrain_v_20_38.dat
 __unsorted/terrain_v_20_39.dat

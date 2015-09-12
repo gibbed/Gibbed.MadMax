@@ -1,5 +1,9 @@
-; 4/14 (28%)
+; 8/14 (57%)
+editor/entities/a00/activities/exported/convoy/guards/scrotus_stinkwheel_level3_db.ee
+editor/entities/a00/activities/exported/convoy/leader/a00_ac_convoy_leader_convoytruck.ee
+editor/entities/a00/activities/exported/convoy/leader/a00_ac_convoy_leader_convoytruck_epic.ee
 editor/entities/a00/activities/exported/convoy/leader/a00_ac_convoy_leader_fueler.ee
 editor/entities/a00/activities/exported/convoy/leader/a00_ac_convoy_leader_fueler_epic.ee
+editor/entities/a00/activities/exported/convoy/leader/a00_ac_convoy_leader_fueler_mission.ee
 editor/entities/a00/activities/exported/convoy/leader/a00_ac_convoy_leader_topdogtruck.ee
 editor/entities/a00/activities/exported/convoy/leader/a00_ac_convoy_leader_topdogtruck_epic.ee

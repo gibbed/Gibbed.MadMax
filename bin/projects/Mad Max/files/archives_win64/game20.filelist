@@ -1,6 +1,8 @@
-; 5/21 (23%)
+; 7/21 (33%)
 editor/entities/a00/encounters/exported/critters/encounter_lizard_01.ee
 editor/entities/a00/encounters/exported/critters/encounter_rat_01.ee
 editor/entities/a00/encounters/exported/road/a00_en_road_buzzards_rammerhead_level0.ee
 editor/entities/a00/encounters/exported/road/a00_en_road_buzzards_rammerhead_level1.ee
+editor/entities/a00/encounters/exported/road/a00_en_road_buzzards_stinkwheel_level1.ee
 editor/entities/a00/encounters/exported/road/a00_en_road_roadkill_boombug_driver.ee
+editor/entities/a00/encounters/exported/road/a00_en_road_roadkill_rammerhead_level0.ee
