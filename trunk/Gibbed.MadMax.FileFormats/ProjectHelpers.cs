@@ -29,7 +29,7 @@ namespace Gibbed.MadMax.FileFormats
 {
     public static class ProjectHelpers
     {
-        private static uint Hasher(string source)
+        private static uint FileHasher(string source)
         {
             if (source == null)
             {
@@ -39,7 +39,7 @@ namespace Gibbed.MadMax.FileFormats
             return source.HashJenkins();
         }
 
-        public static string Modifier(string source)
+        public static string FileModifier(string source)
         {
             if (source == null)
             {
@@ -55,8 +55,8 @@ namespace Gibbed.MadMax.FileFormats
         {
             return manager.LoadLists(
                 "*.filelist",
-                Hasher,
-                Modifier,
+                FileHasher,
+                FileModifier,
                 extra);
         }
 
@@ -66,19 +66,17 @@ namespace Gibbed.MadMax.FileFormats
         {
             return project.LoadLists(
                 "*.filelist",
-                Hasher,
-                Modifier,
+                FileHasher,
+                FileModifier,
                 extra);
         }
 
-        public static Dictionary<string, List<string>> LoadDirectoryList(
-            this ProjectData.Manager manager)
+        public static Dictionary<string, List<string>> LoadDirectoryList(this ProjectData.Manager manager)
         {
             return manager.ActiveProject.LoadDirectoryList();
         }
 
-        public static Dictionary<string, List<string>> LoadDirectoryList(
-            this ProjectData.Project project)
+        public static Dictionary<string, List<string>> LoadDirectoryList(this ProjectData.Project project)
         {
             var mapping = new Dictionary<string, List<string>>();
             if (project == null)
