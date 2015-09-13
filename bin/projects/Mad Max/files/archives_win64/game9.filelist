@@ -1,10 +1,10 @@
 ; 9/67 (13%)
-locations/a00/resource/characters/a00_re_characters_wasteland_smellies.bl
-locations/a00/resource/vehicles/a00_re_vehicles_buzzard_redneckexpress.bl
-locations/a00/resource/vehicles/a00_re_vehicles_buzzard_stinkwheel.bl
-locations/a00/resource/vehicles/a00_re_vehicles_gastown_rammerhead.bl
-locations/a00/resource/vehicles/a00_re_vehicles_gastown_stinkwheel.bl
-locations/a00/resource/vehicles/a00_re_vehicles_roadkill_rammerhead.bl
-locations/a00/resource/vehicles/a00_re_vehicles_roadkill_redneckexpress.bl
-locations/a00/resource/vehicles/a00_re_vehicles_scrotus_rammerhead.bl
-locations/a00/resource/vehicles/a00_re_vehicles_scrotus_redneckexpress.bl
+a00_re_characters_wasteland_smellies.bl
+a00_re_vehicles_buzzard_redneckexpress.bl
+a00_re_vehicles_buzzard_stinkwheel.bl
+a00_re_vehicles_gastown_rammerhead.bl
+a00_re_vehicles_gastown_stinkwheel.bl
+a00_re_vehicles_roadkill_rammerhead.bl
+a00_re_vehicles_roadkill_redneckexpress.bl
+a00_re_vehicles_scrotus_rammerhead.bl
+a00_re_vehicles_scrotus_redneckexpress.bl
