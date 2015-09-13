@@ -20,46 +20,132 @@
  *    distribution.
  */
 
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Gibbed.MadMax.FileFormats
 {
     public static class ProjectHelpers
     {
-        public static ProjectData.HashList<uint> LoadListsFileNames(
-            this ProjectData.Manager manager)
+        private static uint Hasher(string source)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return source.HashJenkins();
+        }
+
+        public static string Modifier(string source)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return Path.GetFileName(source).ToLowerInvariant();
+        }
+
+        public static ProjectData.HashList<uint> LoadFileLists(
+            this ProjectData.Manager manager,
+            Action<uint, string, string> extra)
         {
             return manager.LoadLists(
                 "*.filelist",
-                s => Path.GetFileName(s).HashJenkins(),
-                s => s.ToLowerInvariant());
+                Hasher,
+                Modifier,
+                extra);
         }
 
-        public static ProjectData.HashList<uint> LoadListsFileNames(
-            this ProjectData.Project project)
+        public static ProjectData.HashList<uint> LoadFileLists(
+            this ProjectData.Project project,
+            Action<uint, string, string> extra)
         {
             return project.LoadLists(
                 "*.filelist",
-                s => Path.GetFileName(s).HashJenkins(),
-                s => s.ToLowerInvariant());
+                Hasher,
+                Modifier,
+                extra);
         }
 
-        public static ProjectData.HashList<uint> LoadListsPropertyNames(
+        public static Dictionary<string, List<string>> LoadDirectoryList(
             this ProjectData.Manager manager)
         {
-            return manager.LoadLists(
-                "*.namelist",
-                s => s.HashJenkins(),
-                s => s);
+            return manager.ActiveProject.LoadDirectoryList();
         }
 
-        public static ProjectData.HashList<uint> LoadListsPropertyNames(
+        public static Dictionary<string, List<string>> LoadDirectoryList(
             this ProjectData.Project project)
         {
-            return project.LoadLists(
-                "*.namelist",
-                s => s.HashJenkins(),
-                s => s);
+            var mapping = new Dictionary<string, List<string>>();
+            if (project == null)
+            {
+                return mapping;
+            }
+
+            var inputPath = Path.Combine(project.ListsPath, "files", "master.dirlist");
+            if (File.Exists(inputPath) == false)
+            {
+                return mapping;
+            }
+
+            using (var input = File.OpenRead(inputPath))
+            using (var reader = new StreamReader(input))
+            {
+                while (true)
+                {
+                    string line = reader.ReadLine();
+                    if (line == null)
+                    {
+                        break;
+                    }
+
+                    if (line.StartsWith(";") == true)
+                    {
+                        continue;
+                    }
+
+                    line = line.Trim();
+                    if (line.Length <= 0)
+                    {
+                        continue;
+                    }
+
+                    var parts = line.Split(':');
+                    if (parts.Length < 1)
+                    {
+                        continue;
+                    }
+
+                    var source = parts[0];
+
+                    var paths = new List<string>();
+                    foreach (var path in parts.Skip(1))
+                    {
+                        if (string.IsNullOrEmpty(path) == true)
+                        {
+                            continue;
+                        }
+
+                        var name = Path.GetFileName(path);
+                        if (name != source)
+                        {
+                            throw new InvalidOperationException();
+                        }
+
+                        paths.Add(path);
+                    }
+
+                    if (paths.Count > 0)
+                    {
+                        mapping.Add(source, paths);
+                    }
+                }
+            }
+            return mapping;
         }
     }
 }
