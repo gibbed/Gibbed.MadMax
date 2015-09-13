@@ -1,15 +1,21 @@
-; 2653/2808 (94%)
+; 2668/2808 (95%)
 11_40.navmeshc
 11_41.navmeshc
 12_40.navmeshc
 12_41.navmeshc
+13_39.navmeshc
 13_40.navmeshc
+14_32.navmeshc
+14_33.navmeshc
 14_43.navmeshc
 14_44.navmeshc
+15_34.navmeshc
 15_42.navmeshc
 15_43.navmeshc
 15_44.navmeshc
 15_45.navmeshc
+16_27.navmeshc
+16_36.navmeshc
 16_43.navmeshc
 16_44.navmeshc
 16_45.navmeshc
@@ -25,6 +31,7 @@
 18_41.navmeshc
 18_42.navmeshc
 18_45.navmeshc
+19_29.navmeshc
 19_30.navmeshc
 19_31.navmeshc
 19_32.navmeshc
@@ -33,6 +40,7 @@
 19_41.navmeshc
 19_44.navmeshc
 19_45.navmeshc
+20_30.navmeshc
 20_35.navmeshc
 20_36.navmeshc
 20_37.navmeshc
@@ -47,6 +55,7 @@
 21_41.navmeshc
 21_44.navmeshc
 21_45.navmeshc
+22_32.navmeshc
 22_34.navmeshc
 22_35.navmeshc
 22_36.navmeshc
@@ -109,10 +118,15 @@
 29_38.navmeshc
 29_43.navmeshc
 29_44.navmeshc
+30_35.navmeshc
 30_36.navmeshc
 30_37.navmeshc
 30_38.navmeshc
 30_39.navmeshc
+31_36.navmeshc
+31_37.navmeshc
+31_38.navmeshc
+31_39.navmeshc
 35_44.navmeshc
 a00_ac_convoy_composition_convoytruck_01.ee.toc
 a00_ac_convoy_composition_convoytruck_01.epe
@@ -2595,6 +2609,7 @@ tend_gameplay_layer_base.asb
 tend_vlayer_base.afsmb
 tend_vlayer_base.asb
 terrain.dat
+terrain_h_15_28.dat
 terrain_h_20_36.dat
 terrain_h_20_38.dat
 terrain_h_20_39.dat

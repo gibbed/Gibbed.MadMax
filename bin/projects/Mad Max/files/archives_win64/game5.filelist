@@ -1,4 +1,4 @@
-; 183/296 (61%)
+; 192/296 (64%)
 a01_buried_carwreck_gutgash00_01.nl
 a01_buried_carwreck_gutgash01_01.nl
 a01_buried_carwreck_jeet00_01.nl
@@ -37,6 +37,7 @@ a01_fd1090_gameplay.nl
 a01_fd1110.nl
 a01_fd1110_civilian_spawn.nl
 a01_fd1110_spawn.nl
+a01_general_parachuter_egg.nl
 a01_griffa_02.nl
 a01_griffa_04.nl
 a01_griffa_05.nl
@@ -78,8 +79,10 @@ a01_sc1300.nl
 a01_sc1310.nl
 a01_sc1330.nl
 a01_sc1350.nl
+a01_sc1360.nl
 a01_sc1370.nl
 a01_sc1390.nl
+a01_sc1420.nl
 a01_sc1440.nl
 a01_sc1450.nl
 a01_sc1460.nl
@@ -113,10 +116,13 @@ a01_sd1030_gameplay.nl
 a01_sd1080.nl
 a01_sd1080_gameplay.nl
 a01_sd1130.nl
+a01_sd1130_civilian.spawn.nl
 a01_sd1130_gameplay.nl
 a01_sd1170.nl
+a01_sd1170_civilian_spawn.nl
 a01_sd1170_gameplay.nl
 a01_sd1190.nl
+a01_sd1190_civilian_spawn.nl
 a01_sd1190_gameplay.nl
 a01_sd1200.nl
 a01_sd1200_civilian_spawns.nl
@@ -161,6 +167,8 @@ a01_wanderers_routes_gutgash.nl
 a01_wc1020_camp.nl
 a01_wc1020_civilian_spawn.nl
 a01_wc1020_spawn.nl
+a02_sm_gutgash_01_obj04.fl
+a02_sm_gutgash_01_obj05.fl
 intel_g_convoy.fl
 intel_j_convoy.fl
 intel1015.fl
@@ -172,6 +180,7 @@ invisible_collision_a01_patch_18-19_36-37.nl
 invisible_collision_a01_patch_20-21_36-37.nl
 invisible_collission_a01_patch_20-21_36-37.nl
 invisible_collission_a01_patch_22-23_34-35.nl
+lto30.fl
 lto50.fl
 sm_chum_01_dog_and_buggy.fl
 sm_chum_01_obj04.fl
