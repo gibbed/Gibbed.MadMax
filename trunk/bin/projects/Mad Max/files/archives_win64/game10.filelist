@@ -1,4 +1,5 @@
-; 37/348 (10%)
+; 46/348 (13%)
+a00_vh_bomb_01.bl
 a00_vh_s001_upgrade_armour1.bl
 a00_vh_s001_upgrade_bodywork2.bl
 a00_vh_s001_upgrade_decal_t6_c1.bl
@@ -11,28 +12,36 @@ a00_vh_s001_upgrade_wheel1.bl
 a00_vh_s002_location.bl
 a00_vh_s002_upgrade_armour0.bl
 a00_vh_s002_upgrade_armour1.bl
+a00_vh_s002_upgrade_armour3.bl
 a00_vh_s002_upgrade_boarderdef0.bl
 a00_vh_s002_upgrade_boarderdef1.bl
+a00_vh_s002_upgrade_boarderdef3.bl
 a00_vh_s002_upgrade_bodywork0.bl
 a00_vh_s002_upgrade_bodywork2.bl
+a00_vh_s002_upgrade_bodywork6.bl
 a00_vh_s002_upgrade_decal_t0_c0.bl
 a00_vh_s002_upgrade_decal_t6_c1.bl
 a00_vh_s002_upgrade_decal_t6_c3.bl
 a00_vh_s002_upgrade_decal_t6_router.bl
 a00_vh_s002_upgrade_engine0.bl
 a00_vh_s002_upgrade_engine1.bl
+a00_vh_s002_upgrade_engine4.bl
 a00_vh_s002_upgrade_exhaust0.bl
 a00_vh_s002_upgrade_exhaust1.bl
+a00_vh_s002_upgrade_exhaust3.bl
 a00_vh_s002_upgrade_harpoon0.bl
 a00_vh_s002_upgrade_harpoon2.bl
 a00_vh_s002_upgrade_harpoon3.bl
+a00_vh_s002_upgrade_harpoon4.bl
 a00_vh_s002_upgrade_rammer0.bl
 a00_vh_s002_upgrade_rammer1.bl
+a00_vh_s002_upgrade_rammer2.bl
 a00_vh_s002_upgrade_sideburner0.bl
 a00_vh_s002_upgrade_wheel_armour0.bl
 a00_vh_s002_upgrade_wheel_armour1.bl
 a00_vh_s002_upgrade_wheel0.bl
 a00_vh_s002_upgrade_wheel1.bl
+a00_vh_s002_upgrade_wheel3.bl
 a00_vh_s003_upgrade_armour1.bl
 a00_vh_s003_upgrade_armour2.bl
 a00_vh_s003_upgrade_boarderdef1.bl

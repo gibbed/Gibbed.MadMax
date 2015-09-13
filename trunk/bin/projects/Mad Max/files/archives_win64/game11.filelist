@@ -1,4 +1,4 @@
-; 101/366 (27%)
+; 108/366 (29%)
 a00_vh_s003_upgrade_bodywork2.bl
 a00_vh_s003_upgrade_bodywork6.bl
 a00_vh_s003_upgrade_decal_t6_c1.bl
@@ -36,6 +36,7 @@ a00_vh_s004_upgrade_wheel0.bl
 a00_vh_s004_upgrade_wheel1.bl
 a00_vh_s007_upgrade_armour1.bl
 a00_vh_s007_upgrade_armour2.bl
+a00_vh_s007_upgrade_armour3.bl
 a00_vh_s007_upgrade_boarderdef1.bl
 a00_vh_s007_upgrade_boarderdef3.bl
 a00_vh_s007_upgrade_bodywork2.bl
@@ -62,6 +63,8 @@ a00_vh_s007_upgrade_decal_t9_router.bl
 a00_vh_s007_upgrade_engine1.bl
 a00_vh_s007_upgrade_engine4.bl
 a00_vh_s007_upgrade_exhaust1.bl
+a00_vh_s007_upgrade_exhaust2.bl
+a00_vh_s007_upgrade_exhaust3.bl
 a00_vh_s007_upgrade_harpoon1.bl
 a00_vh_s007_upgrade_harpoon2.bl
 a00_vh_s007_upgrade_harpoon3.bl
@@ -70,6 +73,7 @@ a00_vh_s007_upgrade_rammer2.bl
 a00_vh_s007_upgrade_wheel_armour1.bl
 a00_vh_s007_upgrade_wheel1.bl
 a00_vh_s007_upgrade_wheel2.bl
+a00_vh_s007_upgrade_wheel3.bl
 a00_vh_shotgun_anims_set03.bl
 a00_vh_shotgun_anims_set04.bl
 a01_deathrun_gutgash00_01_enemies.bl
@@ -95,7 +99,10 @@ a01_enc1020_level_01.bl
 a01_enc1020_level_02.bl
 a01_enc1020_level_03.bl
 a01_enc1020_level_04.bl
+a01_enc1020_level_05.bl
 a01_enc1020_spawn.bl
+a02_deathrun_pinkeye02_01_enemies.bl
+a02_deathrun_pinkeye02_01_redroad.bl
 a02_enc2010.bl
 a02_enc2010.propulator.bl
 a02_enc2010_level_01.bl
