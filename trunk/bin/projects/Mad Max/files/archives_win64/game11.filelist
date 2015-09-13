@@ -1,4 +1,4 @@
-; 324/366 (88%)
+; 332/366 (90%)
 a00_vh_s003_upgrade_bodywork1.bl
 a00_vh_s003_upgrade_bodywork2.bl
 a00_vh_s003_upgrade_bodywork3.bl
@@ -87,6 +87,7 @@ a00_vh_s003_upgrade_wheel2.bl
 a00_vh_s003_upgrade_wheel3.bl
 a00_vh_s003_upgrade_wheel4.bl
 a00_vh_s003_upgrade_wheel5.bl
+a00_vh_s003_upgrade_wheel6.bl
 a00_vh_s004_location.bl
 a00_vh_s004_upgrade_armour0.bl
 a00_vh_s004_upgrade_armour1.bl
@@ -195,6 +196,7 @@ a00_vh_s004_upgrade_wheel2.bl
 a00_vh_s004_upgrade_wheel3.bl
 a00_vh_s004_upgrade_wheel4.bl
 a00_vh_s004_upgrade_wheel5.bl
+a00_vh_s004_upgrade_wheel6.bl
 a00_vh_s007_upgrade_armour1.bl
 a00_vh_s007_upgrade_armour2.bl
 a00_vh_s007_upgrade_armour3.bl
@@ -290,12 +292,16 @@ a00_vh_s007_upgrade_wheel2.bl
 a00_vh_s007_upgrade_wheel3.bl
 a00_vh_s007_upgrade_wheel4.bl
 a00_vh_s007_upgrade_wheel5.bl
+a00_vh_s007_upgrade_wheel6.bl
 a00_vh_shotgun_anims_set03.bl
 a00_vh_shotgun_anims_set04.bl
 a01_deathrun_gutgash00_01_enemies.bl
 a01_deathrun_gutgash00_01_redroad.bl
+a01_deathrun_gutgash00_01_redroad_opuswars.bl
+a01_deathrun_gutgash04_01_redroad.bl
 a01_deathrun_jeet00_01_enemies.bl
 a01_deathrun_jeet00_01_redroad.bl
+a01_deathrun_jeet01_01_redroad.bl
 a01_deathrun_jeet02_01_enemies.bl
 a01_deathrun_jeet02_01_redroad.bl
 a01_deathrun_jeet02_01_redroad_opuswars.bl
@@ -308,6 +314,7 @@ a01_enc1010.bl
 a01_enc1010.propulator.bl
 a01_enc1010_level_01.bl
 a01_enc1010_level_02.bl
+a01_enc1010_level_05.bl
 a01_enc1010_spawn.bl
 a01_enc1020.bl
 a01_enc1020.propulator.bl
@@ -319,6 +326,7 @@ a01_enc1020_level_05.bl
 a01_enc1020_spawn.bl
 a02_deathrun_pinkeye02_01_enemies.bl
 a02_deathrun_pinkeye02_01_redroad.bl
+a02_deathrun_pinkeye03_01_redroad.bl
 a02_enc2010.bl
 a02_enc2010.propulator.bl
 a02_enc2010_level_01.bl

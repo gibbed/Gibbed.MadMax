@@ -7865,6 +7865,7 @@ a00_vh_s001_upgrade_wheel2.bl:locations/a00/vehicles/s001/upgrade/a00_vh_s001_up
 a00_vh_s001_upgrade_wheel3.bl:locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_wheel3.bl
 a00_vh_s001_upgrade_wheel4.bl:locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_wheel4.bl
 a00_vh_s001_upgrade_wheel5.bl:locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_wheel5.bl
+a00_vh_s001_upgrade_wheel6.bl:locations/a00/vehicles/s001/upgrade/a00_vh_s001_upgrade_wheel6.bl
 a00_vh_s002_location.bl:locations/a00/vehicles/s002/a00_vh_s002_location.bl
 a00_vh_s002_location.blo:locations/a00/vehicles/s002/a00_vh_s002_location.blo
 a00_vh_s002_upgrade_armour0.bl:locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_armour0.bl
@@ -7974,6 +7975,7 @@ a00_vh_s002_upgrade_wheel2.bl:locations/a00/vehicles/s002/upgrade/a00_vh_s002_up
 a00_vh_s002_upgrade_wheel3.bl:locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel3.bl
 a00_vh_s002_upgrade_wheel4.bl:locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel4.bl
 a00_vh_s002_upgrade_wheel5.bl:locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel5.bl
+a00_vh_s002_upgrade_wheel6.bl:locations/a00/vehicles/s002/upgrade/a00_vh_s002_upgrade_wheel6.bl
 a00_vh_s003_location.bl:locations/a00/vehicles/s003/a00_vh_s003_location.bl
 a00_vh_s003_location.blo:locations/a00/vehicles/s003/a00_vh_s003_location.blo
 a00_vh_s003_upgrade_armour0.bl:locations/a00/vehicles/s003/upgrade/a00_vh_s003_upgrade_armour0.bl
@@ -8083,6 +8085,7 @@ a00_vh_s003_upgrade_wheel2.bl:locations/a00/vehicles/s003/upgrade/a00_vh_s003_up
 a00_vh_s003_upgrade_wheel3.bl:locations/a00/vehicles/s003/upgrade/a00_vh_s003_upgrade_wheel3.bl
 a00_vh_s003_upgrade_wheel4.bl:locations/a00/vehicles/s003/upgrade/a00_vh_s003_upgrade_wheel4.bl
 a00_vh_s003_upgrade_wheel5.bl:locations/a00/vehicles/s003/upgrade/a00_vh_s003_upgrade_wheel5.bl
+a00_vh_s003_upgrade_wheel6.bl:locations/a00/vehicles/s003/upgrade/a00_vh_s003_upgrade_wheel6.bl
 a00_vh_s004_location.bl:locations/a00/vehicles/s004/a00_vh_s004_location.bl
 a00_vh_s004_location.blo:locations/a00/vehicles/s004/a00_vh_s004_location.blo
 a00_vh_s004_upgrade_armour0.bl:locations/a00/vehicles/s004/upgrade/a00_vh_s004_upgrade_armour0.bl
@@ -8192,6 +8195,7 @@ a00_vh_s004_upgrade_wheel2.bl:locations/a00/vehicles/s004/upgrade/a00_vh_s004_up
 a00_vh_s004_upgrade_wheel3.bl:locations/a00/vehicles/s004/upgrade/a00_vh_s004_upgrade_wheel3.bl
 a00_vh_s004_upgrade_wheel4.bl:locations/a00/vehicles/s004/upgrade/a00_vh_s004_upgrade_wheel4.bl
 a00_vh_s004_upgrade_wheel5.bl:locations/a00/vehicles/s004/upgrade/a00_vh_s004_upgrade_wheel5.bl
+a00_vh_s004_upgrade_wheel6.bl:locations/a00/vehicles/s004/upgrade/a00_vh_s004_upgrade_wheel6.bl
 a00_vh_s005_location.bl:dlc/ripper/locations/a00/vehicles/s005/a00_vh_s005_location.bl
 a00_vh_s005_upgrade_armour0.bl:dlc/ripper/locations/a00/vehicles/s005/upgrade/a00_vh_s005_upgrade_armour0.bl
 a00_vh_s005_upgrade_armour1.bl:dlc/ripper/locations/a00/vehicles/s005/upgrade/a00_vh_s005_upgrade_armour1.bl
@@ -8410,6 +8414,7 @@ a00_vh_s007_upgrade_wheel2.bl:locations/a00/vehicles/s007/upgrade/a00_vh_s007_up
 a00_vh_s007_upgrade_wheel3.bl:locations/a00/vehicles/s007/upgrade/a00_vh_s007_upgrade_wheel3.bl
 a00_vh_s007_upgrade_wheel4.bl:locations/a00/vehicles/s007/upgrade/a00_vh_s007_upgrade_wheel4.bl
 a00_vh_s007_upgrade_wheel5.bl:locations/a00/vehicles/s007/upgrade/a00_vh_s007_upgrade_wheel5.bl
+a00_vh_s007_upgrade_wheel6.bl:locations/a00/vehicles/s007/upgrade/a00_vh_s007_upgrade_wheel6.bl
 a00_vh_scrotuslight_dif.ddsc:textures/a00/vehicles/scrotuslight/a00_vh_scrotuslight_dif.ddsc
 a00_vh_scrotuslight_mpm.ddsc:textures/a00/vehicles/scrotuslight/a00_vh_scrotuslight_mpm.ddsc
 a00_vh_scrotuslight_nrm.ddsc:textures/a00/vehicles/scrotuslight/a00_vh_scrotuslight_nrm.ddsc
@@ -8510,6 +8515,7 @@ a01_deathrun_gutgash00_01.nl:locations/a01/activities/death_run/a01_deathrun_gut
 a01_deathrun_gutgash00_01_brp.stringlookup:locations/a01/activities/death_run/a01_deathrun_gutgash00_01_brp.stringlookup
 a01_deathrun_gutgash00_01_enemies.bl:locations/a01/activities/death_run/a01_deathrun_gutgash00_01_enemies.bl
 a01_deathrun_gutgash00_01_redroad.bl:locations/a01/activities/death_run/a01_deathrun_gutgash00_01_redroad.bl
+a01_deathrun_gutgash00_01_redroad_opuswars.bl:locations/a01/activities/death_run/a01_deathrun_gutgash00_01_redroad_opuswars.bl
 a01_deathrun_gutgash01_01.fl:locations/a01/activities/death_run/a01_deathrun_gutgash01_01.fl
 a01_deathrun_gutgash01_01.nl:locations/a01/activities/death_run/a01_deathrun_gutgash01_01.nl
 a01_deathrun_gutgash01_01_brp.stringlookup:locations/a01/activities/death_run/a01_deathrun_gutgash01_01_brp.stringlookup
@@ -8518,6 +8524,7 @@ a01_deathrun_gutgash03_01_brp.stringlookup:locations/a01/activities/death_run/a0
 a01_deathrun_gutgash04_01.fl:locations/a01/activities/death_run/a01_deathrun_gutgash04_01.fl
 a01_deathrun_gutgash04_01.nl:locations/a01/activities/death_run/a01_deathrun_gutgash04_01.nl
 a01_deathrun_gutgash04_01_brp.stringlookup:locations/a01/activities/death_run/a01_deathrun_gutgash04_01_brp.stringlookup
+a01_deathrun_gutgash04_01_redroad.bl:locations/a01/activities/death_run/a01_deathrun_gutgash04_01_redroad.bl
 a01_deathrun_jeet_finish_line.fl:locations/a01/activities/death_run/a01_deathrun_jeet_finish_line.fl
 a01_deathrun_jeet_finish_line.nl:locations/a01/activities/death_run/a01_deathrun_jeet_finish_line.nl
 a01_deathrun_jeet00_01.fl:locations/a01/activities/death_run/a01_deathrun_jeet00_01.fl
@@ -8528,6 +8535,7 @@ a01_deathrun_jeet00_01_redroad.bl:locations/a01/activities/death_run/a01_deathru
 a01_deathrun_jeet01_01.fl:locations/a01/activities/death_run/a01_deathrun_jeet01_01.fl
 a01_deathrun_jeet01_01.nl:locations/a01/activities/death_run/a01_deathrun_jeet01_01.nl
 a01_deathrun_jeet01_01_brp.stringlookup:locations/a01/activities/death_run/a01_deathrun_jeet01_01_brp.stringlookup
+a01_deathrun_jeet01_01_redroad.bl:locations/a01/activities/death_run/a01_deathrun_jeet01_01_redroad.bl
 a01_deathrun_jeet02_01.blo:locations/a01/activities/death_run/a01_deathrun_jeet02_01.blo
 a01_deathrun_jeet02_01.fl:locations/a01/activities/death_run/a01_deathrun_jeet02_01.fl
 a01_deathrun_jeet02_01.nl:locations/a01/activities/death_run/a01_deathrun_jeet02_01.nl
@@ -8599,6 +8607,7 @@ a01_enc1010_exterior.nl:locations/a01/key_locations/enc1010/a01_enc1010_exterior
 a01_enc1010_level_01.bl:locations/a01/key_locations/enc1010/a01_enc1010_level_01.bl
 a01_enc1010_level_01.blo:locations/a01/key_locations/enc1010/a01_enc1010_level_01.blo
 a01_enc1010_level_02.bl:locations/a01/key_locations/enc1010/a01_enc1010_level_02.bl
+a01_enc1010_level_05.bl:locations/a01/key_locations/enc1010/a01_enc1010_level_05.bl
 a01_enc1010_locations.gsrc:graphs/a01/encampments/enc1010/a01_enc1010_locations.gsrc
 a01_enc1010_north_roads.nl:locations/a01/road_locations/a01_enc1010_north_roads.nl
 a01_enc1010_south_roads.nl:locations/a01/road_locations/a01_enc1010_south_roads.nl
@@ -10135,6 +10144,7 @@ a02_deathrun_pinkeye02_01_brp.stringlookup:locations/a02/activities/death_run/a0
 a02_deathrun_pinkeye02_01_enemies.bl:locations/a02/activities/death_run/a02_deathrun_pinkeye02_01_enemies.bl
 a02_deathrun_pinkeye02_01_redroad.bl:locations/a02/activities/death_run/a02_deathrun_pinkeye02_01_redroad.bl
 a02_deathrun_pinkeye03_01_brp.stringlookup:locations/a02/activities/death_run/a02_deathrun_pinkeye03_01_brp.stringlookup
+a02_deathrun_pinkeye03_01_redroad.bl:locations/a02/activities/death_run/a02_deathrun_pinkeye03_01_redroad.bl
 a02_deathrun_pinkeye04_01_brp.stringlookup:locations/a02/activities/death_run/a02_deathrun_pinkeye04_01_brp.stringlookup
 a02_enc2010.bl:locations/a02/key_locations/enc2010/a02_enc2010.bl
 a02_enc2010.blo:locations/a02/key_locations/enc2010/a02_enc2010.blo
