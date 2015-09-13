@@ -1,4 +1,4 @@
-; 211/348 (60%)
+; 213/348 (61%)
 a00_vh_bomb_01.bl
 a00_vh_s001_upgrade_armour1.bl
 a00_vh_s001_upgrade_armour2.bl
@@ -94,6 +94,7 @@ a00_vh_s001_upgrade_wheel2.bl
 a00_vh_s001_upgrade_wheel3.bl
 a00_vh_s001_upgrade_wheel4.bl
 a00_vh_s001_upgrade_wheel5.bl
+a00_vh_s001_upgrade_wheel6.bl
 a00_vh_s002_location.bl
 a00_vh_s002_upgrade_armour0.bl
 a00_vh_s002_upgrade_armour1.bl
@@ -202,6 +203,7 @@ a00_vh_s002_upgrade_wheel2.bl
 a00_vh_s002_upgrade_wheel3.bl
 a00_vh_s002_upgrade_wheel4.bl
 a00_vh_s002_upgrade_wheel5.bl
+a00_vh_s002_upgrade_wheel6.bl
 a00_vh_s003_upgrade_armour1.bl
 a00_vh_s003_upgrade_armour2.bl
 a00_vh_s003_upgrade_armour3.bl
