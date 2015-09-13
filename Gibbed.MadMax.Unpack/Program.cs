@@ -189,8 +189,16 @@ namespace Gibbed.MadMax.Unpack
                         if (tab.EntryChunks.ContainsKey(nameHash) == false)
                         {
                             input.Seek(entry.Offset, SeekOrigin.Begin);
-                            var zlib = new InflaterInputStream(input, new Inflater(true));
-                            output.WriteFromStream(zlib, entry.UncompressedSize);
+
+                            if (entry.CompressedSize == entry.UncompressedSize)
+                            {
+                                output.WriteFromStream(input, entry.UncompressedSize);
+                            }
+                            else
+                            {
+                                var zlib = new InflaterInputStream(input, new Inflater(true));
+                                output.WriteFromStream(zlib, entry.UncompressedSize);
+                            }
                         }
                         else
                         {
