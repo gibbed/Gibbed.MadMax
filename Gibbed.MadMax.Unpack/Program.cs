@@ -146,7 +146,7 @@ namespace Gibbed.MadMax.Unpack
                         }
                         else
                         {
-                            name = Path.Combine(pathLookup[name].First(), name);
+                            name = pathLookup[name].First();
                         }
 
                         if (name.StartsWith("/") == true)
