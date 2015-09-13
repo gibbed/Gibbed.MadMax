@@ -1,5 +1,11 @@
-; 29/138 (21%)
+; 37/138 (26%)
 a02_enc2010_spawn.bl
+a04_courtyard_spawn.bl
+a04_courtyard_upgrade_mechanic.bl
+a04_enc2020.bl
+a04_enc2020.propulator.bl
+a04_enc2020_spawn.bl
+a04_enc2020_upgrade_mechanic.bl
 mm1030.cs010.pt01.bl
 mm1030.cs010.pt02.bl
 mm1030_cs010_assets.bl
@@ -28,3 +34,5 @@ mm1040_cs_assets.bl
 mm1040_cs010.bl
 mm1040_cs020.bl
 mm1040_cs030.bl
+mm2010_cs010.bl
+mm2012.logic.bl

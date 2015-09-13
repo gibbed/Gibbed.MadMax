@@ -1,4 +1,4 @@
-; 1683/4334 (38%)
+; 1767/4334 (40%)
 a0_ec_delivery_system.gsrc
 a0_ec_delivery_system_dialogue_intents.gsrc
 a0_ec_delivery_system_enterlogic.gsrc
@@ -794,6 +794,11 @@ a01_enc1020_locations.gsrc
 a01_enc1020_searchlight_control.gsrc
 a02_enc2010_enable_spawns.gsrc
 a02_enc2010_locations.gsrc
+a04_enc2020_glory_logic.gsrc
+a04_enc2020_locations.gsrc
+a04_gastowncourtyard_locations.gsrc
+a04_gastowncourtyard_looking_at_chum.gsrc
+a04_gastowncourtyard_outcrier_idles.gsrc
 ai_constants_profiles_loading.gsrc
 areasetstatus.gsrc
 balloon_cutscene_transform.gsrc
@@ -811,8 +816,10 @@ camp_save_controller.gsrc
 camp_scrap_reward.gsrc
 car_wreck_parts_remover.gsrc
 character_send_event_when_still.gsrc
+check_chum_in_range.gsrc
 check_chum_within_range.gsrc
 check_fuel_full.gsrc
+check_location_status.gsrc
 check_time_of_day.gsrc
 chum_sidemission_restore.gsrc
 chums_propeller_check.gsrc
@@ -1084,6 +1091,7 @@ spawn_entity_along_road.gsrc
 spawn_entity_on_terrain.gsrc
 spawn_ids_update_prio_on_range.gsrc
 spawn_info_assign_combat_flee.gsrc
+spawn_pipe_flame.gsrc
 spawn_sail.gsrc
 spawn_update_prio_on_range.gsrc
 spawn_update_prio_on_range_low_to_medium.gsrc
@@ -1224,6 +1232,8 @@ terrain_h_15_45.dat
 terrain_h_15_46.dat
 terrain_h_15_47.dat
 terrain_h_15_48.dat
+terrain_h_16_26.dat
+terrain_h_16_27.dat
 terrain_h_16_28.dat
 terrain_h_16_29.dat
 terrain_h_16_30.dat
@@ -1245,6 +1255,8 @@ terrain_h_16_45.dat
 terrain_h_16_46.dat
 terrain_h_16_47.dat
 terrain_h_16_48.dat
+terrain_h_17_26.dat
+terrain_h_17_27.dat
 terrain_h_17_28.dat
 terrain_h_17_29.dat
 terrain_h_17_30.dat
@@ -1266,6 +1278,8 @@ terrain_h_17_45.dat
 terrain_h_17_46.dat
 terrain_h_17_47.dat
 terrain_h_17_48.dat
+terrain_h_18_26.dat
+terrain_h_18_27.dat
 terrain_h_18_28.dat
 terrain_h_18_29.dat
 terrain_h_18_30.dat
@@ -1310,6 +1324,9 @@ terrain_h_19_45.dat
 terrain_h_19_46.dat
 terrain_h_19_47.dat
 terrain_h_19_48.dat
+terrain_h_20_22.dat
+terrain_h_20_23.dat
+terrain_h_20_24.dat
 terrain_h_20_25.dat
 terrain_h_20_26.dat
 terrain_h_20_27.dat
@@ -1334,6 +1351,9 @@ terrain_h_20_45.dat
 terrain_h_20_46.dat
 terrain_h_20_47.dat
 terrain_h_20_48.dat
+terrain_h_21_22.dat
+terrain_h_21_23.dat
+terrain_h_21_24.dat
 terrain_h_21_25.dat
 terrain_h_21_26.dat
 terrain_h_21_27.dat
@@ -1359,6 +1379,9 @@ terrain_h_21_46.dat
 terrain_h_21_47.dat
 terrain_h_21_48.dat
 terrain_h_21_49.dat
+terrain_h_22_22.dat
+terrain_h_22_23.dat
+terrain_h_22_24.dat
 terrain_h_22_25.dat
 terrain_h_22_26.dat
 terrain_h_22_27.dat
@@ -1384,6 +1407,9 @@ terrain_h_22_46.dat
 terrain_h_22_47.dat
 terrain_h_22_48.dat
 terrain_h_22_49.dat
+terrain_h_23_22.dat
+terrain_h_23_23.dat
+terrain_h_23_24.dat
 terrain_h_23_25.dat
 terrain_h_23_26.dat
 terrain_h_23_27.dat
@@ -1409,6 +1435,14 @@ terrain_h_23_46.dat
 terrain_h_23_47.dat
 terrain_h_23_48.dat
 terrain_h_23_49.dat
+terrain_h_24_22.dat
+terrain_h_24_23.dat
+terrain_h_24_24.dat
+terrain_h_24_25.dat
+terrain_h_24_26.dat
+terrain_h_24_27.dat
+terrain_h_24_28.dat
+terrain_h_24_29.dat
 terrain_h_24_30.dat
 terrain_h_24_31.dat
 terrain_h_24_32.dat
@@ -1429,6 +1463,14 @@ terrain_h_24_46.dat
 terrain_h_24_47.dat
 terrain_h_24_48.dat
 terrain_h_24_49.dat
+terrain_h_25_22.dat
+terrain_h_25_23.dat
+terrain_h_25_24.dat
+terrain_h_25_25.dat
+terrain_h_25_26.dat
+terrain_h_25_27.dat
+terrain_h_25_28.dat
+terrain_h_25_29.dat
 terrain_h_25_30.dat
 terrain_h_25_31.dat
 terrain_h_25_32.dat
@@ -1449,6 +1491,14 @@ terrain_h_25_46.dat
 terrain_h_25_47.dat
 terrain_h_25_48.dat
 terrain_h_25_49.dat
+terrain_h_26_22.dat
+terrain_h_26_23.dat
+terrain_h_26_24.dat
+terrain_h_26_25.dat
+terrain_h_26_26.dat
+terrain_h_26_27.dat
+terrain_h_26_28.dat
+terrain_h_26_29.dat
 terrain_h_26_30.dat
 terrain_h_26_31.dat
 terrain_h_26_32.dat
@@ -1469,6 +1519,14 @@ terrain_h_26_46.dat
 terrain_h_26_47.dat
 terrain_h_26_48.dat
 terrain_h_26_49.dat
+terrain_h_27_22.dat
+terrain_h_27_23.dat
+terrain_h_27_24.dat
+terrain_h_27_25.dat
+terrain_h_27_26.dat
+terrain_h_27_27.dat
+terrain_h_27_28.dat
+terrain_h_27_29.dat
 terrain_h_27_30.dat
 terrain_h_27_31.dat
 terrain_h_27_32.dat
@@ -1489,6 +1547,14 @@ terrain_h_27_46.dat
 terrain_h_27_47.dat
 terrain_h_27_48.dat
 terrain_h_27_49.dat
+terrain_h_28_22.dat
+terrain_h_28_23.dat
+terrain_h_28_24.dat
+terrain_h_28_25.dat
+terrain_h_28_26.dat
+terrain_h_28_27.dat
+terrain_h_28_28.dat
+terrain_h_28_29.dat
 terrain_h_28_30.dat
 terrain_h_28_31.dat
 terrain_h_28_32.dat
@@ -1509,6 +1575,13 @@ terrain_h_28_46.dat
 terrain_h_28_47.dat
 terrain_h_28_48.dat
 terrain_h_28_49.dat
+terrain_h_29_23.dat
+terrain_h_29_24.dat
+terrain_h_29_25.dat
+terrain_h_29_26.dat
+terrain_h_29_27.dat
+terrain_h_29_28.dat
+terrain_h_29_29.dat
 terrain_h_29_30.dat
 terrain_h_29_31.dat
 terrain_h_29_32.dat
@@ -1529,6 +1602,11 @@ terrain_h_29_46.dat
 terrain_h_29_47.dat
 terrain_h_29_48.dat
 terrain_h_29_49.dat
+terrain_h_30_27.dat
+terrain_h_30_28.dat
+terrain_h_30_29.dat
+terrain_h_30_30.dat
+terrain_h_30_31.dat
 terrain_h_30_32.dat
 terrain_h_30_33.dat
 terrain_h_30_34.dat
@@ -1546,6 +1624,12 @@ terrain_h_30_45.dat
 terrain_h_30_46.dat
 terrain_h_30_47.dat
 terrain_h_30_48.dat
+terrain_h_31_26.dat
+terrain_h_31_27.dat
+terrain_h_31_28.dat
+terrain_h_31_29.dat
+terrain_h_31_30.dat
+terrain_h_31_31.dat
 terrain_h_31_32.dat
 terrain_h_31_33.dat
 terrain_h_31_34.dat
