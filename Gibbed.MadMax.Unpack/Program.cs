@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Gibbed.IO;
 using Gibbed.MadMax.FileFormats;
@@ -99,7 +100,8 @@ namespace Gibbed.MadMax.Unpack
                 Console.WriteLine("Warning: no active project loaded.");
             }
 
-            var hashes = manager.LoadListsFileNames();
+            var pathLookup = manager.LoadDirectoryList();
+            var hashes = manager.LoadFileLists(null);
 
             var tab = new ArchiveTableFile();
             using (var input = File.OpenRead(tabPath))
@@ -138,11 +140,20 @@ namespace Gibbed.MadMax.Unpack
                     }
                     else
                     {
-                        name = name.Replace(@"/", @"\");
-                        if (name.StartsWith(@"\") == true)
+                        if (pathLookup.ContainsKey(name) == false)
+                        {
+                            name = Path.Combine("__UNSORTED", name);
+                        }
+                        else
+                        {
+                            name = Path.Combine(pathLookup[name].First(), name);
+                        }
+
+                        if (name.StartsWith("/") == true)
                         {
                             name = name.Substring(1);
                         }
+                        name = name.Replace('/', Path.DirectorySeparatorChar);
                     }
 
                     if (filter != null && filter.IsMatch(name) == false)

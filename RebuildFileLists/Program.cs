@@ -99,7 +99,27 @@ namespace RebuildFileLists
             }
 
             var project = manager.ActiveProject;
-            var hashes = manager.LoadListsFileNames();
+
+            var pathLookup = project.LoadDirectoryList();
+            var hashes = manager.LoadFileLists(
+                (hash, source, line) =>
+                {
+                    List<string> paths;
+                    if (pathLookup.ContainsKey(source) == false)
+                    {
+                        pathLookup.Add(source, paths = new List<string>());
+                    }
+                    else
+                    {
+                        paths = pathLookup[source];
+                    }
+
+                    line = line.ToLowerInvariant();
+                    if (line.IndexOf('/') >= 0 && paths.Contains(line) == false)
+                    {
+                        paths.Add(line);
+                    }
+                });
 
             var installPath = project.InstallPath;
             var listsPath = project.ListsPath;
@@ -109,7 +129,8 @@ namespace RebuildFileLists
                 Console.WriteLine("Could not detect install path.");
                 return;
             }
-            else if (listsPath == null)
+
+            if (listsPath == null)
             {
                 Console.WriteLine("Could not detect lists path.");
                 return;
@@ -120,9 +141,9 @@ namespace RebuildFileLists
 
             var locations = new Dictionary<string, string>()
             {
-                {"archives_win64", "game*.tab"},
-                {"dlc_win64", "*.tab"},
-                {"patch_win64", "*.tab"},
+                { "archives_win64", "game*.tab" },
+                { "dlc_win64", "*.tab" },
+                { "patch_win64", "*.tab" },
             };
 
             foreach (var kv in locations)
@@ -138,6 +159,7 @@ namespace RebuildFileLists
             var outputPaths = new List<string>();
 
             var breakdown = new Breakdown();
+            var allNames = new List<string>();
 
             Console.WriteLine("Processing...");
             foreach (var inputPath in inputPaths)
@@ -188,6 +210,11 @@ namespace RebuildFileLists
                             names.Add(name);
                             localBreakdown.Known++;
                         }
+
+                        if (allNames.Contains(name) == false)
+                        {
+                            allNames.Add(name);
+                        }
                     }
 
                     localBreakdown.Total++;
@@ -210,9 +237,36 @@ namespace RebuildFileLists
                 }
             }
 
-            using (var output = new StreamWriter(Path.Combine(Path.Combine(listsPath, "files"), "status.txt")))
+            allNames.Sort();
+
+            using (var output = File.Create(Path.Combine(listsPath, "files", "master.dirlist")))
+            using (var writer = new StreamWriter(output))
             {
-                output.WriteLine("{0}", breakdown);
+                foreach (var name in allNames)
+                {
+                    writer.Write(name);
+
+                    if (pathLookup.ContainsKey(name) == false || pathLookup[name].Count == 0)
+                    {
+                        writer.Write(':');
+                        writer.WriteLine();
+                        continue;
+                    }
+
+                    var paths = pathLookup[name];
+                    foreach (var path in paths)
+                    {
+                        writer.Write(':');
+                        writer.Write(path);
+                    }
+                    writer.WriteLine();
+                }
+            }
+
+            using (var output = File.Create(Path.Combine(listsPath, "files", "status.txt")))
+            using (var writer = new StreamWriter(output))
+            {
+                writer.WriteLine("{0}", breakdown);
             }
         }
 
