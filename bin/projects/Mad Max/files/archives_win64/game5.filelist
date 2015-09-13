@@ -1,6 +1,8 @@
-; 192/296 (64%)
+; 202/296 (68%)
+a00_environmentpresets_gastown.nl
 a01_buried_carwreck_gutgash00_01.nl
 a01_buried_carwreck_gutgash01_01.nl
+a01_buried_carwreck_gutgash03_01.nl
 a01_buried_carwreck_jeet00_01.nl
 a01_buried_carwreck_jeet00_02.nl
 a01_buried_carwreck_jeet01_01.nl
@@ -46,6 +48,7 @@ a01_griffa_08.nl
 a01_high_valuable_vehicle_jeets_01.nl
 a01_minefield_gutgash00_02.nl
 a01_minefield_gutgash01_01.nl
+a01_minefield_gutgash03_01.nl
 a01_minefield_gutgash04_01.nl
 a01_minefield_gutgash04_02.nl
 a01_minefield_jeet00_01.nl
@@ -77,6 +80,7 @@ a01_sc1250.nl
 a01_sc1260.nl
 a01_sc1300.nl
 a01_sc1310.nl
+a01_sc1320.nl
 a01_sc1330.nl
 a01_sc1350.nl
 a01_sc1360.nl
@@ -115,6 +119,8 @@ a01_sd1030_civilian_spawn.nl
 a01_sd1030_gameplay.nl
 a01_sd1080.nl
 a01_sd1080_gameplay.nl
+a01_sd1090.nl
+a01_sd1090_gameplay.nl
 a01_sd1130.nl
 a01_sd1130_civilian.spawn.nl
 a01_sd1130_gameplay.nl
@@ -129,6 +135,8 @@ a01_sd1200_civilian_spawns.nl
 a01_sd1200_gameplay.nl
 a01_sd1210.nl
 a01_sd1210_spawn.nl
+a01_sd1240.nl
+a01_sd1240_gameplay.nl
 a01_sd1270.nl
 a01_sd1270_civilian_spawn.nl
 a01_sd1270_gameplay.nl
@@ -176,6 +184,7 @@ intel1016.fl
 intelfo2020.fl
 intelsd1030.fl
 intelsd1290.fl
+intelvv2020.fl
 invisible_collision_a01_patch_18-19_36-37.nl
 invisible_collision_a01_patch_20-21_36-37.nl
 invisible_collission_a01_patch_20-21_36-37.nl
@@ -191,3 +200,4 @@ sm_jeet_01_obj01_cave_exit.fl
 sm_jeet_02_obj_01.fl
 sm_jeet_02_obj_02.fl
 sm_jeet_03_obj_01.fl
+sto5029.fl

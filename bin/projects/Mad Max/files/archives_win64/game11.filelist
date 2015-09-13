@@ -1,4 +1,4 @@
-; 332/366 (90%)
+; 335/366 (91%)
 a00_vh_s003_upgrade_bodywork1.bl
 a00_vh_s003_upgrade_bodywork2.bl
 a00_vh_s003_upgrade_bodywork3.bl
@@ -327,7 +327,10 @@ a01_enc1020_spawn.bl
 a02_deathrun_pinkeye02_01_enemies.bl
 a02_deathrun_pinkeye02_01_redroad.bl
 a02_deathrun_pinkeye03_01_redroad.bl
+a02_deathrun_pinkeye04_01_enemies.bl
+a02_deathrun_pinkeye04_01_redroad.bl
 a02_enc2010.bl
 a02_enc2010.propulator.bl
 a02_enc2010_level_01.bl
 a02_enc2010_level_01_burning.bl
+a02_enc2010_level_02.bl

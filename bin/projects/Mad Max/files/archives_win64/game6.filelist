@@ -1,4 +1,4 @@
-; 280/438 (63%)
+; 301/438 (68%)
 a01_dbp_gate_spawn.nl
 a01_dbp_harbor.nl
 a01_dbp_harbor_spawn.nl
@@ -55,7 +55,12 @@ a01_loot_gutgash01_09_logic.nl
 a01_loot_gutgash01_11.nl
 a01_loot_gutgash01_12.nl
 a01_loot_gutgash02_09_logic.nl
+a01_loot_gutgash03_05.nl
+a01_loot_gutgash03_05_logic.nl
 a01_loot_gutgash03_06_logic.nl
+a01_loot_gutgash03_07.nl
+a01_loot_gutgash03_07_logic.nl
+a01_loot_gutgash03_08.nl
 a01_loot_gutgash03_08_logic.nl
 a01_loot_gutgash04_01.nl
 a01_loot_gutgash04_02.nl
@@ -176,6 +181,7 @@ a01_patch_12-13_40-41.nl
 a01_patch_12-13_42-43.nl
 a01_patch_12-13_44-45.nl
 a01_patch_14-15_34-35.nl
+a01_patch_14-15_36-37.nl
 a01_patch_14-15_38-39.nl
 a01_patch_14-15_40-41.nl
 a01_patch_14-15_42-43.nl
@@ -215,6 +221,7 @@ a01_patch_28-29_38-39.nl
 a01_patch_30-31_38-39.nl
 a01_reveal_enc1010.nl
 a01_reveal_enc1010_ballon_far_lod.nl
+a01_reveal_enc1010_north.nl
 a01_reveal_enc1010_northwest.nl
 a01_reveal_enc1010_south.nl
 a01_reveal_enc1010_south_ballon_far_lod.nl
@@ -229,8 +236,12 @@ a02_buried_carwreck_pinkeye00_02.nl
 a02_buried_carwreck_pinkeye01_01.nl
 a02_buried_carwreck_pinkeye01_02.nl
 a02_buried_carwreck_pinkeye03_01.nl
+a02_buried_carwreck_pinkeye03_02.nl
+a02_buried_carwreck_pinkeye04_01.nl
+a02_buried_carwreck_pinkeye04_02.nl
 a02_deathrun_pinkeye_finish_line.nl
 a02_deathrun_pinkeye02_01.nl
+a02_deathrun_pinkeye04_01.nl
 a02_fd2040.nl
 a02_fd2040_gameplay.nl
 a02_fo2020.nl
@@ -245,14 +256,18 @@ a02_minefield_pinkeye02_01.nl
 a02_minefield_pinkeye02_02.nl
 a02_minefield_pinkeye03_01.nl
 a02_minefield_pinkeye03_02.nl
+a02_minefield_pinkeye04_01.nl
 a02_sc2010.nl
 a02_sc2020.nl
 a02_sc2030.nl
 a02_sc2040.nl
 a02_sc2050.nl
+a02_sc2060.nl
+a02_sc2070.nl
 a02_sc2080.nl
 a02_sc2090.nl
 a02_sc2100.nl
+a02_sc2120.nl
 a02_sc2130.nl
 a02_sc2140.nl
 a02_sc2150.nl
@@ -264,8 +279,12 @@ a02_sc2200.nl
 a02_sc2210.nl
 a02_sc2220.nl
 a02_sc2240.nl
+a02_sc2310.nl
+a02_sc2340.nl
+a02_sc2350.nl
 a02_sd2010.nl
 a02_sd2010_gameplay.nl
+a02_sd2020.nl
 a02_sd2060.nl
 a02_sd2060_gameplay.nl
 a02_sn2010.nl
@@ -277,5 +296,7 @@ a02_sn2060.nl
 a02_sn2070.nl
 a02_sn2090.nl
 a02_sn2120.nl
+a02_sn2170.nl
 a02_vv2020.nl
+a02_vv2020_spawn.nl
 a02_wanderers_routes_pinkeye.nl
