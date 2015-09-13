@@ -115,11 +115,14 @@ namespace Gibbed.MadMax.Unpack
                 long total = tab.Entries.Count;
                 var padding = total.ToString(CultureInfo.InvariantCulture).Length;
 
-                foreach (var entry in tab.Entries)
+                foreach (var kv in tab.Entries)
                 {
                     current++;
 
-                    string name = hashes[entry.NameHash];
+                    var nameHash = kv.Key;
+                    var entry = kv.Value;
+
+                    string name = hashes[nameHash];
                     if (name == null)
                     {
                         if (extractUnknowns == false)
@@ -129,7 +132,7 @@ namespace Gibbed.MadMax.Unpack
 
                         // TODO: file type detection?
 
-                        name = entry.NameHash.ToString("X8");
+                        name = nameHash.ToString("X8");
                         name = Path.ChangeExtension(name, ".unknown");
                         name = Path.Combine("__UNKNOWN", name);
                     }
@@ -155,10 +158,11 @@ namespace Gibbed.MadMax.Unpack
 
                     if (verbose == true)
                     {
-                        Console.WriteLine("[{0}/{1}] {2}",
-                                          current.ToString(CultureInfo.InvariantCulture).PadLeft(padding),
-                                          total,
-                                          name);
+                        Console.WriteLine(
+                            "[{0}/{1}] {2}",
+                            current.ToString(CultureInfo.InvariantCulture).PadLeft(padding),
+                            total,
+                            name);
                     }
 
                     input.Seek(entry.Offset, SeekOrigin.Begin);
@@ -171,17 +175,30 @@ namespace Gibbed.MadMax.Unpack
 
                     using (var output = File.Create(entryPath))
                     {
-                        input.Seek(entry.Offset, SeekOrigin.Begin);
-
-                        if (entry.CompressedSize == entry.UncompressedSize)
+                        if (tab.EntryChunks.ContainsKey(nameHash) == false)
                         {
-                            // TODO: check if this is actually correct
-                            output.WriteFromStream(input, entry.CompressedSize);
+                            input.Seek(entry.Offset, SeekOrigin.Begin);
+                            var zlib = new InflaterInputStream(input, new Inflater(true));
+                            output.WriteFromStream(zlib, entry.UncompressedSize);
                         }
                         else
                         {
-                            var zlib = new InflaterInputStream(input, new Inflater(true));
-                            output.WriteFromStream(zlib, entry.UncompressedSize);
+                            var chunks = tab.EntryChunks[nameHash];
+                            for (int i = 0; i < chunks.Count; i++)
+                            {
+                                var chunk = chunks[i];
+                                var nextUncompressedOffset =
+                                    i + 1 < chunks.Count
+                                        ? chunks[i + 1].UncompressedOffset
+                                        : entry.UncompressedSize;
+                                var uncompressedSize = nextUncompressedOffset - chunk.UncompressedOffset;
+
+                                input.Seek(entry.Offset + chunk.CompressedOffset, SeekOrigin.Begin);
+                                output.Seek(chunk.UncompressedOffset, SeekOrigin.Begin);
+
+                                var zlib = new InflaterInputStream(input, new Inflater(true));
+                                output.WriteFromStream(zlib, uncompressedSize);
+                            }
                         }
                     }
                 }

@@ -118,20 +118,21 @@ namespace RebuildFileLists
             Console.WriteLine("Searching for archives...");
             var inputPaths = new List<string>();
 
-            if (Directory.Exists(Path.Combine(installPath, "archives_win64")) == true)
+            var locations = new Dictionary<string, string>()
             {
-                inputPaths.AddRange(Directory.GetFiles(
-                    Path.Combine(installPath, "archives_win64"),
-                    "game*.tab",
-                    SearchOption.AllDirectories));
-            }
+                {"archives_win64", "game*.tab"},
+                {"dlc_win64", "*.tab"},
+                {"patch_win64", "*.tab"},
+            };
 
-            if (Directory.Exists(Path.Combine(installPath, "patch_win64")) == true)
+            foreach (var kv in locations)
             {
-                inputPaths.AddRange(Directory.GetFiles(
-                    Path.Combine(installPath, "patch_win64"),
-                    "*.tab",
-                    SearchOption.AllDirectories));
+                var locationPath = Path.Combine(installPath, kv.Key);
+
+                if (Directory.Exists(locationPath) == true)
+                {
+                    inputPaths.AddRange(Directory.GetFiles(locationPath, kv.Value, SearchOption.AllDirectories));
+                }
             }
 
             var outputPaths = new List<string>();
@@ -177,7 +178,7 @@ namespace RebuildFileLists
                 var localBreakdown = new Breakdown();
 
                 var names = new List<string>();
-                foreach (var nameHash in tab.Entries.Select(e => e.NameHash).Distinct())
+                foreach (var nameHash in tab.Entries.Select(kv => kv.Key).Distinct())
                 {
                     var name = hashes[nameHash];
                     if (name != null)
