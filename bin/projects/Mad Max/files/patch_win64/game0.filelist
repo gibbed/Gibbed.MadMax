@@ -1,4 +1,4 @@
-; 2704/2808 (96%)
+; 2707/2808 (96%)
 11_40.navmeshc
 11_41.navmeshc
 12_40.navmeshc
@@ -1855,6 +1855,7 @@ global_cameras.blo
 global_vehicle.blo
 globalcolor_dif.ddsc
 gui.fev
+gui.xvmc
 gui_hud_challenges.fsb
 gui_menu_frontend.fsb
 gui_menu_vehicleupgrades.fsb
@@ -1883,6 +1884,7 @@ ingame_save_game.guixc
 ingame_settings.bl.toc
 ingame_settings.guixc
 ingame_tutorials.guixc
+input.xvmc
 intel_g_convoy.blo
 intel_g_convoy.nl.toc
 intel_g_convoy_spa.stringlookup
@@ -2687,6 +2689,7 @@ veh_only_scrotus_spotter_armored.blo
 veh_only_scrotus_spotter_armored_heavy.blo
 veh_only_v8carrier_bossbattle_driver.blo
 veh_player_input.xvmc
+vehicle.xvmc
 vehicle_body_select.bl.toc
 vehicle_body_select.guixc
 vehicle_boost_lvl1_blue.effc
