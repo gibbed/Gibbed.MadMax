@@ -24,8 +24,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Gibbed.IO;
 using NDesk.Options;
+using XvmOpcode = Gibbed.MadMax.FileFormats.XvmOpcode;
 
 namespace Gibbed.MadMax.XvmDisassemble
 {
@@ -39,7 +41,6 @@ namespace Gibbed.MadMax.XvmDisassemble
         private static void Main(string[] args)
         {
             bool showHelp = false;
-            var typeLibraryPaths = new List<string>();
 
             var options = new OptionSet
             {
@@ -77,6 +78,7 @@ namespace Gibbed.MadMax.XvmDisassemble
             Endian endian;
             var adf = new FileFormats.AdfFile();
             var module = new FileFormats.XvmModule();
+            MemoryStream debugStrings = null;
 
             using (var input = File.OpenRead(inputPath))
             {
@@ -86,6 +88,24 @@ namespace Gibbed.MadMax.XvmDisassemble
                 if (adf.TypeDefinitions.Count > 0)
                 {
                     throw new NotSupportedException();
+                }
+
+                var debugStringsInfo = adf.InstanceInfos.FirstOrDefault(i => i.Name == "debug_strings");
+                if (debugStringsInfo.TypeHash == 0xFEF3B589)
+                {
+                    input.Position = debugStringsInfo.Offset;
+                    using (var data = input.ReadToMemoryStream(debugStringsInfo.Size))
+                    {
+                        var offset = data.ReadValueS64(endian);
+                        var count = data.ReadValueS64(endian);
+                        if (count < 0 || count > int.MaxValue)
+                        {
+                            throw new FormatException();
+                        }
+
+                        data.Position = offset;
+                        debugStrings = new MemoryStream(data.ReadBytes((int)count), false);
+                    }
                 }
 
                 var moduleInfo = adf.InstanceInfos.First(i => i.Name == "module");
@@ -102,19 +122,259 @@ namespace Gibbed.MadMax.XvmDisassemble
             }
 
             using (var output = File.Create(outputPath))
-            using (var writer = new StreamWriter(output))
+            using (var streamWriter = new StreamWriter(output))
+            using (var writer = new System.CodeDom.Compiler.IndentedTextWriter(streamWriter))
+            using (debugStrings)
             {
                 foreach (var function in module.Functions)
                 {
-                    writer.WriteLine("{0}:", function.Name);
-                    foreach (var instruction in function.Instructions)
+                    writer.WriteLine();
+                    writer.WriteLine("== {0} ==", function.Name);
+
+                    var labels = new string[function.Instructions.Length];
+                    for (int i = 0; i < function.Instructions.Length; i++)
                     {
-                        var opcode = (FileFormats.XvmOpcode)(instruction & 0x1F);
+                        var instruction = function.Instructions[i];
+                        var opcode = (XvmOpcode)(instruction & 0x1F);
                         var oparg = instruction >> 5;
-                        writer.WriteLine("  {0:X4} {1} {2}", instruction, opcode, oparg);
+
+                        if (opcode == XvmOpcode.Jmp ||
+                            opcode == XvmOpcode.Jz)
+                        {
+                            if (labels[oparg] == null)
+                            {
+                                labels[oparg] = string.Format("label_{0}", oparg);
+                            }
+                        }
                     }
+
+                    writer.Indent++;
+
+                    for (int i = 0; i < function.Instructions.Length; i++)
+                    {
+                        if (labels[i] != null)
+                        {
+                            writer.Indent--;
+                            writer.WriteLine("{0}:", labels[i]);
+                            writer.Indent++;
+                        }
+
+                        var instruction = function.Instructions[i];
+                        var opcode = (XvmOpcode)(instruction & 0x1F);
+                        var oparg = instruction >> 5;
+
+                        if (_SimpleStatements.ContainsKey(opcode) == true)
+                        {
+                            writer.Write("{0}", _SimpleStatements[opcode]);
+                        }
+                        else
+                        {
+                            switch (opcode)
+                            {
+                                case XvmOpcode.Call:
+                                {
+                                    writer.Write("call {0}", oparg);
+                                    break;
+                                }
+
+                                case XvmOpcode.Jmp:
+                                {
+                                    writer.Write("jmp {0}", labels[oparg]);
+                                    break;
+                                }
+
+                                case XvmOpcode.Jz:
+                                {
+                                    writer.Write("jz {0}", labels[oparg]);
+                                    break;
+                                }
+
+                                case XvmOpcode.LoadAttr:
+                                {
+                                    writer.Write("loadattr ");
+                                    var constant = module.Constants[oparg];
+
+                                    if (constant.Type != 4)
+                                    {
+                                        throw new InvalidOperationException();
+                                    }
+
+                                    if (debugStrings != null)
+                                    {
+                                        var debugStringOffset = (module.StringBuffer[constant.Value - 2] << 8) |
+                                                                (module.StringBuffer[constant.Value - 1] << 0);
+                                        debugStrings.Position = debugStringOffset;
+                                        var text = debugStrings.ReadStringZ(Encoding.UTF8);
+                                        writer.Write("\"{0}\"", Escape(text));
+                                    }
+                                    else
+                                    {
+                                        var hashIndex = module.StringBuffer[constant.Value - 3];
+                                        var hash = module.StringHashes[hashIndex];
+                                        writer.Write("0x{0:X}", hash);
+                                    }
+
+                                    break;
+                                }
+
+                                case XvmOpcode.LoadConst:
+                                {
+                                    writer.Write("loadconst ");
+                                    var constant = module.Constants[oparg];
+
+                                    writer.Write("{0} // FIXME", oparg);
+
+                                    break;
+                                }
+
+                                case XvmOpcode.LoadGlobal:
+                                {
+                                    writer.Write("loadglobal ");
+                                    var constant = module.Constants[oparg];
+
+                                    if (constant.Type != 4)
+                                    {
+                                        throw new InvalidOperationException();
+                                    }
+
+                                    if (debugStrings != null)
+                                    {
+                                        var debugStringOffset = (module.StringBuffer[constant.Value - 2] << 8) |
+                                                                (module.StringBuffer[constant.Value - 1] << 0);
+                                        debugStrings.Position = debugStringOffset;
+                                        var text = debugStrings.ReadStringZ(Encoding.UTF8);
+                                        writer.Write("\"{0}\"", Escape(text));
+                                    }
+                                    else
+                                    {
+                                        var hashIndex = module.StringBuffer[constant.Value - 3];
+                                        var hash = module.StringHashes[hashIndex];
+                                        writer.Write("0x{0:X}", hash);
+                                    }
+
+                                    break;
+                                }
+
+                                case XvmOpcode.LoadLocal:
+                                {
+                                    writer.Write("loadlocal {0}", oparg);
+                                    break;
+                                }
+
+                                case XvmOpcode.Ret:
+                                {
+                                    writer.Write("ret {0}", oparg);
+                                    break;
+                                }
+
+                                case XvmOpcode.StoreAttr:
+                                {
+                                    writer.Write("storeattr ");
+                                    var constant = module.Constants[oparg];
+
+                                    if (constant.Type != 4)
+                                    {
+                                        throw new InvalidOperationException();
+                                    }
+
+                                    if (debugStrings != null)
+                                    {
+                                        var debugStringOffset = (module.StringBuffer[constant.Value - 2] << 8) |
+                                                                (module.StringBuffer[constant.Value - 1] << 0);
+                                        debugStrings.Position = debugStringOffset;
+                                        var text = debugStrings.ReadStringZ(Encoding.UTF8);
+                                        writer.Write("\"{0}\"", Escape(text));
+                                    }
+                                    else
+                                    {
+                                        var hashIndex = module.StringBuffer[constant.Value - 3];
+                                        var hash = module.StringHashes[hashIndex];
+                                        writer.Write("0x{0:X}", hash);
+                                    }
+
+                                    break;
+                                }
+
+                                case XvmOpcode.StoreLocal:
+                                {
+                                    writer.Write("storelocal {0}", oparg);
+                                    break;
+                                }
+
+                                default:
+                                {
+                                    throw new NotSupportedException();
+                                }
+                            }
+                        }
+
+                        writer.WriteLine();
+                    }
+
+                    writer.Indent--;
                 }
             }
         }
+
+        private static string Escape(string input)
+        {
+            var sb = new StringBuilder();
+            foreach (char t in input)
+            {
+                switch (t)
+                {
+                    case '"':
+                    {
+                        sb.Append("\\\"");
+                        break;
+                    }
+
+                    case '\t':
+                    {
+                        sb.Append("\\t");
+                        break;
+                    }
+                    case '\r':
+                    {
+                        sb.Append("\\r");
+                        break;
+                    }
+                    case '\n':
+                    {
+                        sb.Append("\\n");
+                        break;
+                    }
+
+                    default:
+                    {
+                        sb.Append(t);
+                        break;
+                    }
+                }
+            }
+            return sb.ToString();
+        }
+
+        private static readonly Dictionary<XvmOpcode, string> _SimpleStatements =
+            new Dictionary<XvmOpcode, string>()
+            {
+                { XvmOpcode.Assert, "assert" },
+                { XvmOpcode.And, "and" },
+                { XvmOpcode.Or, "or" },
+                { XvmOpcode.Add, "add" },
+                { XvmOpcode.Div, "div" },
+                { XvmOpcode.Mod, "mod" },
+                { XvmOpcode.Mul, "mul" },
+                { XvmOpcode.Sub, "sub" },
+                { XvmOpcode.CmpEq, "cmpeq" },
+                { XvmOpcode.CmpGe, "cmpge" },
+                { XvmOpcode.CmpG, "cmpg" },
+                { XvmOpcode.CmpNe, "cmpne" },
+                { XvmOpcode.LoadItem, "loaditem" },
+                { XvmOpcode.Pop, "pop" },
+                { XvmOpcode.StoreItem, "storeitem" },
+                { XvmOpcode.IsZero, "iszero" },
+                { XvmOpcode.Neg, "neg" },
+            };
     }
 }
