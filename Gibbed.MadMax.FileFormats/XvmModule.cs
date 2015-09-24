@@ -1,9 +1,30 @@
-﻿using System;
-using Gibbed.IO;
-using System.IO;
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
+ * 
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
+ * 
+ * Permission is granted to anyone to use this software for any purpose,
+ * including commercial applications, and to alter it and redistribute it
+ * freely, subject to the following restrictions:
+ * 
+ * 1. The origin of this software must not be misrepresented; you must not
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would
+ *    be appreciated but is not required.
+ * 
+ * 2. Altered source versions must be plainly marked as such, and must not
+ *    be misrepresented as being the original software.
+ * 
+ * 3. This notice may not be removed or altered from any source
+ *    distribution.
+ */
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Text;
+using Gibbed.IO;
 
 namespace Gibbed.MadMax.FileFormats
 {
@@ -14,18 +35,25 @@ namespace Gibbed.MadMax.FileFormats
         #region Fields
         private uint _NameHash;
         private uint _SourceHash;
-        private uint _Properties;
+        private uint _Flags;
         private uint _ModuleSize;
         private long _DebugInfoArray;
         private ulong _ThisInstance;
         private ulong _ThisType;
-        private readonly List<Function> _Functions; 
+        private readonly List<Function> _Functions;
+        private readonly List<uint> _ImportHashes; 
+        private readonly List<Constant> _Constants;
+        private readonly List<uint> _StringHashes; 
+        private byte[] _StringBuffer;
         private string _Name;
         #endregion
 
         public XvmModule()
         {
             this._Functions = new List<Function>();
+            this._ImportHashes = new List<uint>();
+            this._Constants = new List<Constant>();
+            this._StringHashes = new List<uint>();
         }
 
         #region Properties
@@ -41,10 +69,10 @@ namespace Gibbed.MadMax.FileFormats
             set { this._SourceHash = value; }
         }
 
-        public uint Properties
+        public uint Flags
         {
-            get { return this._Properties; }
-            set { this._Properties = value; }
+            get { return this._Flags; }
+            set { this._Flags = value; }
         }
 
         public uint ModuleSize
@@ -74,6 +102,27 @@ namespace Gibbed.MadMax.FileFormats
         public List<Function> Functions
         {
             get { return this._Functions; }
+        }
+
+        public List<uint> ImportHashes
+        {
+            get { return this._ImportHashes; }
+        }
+
+        public List<Constant> Constants
+        {
+            get { return this._Constants; }
+        }
+
+        public List<uint> StringHashes
+        {
+            get { return this._StringHashes; }
+        }
+
+        public byte[] StringBuffer
+        {
+            get { return this._StringBuffer; }
+            set { this._StringBuffer = value; }
         }
 
         public string Name
@@ -155,6 +204,67 @@ namespace Gibbed.MadMax.FileFormats
                 }
             }
 
+            var importHashes = new uint[rawModule.ImportHashCount];
+            if (rawModule.ImportHashCount != 0)
+            {
+                if (rawModule.ImportHashCount < 0 || rawModule.ImportHashCount > int.MaxValue)
+                {
+                    throw new FormatException();
+                }
+
+                input.Position = basePosition + rawModule.ImportHashOffset;
+                for (long i = 0; i < rawModule.ImportHashCount; i++)
+                {
+                    importHashes[i] = input.ReadValueU32(endian);
+                }
+            }
+
+            var constants = new Constant[rawModule.ConstantCount];
+            if (rawModule.ConstantCount != 0)
+            {
+                if (rawModule.ConstantCount < 0 || rawModule.ConstantCount > int.MaxValue)
+                {
+                    throw new FormatException();
+                }
+
+                input.Position = basePosition + rawModule.ConstantOffset;
+                for (long i = 0; i < rawModule.ConstantCount; i++)
+                {
+                    constants[i] = Constant.Read(input, endian);
+                }
+            }
+
+            var stringHashes = new uint[rawModule.StringHashCount];
+            if (rawModule.StringHashCount != 0)
+            {
+                if (rawModule.StringHashCount < 0 || rawModule.StringHashCount > int.MaxValue)
+                {
+                    throw new FormatException();
+                }
+
+                input.Position = basePosition + rawModule.StringHashOffset;
+                for (long i = 0; i < rawModule.StringHashCount; i++)
+                {
+                    stringHashes[i] = input.ReadValueU32(endian);
+                }
+            }
+
+            byte[] stringBuffer;
+            if (rawModule.StringBufferCount == 0)
+            {
+                stringBuffer = null;
+            }
+            else
+            {
+                if (rawModule.StringBufferCount < 0 || rawModule.StringBufferCount > int.MaxValue)
+                {
+                    throw new FormatException();
+                }
+
+                input.Position = basePosition + rawModule.StringBufferOffset;
+                stringBuffer = input.ReadBytes((int)rawModule.StringBufferCount);
+            }
+
             string name = null;
             if (rawModule.NameCount != 0)
             {
@@ -169,13 +279,18 @@ namespace Gibbed.MadMax.FileFormats
 
             this._NameHash = rawModule.NameHash;
             this._SourceHash = rawModule.SourceHash;
-            this._Properties = rawModule.Properties;
+            this._Flags = rawModule.Flags;
             this._ModuleSize = rawModule.ModuleSize;
             this._DebugInfoArray = rawModule.DebugInfoArray;
             this._ThisInstance = rawModule.ThisInstance;
             this._ThisType = rawModule.ThisType;
             this._Functions.Clear();
             this._Functions.AddRange(functions);
+            this._Constants.Clear();
+            this._Constants.AddRange(constants);
+            this._StringHashes.Clear();
+            this._StringHashes.AddRange(stringHashes);
+            this._StringBuffer = stringBuffer;
             this._Name = name;
         }
 
@@ -183,7 +298,7 @@ namespace Gibbed.MadMax.FileFormats
         {
             public uint NameHash;
             public uint SourceHash;
-            public uint Properties;
+            public uint Flags;
             public uint ModuleSize;
             public long DebugInfoArray;
             public ulong ThisInstance;
@@ -208,7 +323,7 @@ namespace Gibbed.MadMax.FileFormats
                 var instance = new RawModule();
                 instance.NameHash = input.ReadValueU32(endian);
                 instance.SourceHash = input.ReadValueU32(endian);
-                instance.Properties = input.ReadValueU32(endian);
+                instance.Flags = input.ReadValueU32(endian);
                 instance.ModuleSize = input.ReadValueU32(endian);
                 instance.DebugInfoArray = input.ReadValueS64(endian);
                 instance.ThisInstance = input.ReadValueU64(endian);
@@ -227,6 +342,35 @@ namespace Gibbed.MadMax.FileFormats
                 instance.DebugStrings = input.ReadValueS64(endian);
                 instance.NameOffset = input.ReadValueS64(endian);
                 instance.NameCount = input.ReadValueS64(endian);
+                return instance;
+            }
+        }
+
+        public struct Constant
+        {
+            public ulong Flags;
+            public ulong Value;
+
+            public byte Length
+            {
+                get { return (byte)((this.Flags >> 0) & 0xFF); }
+            }
+
+            public byte AllocatedLength
+            {
+                get { return (byte)((this.Flags >> 8) & 0xFF); }
+            }
+
+            public byte Type
+            {
+                get { return (byte)((this.Flags >> 16) & 0xF); }
+            }
+
+            internal static Constant Read(Stream input, Endian endian)
+            {
+                var instance = new Constant();
+                instance.Flags = input.ReadValueU64(endian);
+                instance.Value = input.ReadValueU64(endian);
                 return instance;
             }
         }
