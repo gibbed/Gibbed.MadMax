@@ -171,6 +171,12 @@ namespace Gibbed.MadMax.XvmDisassemble
                         {
                             switch (opcode)
                             {
+                                case XvmOpcode.MakeList:
+                                {
+                                    writer.Write("makelist {0}", oparg);
+                                    break;
+                                }
+
                                 case XvmOpcode.Call:
                                 {
                                     writer.Write("call {0}", oparg);
@@ -227,6 +233,12 @@ namespace Gibbed.MadMax.XvmDisassemble
                                     break;
                                 }
 
+                                case XvmOpcode.LoadBool:
+                                {
+                                    writer.Write("loadbool {0}", oparg);
+                                    break;
+                                }
+
                                 case XvmOpcode.LoadGlobal:
                                 {
                                     writer.Write("loadglobal ");
@@ -258,6 +270,12 @@ namespace Gibbed.MadMax.XvmDisassemble
                                 case XvmOpcode.LoadLocal:
                                 {
                                     writer.Write("loadlocal {0}", oparg);
+                                    break;
+                                }
+
+                                case XvmOpcode.DebugOut:
+                                {
+                                    writer.Write("debugout {0}", oparg);
                                     break;
                                 }
 
