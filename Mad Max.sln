@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.MadMax.PropertyForma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.MadMax.PropertyConvert", "Gibbed.MadMax.PropertyConvert\Gibbed.MadMax.PropertyConvert.csproj", "{797E2FF9-A60A-455A-975D-6074EDEEA653}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.MadMax.AdfConvert", "Gibbed.MadMax.AdfConvert\Gibbed.MadMax.AdfConvert.csproj", "{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,16 @@ Global
 		{797E2FF9-A60A-455A-975D-6074EDEEA653}.Release|Mixed Platforms.Build.0 = Release|x86
 		{797E2FF9-A60A-455A-975D-6074EDEEA653}.Release|x86.ActiveCfg = Release|x86
 		{797E2FF9-A60A-455A-975D-6074EDEEA653}.Release|x86.Build.0 = Release|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Debug|x86.ActiveCfg = Debug|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Debug|x86.Build.0 = Debug|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Release|Any CPU.ActiveCfg = Release|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Release|x86.ActiveCfg = Release|x86
+		{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
