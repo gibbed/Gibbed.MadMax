@@ -52,7 +52,7 @@ namespace Gibbed.MadMax.FileFormats
         StoreAttr = 27,
         StoreLocal = 28,
         StoreItem = 29,
-        IsZero = 30,
+        Not = 30,
         Neg = 31,
     }
 }

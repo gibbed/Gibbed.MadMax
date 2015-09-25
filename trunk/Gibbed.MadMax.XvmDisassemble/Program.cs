@@ -391,7 +391,7 @@ namespace Gibbed.MadMax.XvmDisassemble
                 { XvmOpcode.LoadItem, "loaditem" },
                 { XvmOpcode.Pop, "pop" },
                 { XvmOpcode.StoreItem, "storeitem" },
-                { XvmOpcode.IsZero, "iszero" },
+                { XvmOpcode.Not, "not" },
                 { XvmOpcode.Neg, "neg" },
             };
     }
