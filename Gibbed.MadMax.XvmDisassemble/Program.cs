@@ -173,7 +173,7 @@ namespace Gibbed.MadMax.XvmDisassemble
                             {
                                 case XvmOpcode.MakeList:
                                 {
-                                    writer.Write("makelist {0}", oparg);
+                                    writer.Write("mklist {0}", oparg);
                                     break;
                                 }
 
@@ -197,7 +197,7 @@ namespace Gibbed.MadMax.XvmDisassemble
 
                                 case XvmOpcode.LoadAttr:
                                 {
-                                    writer.Write("loadattr ");
+                                    writer.Write("ldattr ");
                                     var constant = module.Constants[oparg];
 
                                     if (constant.Type != 4)
@@ -225,23 +225,74 @@ namespace Gibbed.MadMax.XvmDisassemble
 
                                 case XvmOpcode.LoadConst:
                                 {
-                                    writer.Write("loadconst ");
                                     var constant = module.Constants[oparg];
 
-                                    writer.Write("{0} // FIXME", oparg);
+                                    switch (constant.Type)
+                                    {
+                                        case 0:
+                                        {
+                                            if (constant.Flags != 0 || constant.Value != 0)
+                                            {
+                                                throw new InvalidOperationException();
+                                            }
+
+                                            writer.Write("ldnone");
+                                            break;
+                                        }
+
+                                        case 3:
+                                        {
+                                            var rawValue = (uint)constant.Value;
+                                            var rawBytes = BitConverter.GetBytes(rawValue);
+                                            var value = BitConverter.ToSingle(rawBytes, 0);
+                                            writer.Write("ldfloat {0}", value);
+                                            break;
+                                        }
+
+                                        case 4:
+                                        {
+                                            if (constant.Value > int.MaxValue)
+                                            {
+                                                throw new FormatException();
+                                            }
+
+                                            var bytes = new byte[constant.Length];
+                                            Array.Copy(module.StringBuffer, (int)constant.Value, bytes, 0, constant.Length);
+
+                                            if (bytes.Any(b => b < 0x20 || b > 0x7F) == true)
+                                            {
+                                                var value = BitConverter.ToString(bytes);
+                                                value = value.ToUpperInvariant();
+                                                value = value.Replace("-", " ");
+                                                writer.Write("ldbytes {0}", value);
+                                            }
+                                            else
+                                            {
+                                                var text = Encoding.ASCII.GetString(bytes);
+                                                writer.Write("ldstr \"{0}\"", Escape(text));
+                                            }
+
+                                            break;
+                                        }
+
+                                        default:
+                                        {
+                                            throw new NotImplementedException();
+                                        }
+                                    }
 
                                     break;
                                 }
 
                                 case XvmOpcode.LoadBool:
                                 {
-                                    writer.Write("loadbool {0}", oparg);
+                                    writer.Write("ldbool {0}", oparg);
                                     break;
                                 }
 
                                 case XvmOpcode.LoadGlobal:
                                 {
-                                    writer.Write("loadglobal ");
+                                    writer.Write("ldglob ");
                                     var constant = module.Constants[oparg];
 
                                     if (constant.Type != 4)
@@ -269,13 +320,13 @@ namespace Gibbed.MadMax.XvmDisassemble
 
                                 case XvmOpcode.LoadLocal:
                                 {
-                                    writer.Write("loadlocal {0}", oparg);
+                                    writer.Write("ldloc {0}", oparg);
                                     break;
                                 }
 
                                 case XvmOpcode.DebugOut:
                                 {
-                                    writer.Write("debugout {0}", oparg);
+                                    writer.Write("dbgout {0}", oparg);
                                     break;
                                 }
 
@@ -287,7 +338,7 @@ namespace Gibbed.MadMax.XvmDisassemble
 
                                 case XvmOpcode.StoreAttr:
                                 {
-                                    writer.Write("storeattr ");
+                                    writer.Write("stattr ");
                                     var constant = module.Constants[oparg];
 
                                     if (constant.Type != 4)
@@ -315,7 +366,7 @@ namespace Gibbed.MadMax.XvmDisassemble
 
                                 case XvmOpcode.StoreLocal:
                                 {
-                                    writer.Write("storelocal {0}", oparg);
+                                    writer.Write("stloc {0}", oparg);
                                     break;
                                 }
 
@@ -388,9 +439,9 @@ namespace Gibbed.MadMax.XvmDisassemble
                 { XvmOpcode.CmpGe, "cmpge" },
                 { XvmOpcode.CmpG, "cmpg" },
                 { XvmOpcode.CmpNe, "cmpne" },
-                { XvmOpcode.LoadItem, "loaditem" },
+                { XvmOpcode.LoadItem, "lditem" },
                 { XvmOpcode.Pop, "pop" },
-                { XvmOpcode.StoreItem, "storeitem" },
+                { XvmOpcode.StoreItem, "stitem" },
                 { XvmOpcode.Not, "not" },
                 { XvmOpcode.Neg, "neg" },
             };
