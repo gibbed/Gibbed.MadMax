@@ -1,11 +1,10 @@
-; 2707/2808 (96%)
+; 2751/3285 (83%)
 11_40.navmeshc
 11_41.navmeshc
 12_40.navmeshc
 12_41.navmeshc
 13_39.navmeshc
 13_40.navmeshc
-14_32.navmeshc
 14_33.navmeshc
 14_43.navmeshc
 14_44.navmeshc
@@ -56,6 +55,8 @@
 20_40.navmeshc
 20_44.navmeshc
 20_45.navmeshc
+21_26.navmeshc
+21_27.navmeshc
 21_31.navmeshc
 21_35.navmeshc
 21_36.navmeshc
@@ -65,6 +66,10 @@
 21_41.navmeshc
 21_44.navmeshc
 21_45.navmeshc
+22_26.navmeshc
+22_27.navmeshc
+22_28.navmeshc
+22_29.navmeshc
 22_30.navmeshc
 22_31.navmeshc
 22_32.navmeshc
@@ -79,6 +84,11 @@
 22_44.navmeshc
 22_45.navmeshc
 23_24.navmeshc
+23_25.navmeshc
+23_27.navmeshc
+23_28.navmeshc
+23_29.navmeshc
+23_30.navmeshc
 23_31.navmeshc
 23_33.navmeshc
 23_34.navmeshc
@@ -93,6 +103,9 @@
 23_44.navmeshc
 23_45.navmeshc
 23_46.navmeshc
+24_26.navmeshc
+24_28.navmeshc
+24_29.navmeshc
 24_30.navmeshc
 24_32.navmeshc
 24_34.navmeshc
@@ -164,6 +177,7 @@
 31_38.navmeshc
 31_39.navmeshc
 35_44.navmeshc
+a0_ec_delivery_system_enterlogic.gsrc
 a00_ac_convoy_composition_convoytruck_01.ee.toc
 a00_ac_convoy_composition_convoytruck_01.epe
 a00_ac_convoy_composition_convoytruck_02.ee.toc
@@ -288,6 +302,7 @@ a00_ac_fuel_convoy_level_3.ee.toc
 a00_ac_fuel_convoy_level_3.epe
 a00_ac_tier2_convoy_level_2.ee.toc
 a00_ac_tier2_convoy_level_2.epe
+a00_check_dbp_gate.gsrc
 a00_deathrun_initial_cs.blo
 a00_deathrun_initial_cs_rus.stringlookup
 a00_en_road_buzzards_rammerhead_level0.ee.toc
@@ -1743,6 +1758,8 @@ buzzards_stinkwheel_level1.blo
 buzzards_warchief.blo
 buzzards_warchief_driver.blo
 camp_completion.guixc
+camp_completion_control.gsrc
+camp_scrap_reward.gsrc
 capture_mode.bl.toc
 capture_mode.guixc
 car_body_selector_control.gsrc
@@ -1757,6 +1774,7 @@ chum_swaying.xvmc
 civilian_wanderer_layer_base.asb
 collision_damage_handler.xvmc
 completion_screen.guixc
+completion_screen_control.gsrc
 conditional_dialog.intentstablec
 conditional_dialog_brp.stringlookup
 conditional_dialog_eng.stringlookup
@@ -1779,7 +1797,12 @@ cutscene_control.gsrc
 cutscenes.fev
 cutscenes_playgo.fsb
 dead_state_boombug.xvmc
+death_run_mode_opus_wars.gsrc
+death_run_mode_opus_wars_runtime.gsrc
+death_run_reject.gsrc
 death_run_setup_player_with_mo.gsrc
+deathrun_complete_control.gsrc
+deathrun_menu_control.gsrc
 defe_layer_base.afsmb
 defe_layer_base.asb
 despawn_vehicles_in_shape.gsrc
@@ -1829,6 +1852,9 @@ fuel_center_cam_control.gsrc
 fx_vehicle_impact_wall.effc
 game_informer.blo
 game_over_control.gsrc
+gameplay_conditions.smodc
+gameplay_director.smodc
+gameworld.smodc
 gameworld_conditions.smodc
 gamma_settings.guixc
 gastown_rammerhead.blo
@@ -1859,6 +1885,7 @@ gui.xvmc
 gui_hud_challenges.fsb
 gui_menu_frontend.fsb
 gui_menu_vehicleupgrades.fsb
+guiroads.guiroadmeshc
 highvalue_sm.blo
 highvalue01.blo
 highvalue02.blo
@@ -1870,6 +1897,7 @@ hud_flow_tutorial.guixc
 hud_fuel.guixc
 hud_messages.guixc
 hud_ogc_tins.guixc
+hud_pickups_control.gsrc
 hud_status_cam.guixc
 icon_mappings.bin
 icons.font
@@ -2019,6 +2047,7 @@ main_menu.guixc
 main_pc.bl.toc
 main_pc.guixc
 map.guixc
+map_control.gsrc
 mapicons.mapiconsc
 mash_button_gameplay.xvmc
 master_gui_eng.stringlookup
@@ -2236,7 +2265,13 @@ mmax_narrative.afsmb
 mod_gameworld_conditions.smod_eventsc
 motorbike.blo
 motorbike_driver.blo
+music_conditions.smodc
+music_director.smodc
 music_flow.smodc
+music_fsm_adaptive_mix.smodc
+music_fsm_combat.smodc
+music_sets_combat.smodc
+music_sets_stingers.smodc
 must_be_same_hight.xvmc
 npc_genr_layer_base_navigation.afsmb
 npc_genr_layer_base_navigation.asb
@@ -2257,10 +2292,12 @@ pc_settings.bl
 perspective_director.smodc
 photo_menu.bl.toc
 photo_menu.guixc
+photo_menu_control.gsrc
 player_car_damage.effc
 press_start_screen.guixc
 prompts.guixc
 punch_destruction.effc
+quick_refuel_repair_control.gsrc
 regioninfo.regioninfoc
 restartpoints.restartpointsc
 roadgraph.roadgraphc
@@ -2431,6 +2468,7 @@ settings.guixc
 settings_core.bin
 sgum_gameplay_layer_base.afsmb
 sgum_gameplay_layer_base.asb
+show_hide_hud.gsrc
 show_hide_prompts.gsrc
 show_special_move_icon.xvmc
 sidemission_dunevesselcarrier.blo
@@ -2640,6 +2678,7 @@ sto5041.blo
 sto5042.blo
 sto5042_brp.stringlookup
 streaming_install_prompt_control.gsrc
+stronghold_race_trophies_control.gsrc
 subtitles.guixc
 target_profiles.ai_constants_c
 tend_gameplay_layer_base.afsmb
@@ -2648,12 +2687,16 @@ tend_vlayer_base.afsmb
 tend_vlayer_base.asb
 terrain.dat
 terrain_h_15_28.dat
+terrain_h_16_27.dat
+terrain_h_16_28.dat
 terrain_h_20_36.dat
 terrain_h_20_38.dat
 terrain_h_20_39.dat
 terrain_h_21_36.dat
 terrain_h_25_43.dat
 terrain_v_15_28.dat
+terrain_v_16_27.dat
+terrain_v_16_28.dat
 terrain_v_20_36.dat
 terrain_v_20_38.dat
 terrain_v_20_39.dat
@@ -2701,6 +2744,7 @@ vehicles.fev
 version.bin
 visible_player_upgrades.xlsc
 wasteland_abilities.guixc
+wasteland_abilities_control.gsrc
 wbplay_menu.guixc
 weapon_aiming.xvmc
 wind_director.smodc
