@@ -1,4 +1,4 @@
-; 335/366 (91%)
+; 340/366 (92%)
 a00_vh_s003_upgrade_bodywork1.bl
 a00_vh_s003_upgrade_bodywork2.bl
 a00_vh_s003_upgrade_bodywork3.bl
@@ -295,6 +295,7 @@ a00_vh_s007_upgrade_wheel5.bl
 a00_vh_s007_upgrade_wheel6.bl
 a00_vh_shotgun_anims_set03.bl
 a00_vh_shotgun_anims_set04.bl
+a00_vh_snowglobe.bl
 a01_deathrun_gutgash00_01_enemies.bl
 a01_deathrun_gutgash00_01_redroad.bl
 a01_deathrun_gutgash00_01_redroad_opuswars.bl
@@ -324,6 +325,10 @@ a01_enc1020_level_03.bl
 a01_enc1020_level_04.bl
 a01_enc1020_level_05.bl
 a01_enc1020_spawn.bl
+a02_deathrun_pinkeye00_01_enemies.bl
+a02_deathrun_pinkeye00_01_redroad.bl
+a02_deathrun_pinkeye01_01_enemies.bl
+a02_deathrun_pinkeye01_01_redroad.bl
 a02_deathrun_pinkeye02_01_enemies.bl
 a02_deathrun_pinkeye02_01_redroad.bl
 a02_deathrun_pinkeye03_01_redroad.bl

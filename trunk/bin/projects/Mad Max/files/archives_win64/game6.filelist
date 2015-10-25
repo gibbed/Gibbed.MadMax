@@ -1,4 +1,4 @@
-; 301/438 (68%)
+; 322/438 (73%)
 a01_dbp_gate_spawn.nl
 a01_dbp_harbor.nl
 a01_dbp_harbor_spawn.nl
@@ -54,7 +54,15 @@ a01_loot_gutgash01_09.nl
 a01_loot_gutgash01_09_logic.nl
 a01_loot_gutgash01_11.nl
 a01_loot_gutgash01_12.nl
+a01_loot_gutgash02_01.nl
+a01_loot_gutgash02_01_logic.nl
+a01_loot_gutgash02_05.nl
+a01_loot_gutgash02_05_logic.nl
+a01_loot_gutgash02_06.nl
+a01_loot_gutgash02_06_logic.nl
 a01_loot_gutgash02_09_logic.nl
+a01_loot_gutgash02_10.nl
+a01_loot_gutgash02_10_logic.nl
 a01_loot_gutgash03_05.nl
 a01_loot_gutgash03_05_logic.nl
 a01_loot_gutgash03_06_logic.nl
@@ -176,6 +184,10 @@ a01_lto40_obj01b.nl
 a01_lto40_obj01c.nl
 a01_lto40_obj01d.nl
 a01_lto40_obj01e.nl
+a01_patch_12-13_30-31.nl
+a01_patch_12-13_32-33.nl
+a01_patch_12-13_34-35.nl
+a01_patch_12-13_36-37.nl
 a01_patch_12-13_38-39.nl
 a01_patch_12-13_40-41.nl
 a01_patch_12-13_42-43.nl
@@ -230,7 +242,9 @@ a01_reveal_enc1020_east.nl
 a01_reveal_enc1020_east_balloon_far_lod.nl
 a01_reveal_enc1020_north.nl
 a01_reveal_enc1020_west.nl
+a01_sm_4020_tomb.nl
 a01_sm_gutgash_01_tunnels_02.nl
+a01_sm3030_camp.nl
 a02_buried_carwreck_pinkeye00_01.nl
 a02_buried_carwreck_pinkeye00_02.nl
 a02_buried_carwreck_pinkeye01_01.nl
@@ -240,14 +254,18 @@ a02_buried_carwreck_pinkeye03_02.nl
 a02_buried_carwreck_pinkeye04_01.nl
 a02_buried_carwreck_pinkeye04_02.nl
 a02_deathrun_pinkeye_finish_line.nl
+a02_deathrun_pinkeye00_01.nl
+a02_deathrun_pinkeye01_01.nl
 a02_deathrun_pinkeye02_01.nl
 a02_deathrun_pinkeye04_01.nl
+a02_fd2030.nl
 a02_fd2040.nl
 a02_fd2040_gameplay.nl
 a02_fo2020.nl
 a02_fo2020_gameplay.nl
 a02_fo2040.nl
 a02_fo2040_gameplay.nl
+a02_high_valuable_vehicle_pinkeye_01.nl
 a02_minefield_pinkeye00_01.nl
 a02_minefield_pinkeye00_02.nl
 a02_minefield_pinkeye01_01.nl
@@ -285,6 +303,9 @@ a02_sc2350.nl
 a02_sd2010.nl
 a02_sd2010_gameplay.nl
 a02_sd2020.nl
+a02_sd2020_gameplay.nl
+a02_sd2030.nl
+a02_sd2030_gameplay.nl
 a02_sd2060.nl
 a02_sd2060_gameplay.nl
 a02_sn2010.nl

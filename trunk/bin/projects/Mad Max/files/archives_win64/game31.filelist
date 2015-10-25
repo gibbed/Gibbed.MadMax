@@ -1,4 +1,4 @@
-; 16/30 (53%)
+; 18/30 (60%)
 a00_encounters_wasteland_scrotus_campsite_dif2_03.ee
 a00_encounters_wasteland_scrotus_gluesniffers_dif1_01.ee
 a00_encounters_wasteland_scrotus_gluesniffers_dif1_02.ee
@@ -15,3 +15,5 @@ a00_encounters_wasteland_wanderer_raided_dif0_01.ee
 a00_encounters_wasteland_wanderer_raided_dif0_02.ee
 a00_encounters_wasteland_wanderer_raided_dif0_03.ee
 a00_vehicle_empty_buggy.ee
+a00_vehicle_empty_buzzards_medium_alt.ee
+a00_vehicle_empty_dune_vessel_carrier_sm.ee
