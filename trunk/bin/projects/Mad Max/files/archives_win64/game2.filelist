@@ -1,4 +1,4 @@
-; 1192/2158 (55%)
+; 1196/2158 (55%)
 0000_enc1000_intro.afsmb
 0000_enc1000_intro.asb
 0000_enc1000_intro__cam__cam_01.ban
@@ -1106,6 +1106,7 @@ ingame_tutorials.bl
 legend_rank.bl
 load_game_menu_gameover.bl
 map.bl
+max_upgrade_armor_lvl1.bl
 max_upgrade_armor_lvl2a_clean.bl
 max_upgrade_inventory_lvl1.bl
 max_upgrade_shotgun_lvl1.bl
@@ -1113,9 +1114,12 @@ mission.fev
 mission_mm1012.fsb
 mission_ravine_ambience.fsb
 mm1010_cs010_assets.bl
+mm1010_cs010_p1.bl
 mm1010_cs010_p2.bl
 mm1010_cs010_p5.bl
 mm1010_cs010_p6.bl
+mm1010_cs010_p7.bl
+mm1010_cs010_p8.bl
 mm1012.camp_wire.nl
 mm1012.logic.bl
 mm1012_con010.bl

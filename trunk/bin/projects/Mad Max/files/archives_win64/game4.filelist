@@ -1,4 +1,4 @@
-; 3245/8464 (38%)
+; 3289/8464 (38%)
 0000_a04_courtyard_intro.afsmb
 0000_a04_courtyard_intro.asb
 0000_a04_courtyard_intro__cam__cam_01.ban
@@ -2683,6 +2683,14 @@
 0025_em1010_cs010__pos_mmax.ban
 0025_em1010_cs010__pos_s001.ban
 0025_em1010_cs010__vhl_s001.ban
+a00_tests_ogc_testbed.fl
+a00_tests_sound_bridge.fl
+a00_tests_sound_fake_camp.fl
+a00_tests_sound_room.fl
+a00_tests_sound_room_types.fl
+a00_tests_vehicle_flatarea.fl
+a01_ac_thunderdome.fl
+a01_ac_thunderdome_camp.fl
 a01_dbp_gate.fl
 a01_dbp_harbor.fl
 a01_dbp_pier_outpost.fl
@@ -2740,16 +2748,23 @@ a01_loot_gutgash01_12.fl
 a01_loot_gutgash02_01.fl
 a01_loot_gutgash02_02.fl
 a01_loot_gutgash02_03.fl
+a01_loot_gutgash02_04.fl
 a01_loot_gutgash02_05.fl
 a01_loot_gutgash02_06.fl
+a01_loot_gutgash02_07.fl
 a01_loot_gutgash02_08.fl
 a01_loot_gutgash02_09.fl
 a01_loot_gutgash02_10.fl
+a01_loot_gutgash03_01.fl
+a01_loot_gutgash03_02.fl
 a01_loot_gutgash03_03.fl
+a01_loot_gutgash03_04.fl
 a01_loot_gutgash03_05_logic.fl
 a01_loot_gutgash03_06.fl
 a01_loot_gutgash03_07.fl
 a01_loot_gutgash03_08.fl
+a01_loot_gutgash03_10.fl
+a01_loot_gutgash03_15.fl
 a01_loot_gutgash04_01.fl
 a01_loot_gutgash04_02.fl
 a01_loot_gutgash04_02_logic.fl
@@ -2819,15 +2834,20 @@ a01_loot_jeet03_12.fl
 a01_loot_jeet04_02.fl
 a01_loot_jeet04_03.fl
 a01_loot_jeet04_04.fl
+a01_loot_jeet04_06.fl
+a01_loot_jeet04_06_outside.fl
+a01_loot_jeet04_06_outside_north.fl
 a01_loot_jeet04_07.fl
 a01_loot_jeet04_09.fl
 a01_loot_jeet04_10.fl
+a01_loot_pinkeye02_14.fl
 a01_lto40_obj01a.fl
 a01_lto40_obj01b.fl
 a01_lto40_obj01c.fl
 a01_lto40_obj01d.fl
 a01_lto40_obj01e.fl
 a01_minefield_gutgash03_02.fl
+a01_patch_10-11_36-37.fl
 a01_patch_12-13_30-31.fl
 a01_patch_12-13_32-33.fl
 a01_patch_12-13_34-35.fl
@@ -2871,11 +2891,15 @@ a01_patch_26-27_34-35.fl
 a01_patch_26-27_36-37.fl
 a01_patch_26-27_38-39.fl
 a01_patch_28-29_34-35.fl
+a01_patch_28-29_34-35_detail.fl
 a01_patch_28-29_36-37.fl
 a01_patch_30-31_34-35.fl
 a01_patch_30-31_36-37.fl
 a01_patch_30-31_38-39.fl
+a01_patch_32-33_34-35.fl
 a01_patch_32-33_36-37.fl
+a01_patch_34-35_36-37.fl
+a01_patch_36-37_36-37.fl
 a01_reveal_enc1010.fl
 a01_reveal_enc1010_ballon_far_lod.fl
 a01_reveal_enc1010_north.fl
@@ -2897,6 +2921,8 @@ a01_sc1160.fl
 a01_sc1170.fl
 a01_sc1190.fl
 a01_sc1250.fl
+a01_sc1280.fl
+a01_sc1300_farlod.fl
 a01_sc1330.fl
 a01_sc1350.fl
 a01_sc1360.fl
@@ -2917,6 +2943,7 @@ a01_sc1700.fl
 a01_sc1720.fl
 a01_sc1750.fl
 a01_sc1760.fl
+a01_scrap_hauler_gutgash_01.fl
 a01_scrap_hauler_gutgash_02.fl
 a01_scrap_hauler_gutgash_03.fl
 a01_scrap_hauler_jeets_01.fl
@@ -2976,6 +3003,7 @@ a02_deathrun_pinkeye_finish_line.fl
 a02_deathrun_pinkeye00_01.fl
 a02_deathrun_pinkeye01_01.fl
 a02_deathrun_pinkeye02_01.fl
+a02_deathrun_pinkeye03_01.fl
 a02_deathrun_pinkeye04_01.fl
 a02_enc2010_art_exterior.fl
 a02_enc2010_exterior.fl
@@ -2983,6 +3011,7 @@ a02_fd2030.fl
 a02_fd2030_gameplay.fl
 a02_fd2040.fl
 a02_fo2020.fl
+a02_fo2020_civilian_spawn.fl
 a02_fo2020_gameplay.fl
 a02_fo2040.fl
 a02_high_valuable_vehicle_pinkeye_01.fl
@@ -3002,6 +3031,7 @@ a02_loot_pinkeye00_10.fl
 a02_loot_pinkeye00_11.fl
 a02_loot_pinkeye00_11_logic.fl
 a02_loot_pinkeye00_12.fl
+a02_loot_pinkeye01_01.fl
 a02_loot_pinkeye01_02.fl
 a02_loot_pinkeye01_03.fl
 a02_loot_pinkeye01_03_logic.fl
@@ -3036,6 +3066,7 @@ a02_loot_pinkeye03_08.fl
 a02_loot_pinkeye03_10.fl
 a02_loot_pinkeye03_11.fl
 a02_loot_pinkeye03_12.fl
+a02_loot_pinkeye03_12_logic.fl
 a02_loot_pinkeye03_13.fl
 a02_loot_pinkeye03_14.fl
 a02_loot_pinkeye03_15.fl
@@ -3057,6 +3088,13 @@ a02_loot_pinkeye04_17.fl
 a02_loot_pinkeye04_18.fl
 a02_loot_pinkeye04_19.fl
 a02_loot_pinkeye04_20.fl
+a02_lto60_obj01a.fl
+a02_mm3030_art_and_roads_01.fl
+a02_mm3030_art_and_roads_02.fl
+a02_mm3030_art_and_roads_03.fl
+a02_mm3030_art_and_roads_04.fl
+a02_mm3030_art_and_roads_05.fl
+a02_mm3030_landmover_abyss.fl
 a02_patch_12-13_26-27.fl
 a02_patch_12-13_28-29.fl
 a02_patch_12-13_30-31.fl
@@ -3072,6 +3110,7 @@ a02_patch_16-17_30-31.fl
 a02_patch_16-17_32-33.fl
 a02_patch_16-17_34-35.fl
 a02_patch_16-17_34-35_town.fl
+a02_patch_18-19_22-23.fl
 a02_patch_18-19_24-25.fl
 a02_patch_18-19_26-27.fl
 a02_patch_18-19_28-29.fl
@@ -3088,11 +3127,13 @@ a02_patch_20-21_28-29_rocks.fl
 a02_patch_20-21_30-31.fl
 a02_patch_20-21_32-33.fl
 a02_patch_20-21_34-35.fl
+a02_patch_22-23_22-23.fl
 a02_patch_22-23_24-25.fl
 a02_patch_22-23_26-27.fl
 a02_patch_22-23_28-29.fl
 a02_patch_22-23_30-31.fl
 a02_patch_22-23_32-33.fl
+a02_patch_24-25_24-25.fl
 a02_patch_24-25_28-29.fl
 a02_patch_24-25_32-33.fl
 a02_patch_26-27_24-25.fl
@@ -3124,6 +3165,7 @@ a02_sc2180.fl
 a02_sc2210.fl
 a02_sc2220.fl
 a02_sc2240.fl
+a02_sc2260.fl
 a02_sc2310.fl
 a02_sc2340.fl
 a02_sc2350.fl
@@ -3174,6 +3216,7 @@ a04_loot_gastown01_02.fl
 a04_loot_gastown01_03.fl
 a04_loot_gastown01_04.fl
 a04_loot_gastown01_05.fl
+a04_loot_gastown01_06.fl
 a04_loot_gastown01_07.fl
 a04_loot_gastown01_08.fl
 a04_loot_gastown01_09.fl
@@ -3185,6 +3228,7 @@ a04_patch_22-23_28-29.fl
 a04_patch_24-25_25-26.fl
 a04_patch_24-25_26-27.fl
 a04_patch_24-25_28-29.fl
+a04_patch_24-25_32-33.fl
 a04_patch_26-27_26-27.fl
 a04_racetrack_02_vfx.fl
 a04_racetrack_arena.fl

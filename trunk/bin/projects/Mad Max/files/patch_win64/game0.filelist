@@ -1,4 +1,4 @@
-; 2828/3285 (86%)
+; 2838/3285 (86%)
 11_40.navmeshc
 11_41.navmeshc
 12_38.navmeshc
@@ -831,6 +831,7 @@ a00_tests_character_showroom_buzzards_02.blo
 a00_tests_character_showroom_roadkill_03.blo
 a00_tests_character_showroom_scrotus_02.blo
 a00_tests_character_showroom_scrotus_04.blo
+a00_tests_encounters.bl
 a00_tests_envweapon.blo
 a00_tests_interaction_carry.blo
 a00_tests_interactionsystem.bl.toc
@@ -2116,7 +2117,16 @@ map.guixc
 map_control.gsrc
 mapicons.mapiconsc
 mash_button_gameplay.xvmc
+master_gui_brp.stringlookup
 master_gui_eng.stringlookup
+master_gui_fre.stringlookup
+master_gui_ger.stringlookup
+master_gui_ita.stringlookup
+master_gui_jpn.stringlookup
+master_gui_nsp.stringlookup
+master_gui_pol.stringlookup
+master_gui_rus.stringlookup
+master_gui_spa.stringlookup
 max.bin
 message_box.gsrc
 mixing_conditions.smodc
