@@ -1,7 +1,8 @@
-; 202/296 (68%)
+; 223/296 (75%)
 a00_environmentpresets_gastown.nl
 a01_buried_carwreck_gutgash00_01.nl
 a01_buried_carwreck_gutgash01_01.nl
+a01_buried_carwreck_gutgash02_01.nl
 a01_buried_carwreck_gutgash03_01.nl
 a01_buried_carwreck_jeet00_01.nl
 a01_buried_carwreck_jeet00_02.nl
@@ -13,6 +14,8 @@ a01_dbp_gate.nl
 a01_deathrun_gutgash_finish_line.nl
 a01_deathrun_gutgash00_01.nl
 a01_deathrun_gutgash01_01.nl
+a01_deathrun_gutgash02_01.nl
+a01_deathrun_gutgash03_01.nl
 a01_deathrun_gutgash04_01.nl
 a01_deathrun_jeet_finish_line.nl
 a01_deathrun_jeet00_01.nl
@@ -30,6 +33,7 @@ a01_et_random_encounters_09.nl
 a01_et_random_encounters_10.nl
 a01_et_random_encounters_11.nl
 a01_et_random_encounters_12.nl
+a01_fd1050.nl
 a01_fd1080_camp.nl
 a01_fd1080_civilians.nl
 a01_fd1080_logic.nl
@@ -43,12 +47,14 @@ a01_general_parachuter_egg.nl
 a01_griffa_02.nl
 a01_griffa_04.nl
 a01_griffa_05.nl
+a01_griffa_06.nl
 a01_griffa_07.nl
 a01_griffa_08.nl
 a01_high_valuable_vehicle_jeets_01.nl
 a01_minefield_gutgash00_02.nl
 a01_minefield_gutgash01_01.nl
 a01_minefield_gutgash03_01.nl
+a01_minefield_gutgash03_02.nl
 a01_minefield_gutgash04_01.nl
 a01_minefield_gutgash04_02.nl
 a01_minefield_jeet00_01.nl
@@ -86,6 +92,7 @@ a01_sc1350.nl
 a01_sc1360.nl
 a01_sc1370.nl
 a01_sc1390.nl
+a01_sc1410.nl
 a01_sc1420.nl
 a01_sc1440.nl
 a01_sc1450.nl
@@ -106,6 +113,7 @@ a01_sc1630.nl
 a01_sc1670.nl
 a01_sc1700.nl
 a01_sc1710.nl
+a01_sc1720.nl
 a01_sc1730.nl
 a01_sc1750.nl
 a01_sc1760.nl
@@ -134,6 +142,7 @@ a01_sd1200.nl
 a01_sd1200_civilian_spawns.nl
 a01_sd1200_gameplay.nl
 a01_sd1210.nl
+a01_sd1210_civilian_spawn.nl
 a01_sd1210_spawn.nl
 a01_sd1240.nl
 a01_sd1240_gameplay.nl
@@ -148,6 +157,7 @@ a01_sd1300_gameplay.nl
 a01_sd1330.nl
 a01_sd1330_civilian_spawn.nl
 a01_sd1330_spawn.nl
+a01_sm_4020_tomb_scavenge.nl
 a01_sm_jeet_01_cave.nl
 a01_sm_jeet_02_camp.nl
 a01_sn1010.nl
@@ -159,14 +169,18 @@ a01_sn1060.nl
 a01_sn1070.nl
 a01_sn1080.nl
 a01_sn1090.nl
+a01_sn1130.nl
 a01_sn1160.nl
 a01_sn1170.nl
 a01_sn1180.nl
 a01_sn1190.nl
 a01_sn1200.nl
 a01_sn1210.nl
+a01_sn1270.nl
+a01_sn1280.nl
 a01_vv1050_camp.nl
 a01_vv1050_gameplay.nl
+a01_vv1060.nl
 a01_vv1080.nl
 a01_vv1080_gameplay.nl
 a01_vv1110.nl
@@ -179,8 +193,10 @@ a02_sm_gutgash_01_obj04.fl
 a02_sm_gutgash_01_obj05.fl
 intel_g_convoy.fl
 intel_j_convoy.fl
+intel0087.fl
 intel1015.fl
 intel1016.fl
+intel5021.fl
 intelfo2020.fl
 intelsd1030.fl
 intelsd1290.fl
@@ -200,4 +216,9 @@ sm_jeet_01_obj01_cave_exit.fl
 sm_jeet_02_obj_01.fl
 sm_jeet_02_obj_02.fl
 sm_jeet_03_obj_01.fl
+sm3030_obj00.fl
+sm4020_obj03.fl
+sm5020_obj02.fl
+sm5020_obj04.fl
+sm6010_obj02.fl
 sto5029.fl
