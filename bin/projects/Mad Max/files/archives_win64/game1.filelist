@@ -1,4 +1,4 @@
-; 137/139 (98%)
+; 138/139 (99%)
 a00_ch_max_upgrade_head_beard_short_arm_0.bl
 a00_vh_s001_location.bl
 a00_vh_s001_upgrade_armour0.bl
@@ -14,6 +14,7 @@ a00_vh_s001_upgrade_wheel_armour0.bl
 a00_vh_s001_upgrade_wheel0.bl
 a02.bl
 activity_smoke.bl
+bookmarks_gen.bl
 car_combat.bl
 character_global.fsb
 character_npc_dog.fsb

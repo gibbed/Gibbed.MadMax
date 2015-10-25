@@ -1,4 +1,4 @@
-; 1894/4334 (43%)
+; 1900/4334 (43%)
 a0_ec_delivery_system.gsrc
 a0_ec_delivery_system_dialogue_intents.gsrc
 a0_ec_delivery_system_enterlogic.gsrc
@@ -792,6 +792,12 @@ a01_enc1000_set_entered.gsrc
 a01_enc1010_locations.gsrc
 a01_enc1020_locations.gsrc
 a01_enc1020_searchlight_control.gsrc
+a01_wasteland_buzzard_ambush_0001.ee
+a01_wasteland_corpses_0003.ee
+a01_wasteland_corpses_0004_birds.ee
+a01_wasteland_mercy_corpses_0001.ee
+a01_wasteland_worship_0001.ee
+a01_wasteland_worship_0002.ee
 a02_enc2010_enable_spawns.gsrc
 a02_enc2010_locations.gsrc
 a04_enc2020_glory_logic.gsrc
