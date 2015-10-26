@@ -87,7 +87,7 @@ namespace Gibbed.MadMax.XvmDisassemble
 
                 if (adf.TypeDefinitions.Count > 0)
                 {
-                    throw new NotSupportedException();
+                    //throw new NotSupportedException();
                 }
 
                 var debugStringsInfo = adf.InstanceInfos.FirstOrDefault(i => i.Name == "debug_strings");
@@ -259,7 +259,7 @@ namespace Gibbed.MadMax.XvmDisassemble
                                             var bytes = new byte[constant.Length];
                                             Array.Copy(module.StringBuffer, (int)constant.Value, bytes, 0, constant.Length);
 
-                                            if (bytes.Any(b => b < 0x20 || b > 0x7F) == true)
+                                            if (bytes.Any(b => b != 0x09 && b != 0x0A && b != 0x0D && (b < 0x20 || b > 0x7F)) == true)
                                             {
                                                 var value = BitConverter.ToString(bytes);
                                                 value = value.ToUpperInvariant();
