@@ -132,11 +132,44 @@ namespace Gibbed.MadMax.Unpack
                             continue;
                         }
 
-                        // TODO: file type detection?
+                        var guess = new byte[32];
+                        int read = 0;
 
+                        if (tab.EntryChunks.ContainsKey(nameHash) == false)
+                        {
+                            input.Seek(entry.Offset, SeekOrigin.Begin);
+
+                            if (entry.CompressedSize == entry.UncompressedSize)
+                            {
+                                read = input.Read(guess, 0, (int)Math.Min(guess.Length, entry.UncompressedSize));
+                            }
+                            else
+                            {
+                                var zlib = new InflaterInputStream(input, new Inflater(true));
+                                read = zlib.Read(guess, 0, (int)Math.Min(guess.Length, entry.UncompressedSize));
+                            }
+                        }
+                        else
+                        {
+                            var chunks = tab.EntryChunks[nameHash];
+                            if (chunks.Count > 0)
+                            {
+                                var chunk = chunks[0];
+                                var nextUncompressedOffset =
+                                    1 < chunks.Count
+                                        ? chunks[1].UncompressedOffset
+                                        : entry.UncompressedSize;
+                                var uncompressedSize = nextUncompressedOffset - chunk.UncompressedOffset;
+                                input.Seek(entry.Offset + chunk.CompressedOffset, SeekOrigin.Begin);
+                                var zlib = new InflaterInputStream(input, new Inflater(true));
+                                read = zlib.Read(guess, 0, (int)Math.Min(guess.Length, uncompressedSize));
+                            }
+                        }
+
+                        var extension = FileDetection.Detect(guess, read);
                         name = nameHash.ToString("X8");
-                        name = Path.ChangeExtension(name, ".unknown");
-                        name = Path.Combine("__UNKNOWN", name);
+                        name = Path.ChangeExtension(name, "." + extension);
+                        name = Path.Combine("__UNKNOWN", extension, name);
                     }
                     else
                     {
@@ -176,8 +209,6 @@ namespace Gibbed.MadMax.Unpack
                             name);
                     }
 
-                    input.Seek(entry.Offset, SeekOrigin.Begin);
-
                     var entryDirectory = Path.GetDirectoryName(entryPath);
                     if (entryDirectory != null)
                     {
@@ -202,21 +233,26 @@ namespace Gibbed.MadMax.Unpack
                         }
                         else
                         {
-                            var chunks = tab.EntryChunks[nameHash];
-                            for (int i = 0; i < chunks.Count; i++)
+                            input.Seek(entry.Offset, SeekOrigin.Begin);
+                            using (var temp = input.ReadToMemoryStream(entry.CompressedSize))
                             {
-                                var chunk = chunks[i];
-                                var nextUncompressedOffset =
-                                    i + 1 < chunks.Count
-                                        ? chunks[i + 1].UncompressedOffset
-                                        : entry.UncompressedSize;
-                                var uncompressedSize = nextUncompressedOffset - chunk.UncompressedOffset;
+                                var chunks = tab.EntryChunks[nameHash];
+                                for (int i = 0; i < chunks.Count; i++)
+                                {
+                                    var chunk = chunks[i];
+                                    var nextUncompressedOffset =
+                                        i + 1 < chunks.Count
+                                            ? chunks[i + 1].UncompressedOffset
+                                            : entry.UncompressedSize;
+                                    var uncompressedSize = nextUncompressedOffset - chunk.UncompressedOffset;
 
-                                input.Seek(entry.Offset + chunk.CompressedOffset, SeekOrigin.Begin);
-                                output.Seek(chunk.UncompressedOffset, SeekOrigin.Begin);
+                                    //input.Seek(entry.Offset + chunk.CompressedOffset, SeekOrigin.Begin);
+                                    temp.Seek(chunk.CompressedOffset, SeekOrigin.Begin);
+                                    output.Seek(chunk.UncompressedOffset, SeekOrigin.Begin);
 
-                                var zlib = new InflaterInputStream(input, new Inflater(true));
-                                output.WriteFromStream(zlib, uncompressedSize);
+                                    var zlib = new InflaterInputStream(temp, new Inflater(true));
+                                    output.WriteFromStream(zlib, uncompressedSize);
+                                }
                             }
                         }
                     }
