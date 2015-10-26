@@ -1,4 +1,4 @@
-; 2882/3285 (87%)
+; 2883/3285 (87%)
 11_38.navmeshc
 11_39.navmeshc
 11_40.navmeshc
@@ -2120,6 +2120,7 @@ lamp_standing_metal_can_4.effc
 landmover.blo
 landmover_mm3030.blo
 landscape_sandcolor.ddsc
+legal_screen.guixc
 legend_rank.guixc
 listener_fsm_at.smodc
 load_game_menu.guixc
