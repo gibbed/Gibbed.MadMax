@@ -27,11 +27,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("Gibbed.MadMax.AdfConvert")]
+[assembly: AssemblyTitle("Gibbed.MadMax.ConvertProperty")]
 [assembly: AssemblyDescription("http://gib.me/")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Gibbed.MadMax.AdfConvert")]
+[assembly: AssemblyProduct("Gibbed.MadMax.ConvertProperty")]
 [assembly: AssemblyCopyright("Copyright © Gibbed 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -44,7 +44,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("dd1bfbc1-5b2b-45a3-92c5-108467d19c1f")]
+[assembly: Guid("e625ff27-a740-4962-892f-39e2ce1a4b37")]
 
 // Version information for an assembly consists of the following four values:
 //

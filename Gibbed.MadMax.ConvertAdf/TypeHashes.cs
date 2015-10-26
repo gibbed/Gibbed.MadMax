@@ -20,7 +20,7 @@
  *    distribution.
  */
 
-namespace Gibbed.MadMax.AdfConvert
+namespace Gibbed.MadMax.ConvertAdf
 {
     internal static class TypeHashes
     {

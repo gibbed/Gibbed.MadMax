@@ -20,41 +20,42 @@
  *    distribution.
  */
 
-using System;
 using System.Collections.Generic;
 
-namespace Gibbed.MadMax.AdfConvert
+namespace Gibbed.MadMax.ConvertProperty
 {
-    internal class RuntimeTypeLibrary
+    internal class NameComparer : IComparer<uint>
     {
-        private readonly Dictionary<uint, FileFormats.AdfFile.TypeDefinition> _TypeDefinitions;
+        private readonly ProjectData.HashList<uint> _Names;
 
-        public RuntimeTypeLibrary()
+        public NameComparer(ProjectData.HashList<uint> names)
         {
-            this._TypeDefinitions = new Dictionary<uint, FileFormats.AdfFile.TypeDefinition>();
+            this._Names = names;
         }
 
-        public FileFormats.AdfFile.TypeDefinition GetTypeDefinition(uint nameHash)
+        public int Compare(uint x, uint y)
         {
-            if (this._TypeDefinitions.ContainsKey(nameHash) == false)
+            if (this._Names.Contains(x) == false)
             {
-                throw new InvalidOperationException();
-            }
-
-            return this._TypeDefinitions[nameHash];
-        }
-
-        public void AddTypeDefinitions(FileFormats.AdfFile adf)
-        {
-            foreach (var typeDefinition in adf.TypeDefinitions)
-            {
-                if (this._TypeDefinitions.ContainsKey(typeDefinition.NameHash) == true)
+                if (this._Names.Contains(y) == false)
                 {
-                    throw new InvalidOperationException();
+                    if (x == y)
+                    {
+                        return 0;
+                    }
+
+                    return x < y ? -1 : 1;
                 }
 
-                this._TypeDefinitions.Add(typeDefinition.NameHash, typeDefinition);
+                return 1;
             }
+
+            if (this._Names.Contains(y) == false)
+            {
+                return -1;
+            }
+
+            return string.CompareOrdinal(this._Names[x], this._Names[y]);
         }
     }
 }
