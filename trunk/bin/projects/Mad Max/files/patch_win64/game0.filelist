@@ -1,4 +1,4 @@
-; 2843/3285 (86%)
+; 2846/3285 (86%)
 11_40.navmeshc
 11_41.navmeshc
 12_38.navmeshc
@@ -913,6 +913,9 @@ a00_vh_s002_location.blo
 a00_vh_s003_location.blo
 a00_vh_s004_location.blo
 a00_vh_s007_location.blo
+a00_vh_shared_wheels_v001_rim_lod1ge0.rbs
+a00_vh_shared_wheels_v002_rim_lod1ge0.rbs
+a00_vh_shared_wheels_v003_rim_lod2ge0.rbs
 a00_vh_sidemission_dunevesselcarrier.epe
 a00_vh_sidemission_hvv.epe
 a00_vh_sidemission_speakercar.epe
