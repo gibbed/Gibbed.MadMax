@@ -178,17 +178,16 @@ namespace Gibbed.MadMax.ConvertProperty
                     }
                 }
 
-                using (var output = File.Create(outputPath))
+                var settings = new XmlWriterSettings
                 {
-                    var settings = new XmlWriterSettings
-                    {
-                        Indent = true,
-                        IndentChars = "\t",
-                        CheckCharacters = false,
-                    };
+                    Indent = true,
+                    IndentChars = "\t",
+                    CheckCharacters = false,
+                };
 
-                    var writer = XmlWriter.Create(output, settings);
-
+                using (var output = File.Create(outputPath))
+                using (var writer = XmlWriter.Create(output, settings))
+                {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("container");
 
@@ -208,8 +207,6 @@ namespace Gibbed.MadMax.ConvertProperty
                     }
                     writer.WriteEndElement();
                     writer.WriteEndDocument();
-
-                    writer.Flush();
                 }
             }
             else if (mode == Mode.Import)

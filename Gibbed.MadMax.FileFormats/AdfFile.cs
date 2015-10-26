@@ -244,7 +244,7 @@ namespace Gibbed.MadMax.FileFormats
 
             public override string ToString()
             {
-                return string.Format("{0}", this.Name);
+                return string.Format("{0} ({1:X})", this.Name, this.NameHash);
             }
         }
 
