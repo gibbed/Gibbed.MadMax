@@ -1,4 +1,4 @@
-; 286/296 (96%)
+; 296/296 (100%)
 a00_environmentpresets_gastown.nl
 a00_tests_encounters.nl
 a00_tests_ogc_testbed.nl
@@ -248,11 +248,16 @@ intel_j_convoy.fl
 intel0087.fl
 intel1015.fl
 intel1016.fl
+intel5018.fl
+intel5019.fl
 intel5021.fl
+intelfd1050.fl
 intelfo2020.fl
 intelsd1030.fl
 intelsd1290.fl
+intelsd2020.fl
 intelvv2020.fl
+intelwc1050.fl
 invisible_collision_a01_patch_12-13_32-33.nl
 invisible_collision_a01_patch_12-13_34-35.nl
 invisible_collision_a01_patch_16-17_36-37.nl
@@ -270,6 +275,8 @@ invisible_collission_a01_patch_30-31_34-35.nl
 invisible_collission_a01_patch_32-33_34-35.nl
 lto30.fl
 lto50.fl
+scv3070.fl
+scv5069.fl
 sm_chum_01_dog_and_buggy.fl
 sm_chum_01_obj04.fl
 sm_jeet_01_blascap_cage.fl
@@ -284,4 +291,7 @@ sm4020_obj03.fl
 sm5020_obj02.fl
 sm5020_obj04.fl
 sm6010_obj02.fl
+sm6030_obj01.fl
+sm6030_obj05.fl
+sto2025.fl
 sto5029.fl

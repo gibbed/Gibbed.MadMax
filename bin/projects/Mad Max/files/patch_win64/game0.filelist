@@ -1,4 +1,4 @@
-; 2838/3285 (86%)
+; 2843/3285 (86%)
 11_40.navmeshc
 11_41.navmeshc
 12_38.navmeshc
@@ -1098,11 +1098,14 @@ a01_loot_gutgash02_04.blo
 a01_loot_gutgash02_04_logic.blo
 a01_loot_gutgash02_06.blo
 a01_loot_gutgash02_10.blo
+a01_loot_gutgash03_02.blo
 a01_loot_gutgash03_03.blo
 a01_loot_gutgash03_04_logic.blo
 a01_loot_gutgash03_05.blo
+a01_loot_gutgash03_06.blo
 a01_loot_gutgash03_07.blo
 a01_loot_gutgash03_07.nl.toc
+a01_loot_gutgash03_10.blo
 a01_loot_gutgash03_12.blo
 a01_loot_gutgash03_15.blo
 a01_loot_gutgash03_15.nl.toc
@@ -1526,6 +1529,7 @@ a02_loot_pinkeye00_04.blo
 a02_loot_pinkeye00_05.blo
 a02_loot_pinkeye00_05.nl.toc
 a02_loot_pinkeye00_08.blo
+a02_loot_pinkeye00_10.blo
 a02_loot_pinkeye00_11.blo
 a02_loot_pinkeye00_11_logic.blo
 a02_loot_pinkeye00_12.blo
@@ -2318,6 +2322,7 @@ mm3020_cs040.blo
 mm3020_cs040_brp.stringlookup
 mm3030.joust.blo
 mm3030.landmover_fight.blo
+mm3030.logic.blo
 mm3030.logic_brp.stringlookup
 mm3030.logic_jpn.stringlookup
 mm3030.ogc.blo
