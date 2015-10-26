@@ -32,7 +32,7 @@ using Gibbed.MadMax.FileFormats;
 using Gibbed.MadMax.PropertyFormats;
 using NDesk.Options;
 
-namespace Gibbed.MadMax.PropertyConvert
+namespace Gibbed.MadMax.ConvertProperty
 {
     internal class Program
     {

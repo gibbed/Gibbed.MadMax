@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{797E2FF9-A60A-455A-975D-6074EDEEA653}</ProjectGuid>
+    <ProjectGuid>{FA1B9E03-AA18-44EF-8B6B-1FDE8582B97F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gibbed.MadMax.PropertyConvert</RootNamespace>
-    <AssemblyName>Gibbed.MadMax.PropertyConvert</AssemblyName>
+    <RootNamespace>Gibbed.MadMax.ConvertAdf</RootNamespace>
+    <AssemblyName>Gibbed.MadMax.ConvertAdf</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NameComparer.cs" />
+    <Compile Include="TypeHashes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuntimeTypeLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gibbed.IO\Gibbed.IO.csproj">
@@ -55,10 +56,6 @@
     <ProjectReference Include="..\Gibbed.MadMax.FileFormats\Gibbed.MadMax.FileFormats.csproj">
       <Project>{ABD7E120-CAEB-4D5D-871C-33A915A75BB1}</Project>
       <Name>Gibbed.MadMax.FileFormats</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Gibbed.MadMax.PropertyFormats\Gibbed.MadMax.PropertyFormats.csproj">
-      <Project>{54E44377-22E4-4477-A75C-0514AB69E94C}</Project>
-      <Name>Gibbed.MadMax.PropertyFormats</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gibbed.ProjectData\Gibbed.ProjectData.csproj">
       <Project>{F27A289E-3376-4653-89F3-D19C1ECABF33}</Project>

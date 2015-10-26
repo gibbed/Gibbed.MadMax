@@ -32,7 +32,7 @@ using MemberDefinition = Gibbed.MadMax.FileFormats.AdfFile.MemberDefinition;
 using TypeDefinition = Gibbed.MadMax.FileFormats.AdfFile.TypeDefinition;
 using TypeDefinitionType = Gibbed.MadMax.FileFormats.AdfFile.TypeDefinitionType;
 
-namespace Gibbed.MadMax.AdfConvert
+namespace Gibbed.MadMax.ConvertAdf
 {
     internal class Program
     {
