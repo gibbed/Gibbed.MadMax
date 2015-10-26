@@ -1,4 +1,6 @@
-; 340/366 (92%)
+; 366/366 (100%)
+a00_buried_carwreck_reveal.bl
+a00_loot_reveal.bl
 a00_vh_s003_upgrade_bodywork1.bl
 a00_vh_s003_upgrade_bodywork2.bl
 a00_vh_s003_upgrade_bodywork3.bl
@@ -296,12 +298,21 @@ a00_vh_s007_upgrade_wheel6.bl
 a00_vh_shotgun_anims_set03.bl
 a00_vh_shotgun_anims_set04.bl
 a00_vh_snowglobe.bl
+a01_car_body_cutscene.bl
 a01_deathrun_gutgash00_01_enemies.bl
 a01_deathrun_gutgash00_01_redroad.bl
 a01_deathrun_gutgash00_01_redroad_opuswars.bl
+a01_deathrun_gutgash01_01_enemies.bl
+a01_deathrun_gutgash01_01_redroad.bl
+a01_deathrun_gutgash02_01_enemies.bl
+a01_deathrun_gutgash02_01_redroad.bl
+a01_deathrun_gutgash03_01_enemies.bl
+a01_deathrun_gutgash03_01_redroad.bl
+a01_deathrun_gutgash04_01_enemies.bl
 a01_deathrun_gutgash04_01_redroad.bl
 a01_deathrun_jeet00_01_enemies.bl
 a01_deathrun_jeet00_01_redroad.bl
+a01_deathrun_jeet01_01_enemies.bl
 a01_deathrun_jeet01_01_redroad.bl
 a01_deathrun_jeet02_01_enemies.bl
 a01_deathrun_jeet02_01_redroad.bl
@@ -310,13 +321,19 @@ a01_deathrun_jeet03_01_enemies.bl
 a01_deathrun_jeet03_01_redroad.bl
 a01_deathrun_jeet04_01_enemies.bl
 a01_deathrun_jeet04_01_redroad.bl
+a01_deathrun_jeet04_01_redroad_opuswars.bl
+a01_deathrun_reveal.bl
+a01_e3_mission_logic.bl
 a01_enc1000_cathedral.bl
 a01_enc1010.bl
 a01_enc1010.propulator.bl
 a01_enc1010_level_01.bl
 a01_enc1010_level_02.bl
+a01_enc1010_level_03.bl
+a01_enc1010_level_04.bl
 a01_enc1010_level_05.bl
 a01_enc1010_spawn.bl
+a01_enc1010_upgrade_mechanic.bl
 a01_enc1020.bl
 a01_enc1020.propulator.bl
 a01_enc1020_level_01.bl
@@ -325,13 +342,20 @@ a01_enc1020_level_03.bl
 a01_enc1020_level_04.bl
 a01_enc1020_level_05.bl
 a01_enc1020_spawn.bl
+a02_buried_city_race_route_bonus.bl
+a02_buried_city_race_route1.bl
+a02_buried_city_race_route2.bl
+a02_buried_city_race_route3.bl
 a02_deathrun_pinkeye00_01_enemies.bl
 a02_deathrun_pinkeye00_01_redroad.bl
+a02_deathrun_pinkeye00_01_redroad_opuswars.bl
 a02_deathrun_pinkeye01_01_enemies.bl
 a02_deathrun_pinkeye01_01_redroad.bl
 a02_deathrun_pinkeye02_01_enemies.bl
 a02_deathrun_pinkeye02_01_redroad.bl
+a02_deathrun_pinkeye03_01_enemies.bl
 a02_deathrun_pinkeye03_01_redroad.bl
+a02_deathrun_pinkeye03_01_redroad_opuswars.bl
 a02_deathrun_pinkeye04_01_enemies.bl
 a02_deathrun_pinkeye04_01_redroad.bl
 a02_enc2010.bl
@@ -339,3 +363,5 @@ a02_enc2010.propulator.bl
 a02_enc2010_level_01.bl
 a02_enc2010_level_01_burning.bl
 a02_enc2010_level_02.bl
+a02_enc2010_level_03.bl
+e3_1.logic.bl

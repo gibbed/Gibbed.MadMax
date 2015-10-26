@@ -1,4 +1,4 @@
-; 3289/8464 (38%)
+; 3310/8464 (39%)
 0000_a04_courtyard_intro.afsmb
 0000_a04_courtyard_intro.asb
 0000_a04_courtyard_intro__cam__cam_01.ban
@@ -2728,6 +2728,7 @@ a01_lm_volcano.fl
 a01_loot_gutgash00_01.fl
 a01_loot_gutgash00_02.fl
 a01_loot_gutgash00_03.fl
+a01_loot_gutgash00_04.fl
 a01_loot_gutgash00_05.fl
 a01_loot_gutgash00_06.fl
 a01_loot_gutgash00_07.fl
@@ -2744,6 +2745,7 @@ a01_loot_gutgash01_04.fl
 a01_loot_gutgash01_07.fl
 a01_loot_gutgash01_08.fl
 a01_loot_gutgash01_09.fl
+a01_loot_gutgash01_10.fl
 a01_loot_gutgash01_12.fl
 a01_loot_gutgash02_01.fl
 a01_loot_gutgash02_02.fl
@@ -2841,6 +2843,11 @@ a01_loot_jeet04_07.fl
 a01_loot_jeet04_09.fl
 a01_loot_jeet04_10.fl
 a01_loot_pinkeye02_14.fl
+a01_lto20_obj01a.fl
+a01_lto20_obj01b.fl
+a01_lto20_obj01c.fl
+a01_lto20_obj01d.fl
+a01_lto20_obj01e.fl
 a01_lto40_obj01a.fl
 a01_lto40_obj01b.fl
 a01_lto40_obj01c.fl
@@ -3088,6 +3095,11 @@ a02_loot_pinkeye04_17.fl
 a02_loot_pinkeye04_18.fl
 a02_loot_pinkeye04_19.fl
 a02_loot_pinkeye04_20.fl
+a02_lto30_obj01a.fl
+a02_lto30_obj01b.fl
+a02_lto30_obj01c.fl
+a02_lto30_obj01d.fl
+a02_lto30_obj01e.fl
 a02_lto60_obj01a.fl
 a02_mm3030_art_and_roads_01.fl
 a02_mm3030_art_and_roads_02.fl
@@ -3164,12 +3176,16 @@ a02_sc2160.fl
 a02_sc2180.fl
 a02_sc2210.fl
 a02_sc2220.fl
+a02_sc2230.fl
 a02_sc2240.fl
+a02_sc2250.fl
 a02_sc2260.fl
 a02_sc2310.fl
+a02_sc2320.fl
 a02_sc2340.fl
 a02_sc2350.fl
 a02_scrap_hauler_pinkeye_01.fl
+a02_scrap_hauler_pinkeye_02.fl
 a02_sd2010.fl
 a02_sd2020.fl
 a02_sd2020_gameplay.fl
@@ -3205,10 +3221,12 @@ a02_sn2170.fl
 a02_vv2020.fl
 a02_wc2020.fl
 a02_wc2020_gameplay.fl
+a02_wc2020_vehicle.fl
 a02_wc2040.fl
 a02_wc2040_spawn.fl
 a04_courtyard.fl
 a04_courtyard_exterior.fl
+a04_deathrun_deepfriah_finish_line.fl
 a04_enc2020_exterior.fl
 a04_griffa_01.fl
 a04_loot_gastown01_01.fl
@@ -3278,6 +3296,9 @@ gen_in_veh__char_mmax.afsmb
 gen_in_veh__char_mmax.asb
 gen_in_veh__char_mmax.ban
 intel0077.fl
+intel0081.fl
+intel0083.fl
+mm1012.camp_interceptor.fl
 mm1032.stank_gum_attack.fl
 mm1039.thunderstick_towers.fl
 mm1040.catapults.fl
