@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AdfFile.cs" />
     <Compile Include="ArchiveTableFile.cs" />
+    <Compile Include="FileDetection.cs" />
     <Compile Include="XvmModule.cs" />
     <Compile Include="ProjectHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
