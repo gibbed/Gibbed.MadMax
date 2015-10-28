@@ -27313,7 +27313,7 @@ xlsbook.xvmc:
 xone_profile.bl:gui/xone_profile.bl
 xone_profile.guixc:gui/xone_profile.guixc
 zero_hip.xvmc:
-zones.fev:
+zones.fev:sound/fmod/zones.fev
 zones_insects.fsb:
 zones_streamed.fsb:
 zones_wheather.fsb:

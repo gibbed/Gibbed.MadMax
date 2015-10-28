@@ -1,4 +1,4 @@
-; 2883/3285 (87%)
+; 2908/3321 (87%)
 11_38.navmeshc
 11_39.navmeshc
 11_40.navmeshc
@@ -239,6 +239,7 @@
 32_27.navmeshc
 32_28.navmeshc
 32_29.navmeshc
+32_3.navmeshc
 32_30.navmeshc
 32_31.navmeshc
 32_32.navmeshc
@@ -247,10 +248,14 @@
 32_35.navmeshc
 32_36.navmeshc
 32_37.navmeshc
+32_4.navmeshc
+32_5.navmeshc
+32_6.navmeshc
 33_26.navmeshc
 33_27.navmeshc
 33_28.navmeshc
 33_29.navmeshc
+33_3.navmeshc
 33_30.navmeshc
 33_31.navmeshc
 33_32.navmeshc
@@ -258,7 +263,24 @@
 33_34.navmeshc
 33_35.navmeshc
 33_36.navmeshc
+33_6.navmeshc
+34_2.navmeshc
+34_3.navmeshc
+34_5.navmeshc
+34_6.navmeshc
+35_2.navmeshc
+35_3.navmeshc
+35_4.navmeshc
 35_44.navmeshc
+35_5.navmeshc
+36_2.navmeshc
+36_3.navmeshc
+36_4.navmeshc
+36_5.navmeshc
+37_2.navmeshc
+37_3.navmeshc
+37_4.navmeshc
+37_5.navmeshc
 a0_ec_delivery_system_enterlogic.gsrc
 a00_ac_convoy_composition_convoytruck_01.ee.toc
 a00_ac_convoy_composition_convoytruck_01.epe
@@ -2360,6 +2382,7 @@ mm3020_cs030_brp.stringlookup
 mm3020_cs030_rus.stringlookup
 mm3020_cs040.blo
 mm3020_cs040_brp.stringlookup
+mm3020_hideout_entrance.gsrc
 mm3030.joust.blo
 mm3030.landmover_fight.blo
 mm3030.logic.blo
@@ -2817,6 +2840,7 @@ terrain_h_20_38.dat
 terrain_h_20_39.dat
 terrain_h_21_36.dat
 terrain_h_25_43.dat
+terrain_h_35_04.dat
 terrain_v_15_28.dat
 terrain_v_16_27.dat
 terrain_v_16_28.dat
@@ -2861,6 +2885,7 @@ vehicle_body_select.guixc
 vehicle_boost_lvl1_blue.effc
 vehicle_boost_lvl2_blue.effc
 vehicle_boost_lvl3_blue.effc
+vehicle_events.smodc
 vehicle_nitro.xvmc
 vehicle_upgrades.xlsc
 vehicles.fev
