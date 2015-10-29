@@ -28,9 +28,14 @@ using Gibbed.IO;
 
 namespace Gibbed.MadMax.PropertyFormats.Variants
 {
-    public class IntegersVariant : IVariant, IRawVariant
+    public class IntegersVariant : IVariant, RawPropertyContainerFile.IRawVariant, PropertyContainerFile.IRawVariant
     {
-        public readonly List<int> Values = new List<int>();
+        private readonly List<int> _Values;
+
+        public IntegersVariant()
+        {
+            this._Values = new List<int>();
+        }
 
         public string Tag
         {
@@ -40,41 +45,79 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
         public void Parse(string text)
         {
             var parts = text.Split(',');
-            this.Values.Clear();
+            this._Values.Clear();
             foreach (var part in parts)
             {
-                this.Values.Add(int.Parse(part, CultureInfo.InvariantCulture));
+                this._Values.Add(int.Parse(part, CultureInfo.InvariantCulture));
             }
         }
 
         public string Compose()
         {
-            return string.Join(",", this.Values.Select(v => v.ToString(CultureInfo.InvariantCulture)));
+            return string.Join(",", this._Values.Select(v => v.ToString(CultureInfo.InvariantCulture)));
         }
 
-        RawVariantType IRawVariant.Type
+        #region RawPropertyContainerFile
+        RawPropertyContainerFile.VariantType RawPropertyContainerFile.IRawVariant.Type
         {
-            get { return RawVariantType.Integers; }
+            get { return RawPropertyContainerFile.VariantType.Integers; }
         }
 
-        void IRawVariant.Serialize(Stream output, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
         {
-            output.WriteValueS32(this.Values.Count, endian);
-            foreach (int value in this.Values)
+            var values = this._Values;
+            output.WriteValueS32(values.Count, endian);
+            foreach (int value in values)
             {
                 output.WriteValueS32(value, endian);
             }
         }
 
-
-        void IRawVariant.Deserialize(Stream input, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
         {
             int count = input.ReadValueS32(endian);
-            this.Values.Clear();
+            var values = new int[count];
             for (int i = 0; i < count; i++)
             {
-                this.Values.Add(input.ReadValueS32(endian));
+                values[i] = input.ReadValueS32(endian);
+            }
+            this._Values.Clear();
+            this._Values.AddRange(values);
+        }
+        #endregion
+
+        #region PropertyContainerFile
+        PropertyContainerFile.VariantType PropertyContainerFile.IRawVariant.Type
+        {
+            get { return PropertyContainerFile.VariantType.Integers; }
+        }
+
+        bool PropertyContainerFile.IRawVariant.IsSimple
+        {
+            get { return true; }
+        }
+
+        void PropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
+        {
+            var values = this._Values;
+            output.WriteValueS32(values.Count, endian);
+            foreach (int value in values)
+            {
+                output.WriteValueS32(value, endian);
             }
         }
+
+        void PropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
+        {
+            int count = input.ReadValueS32(endian);
+            var values = new int[count];
+            for (int i = 0; i < count; i++)
+            {
+                values[i] = input.ReadValueS32(endian);
+            }
+            this._Values.Clear();
+            this._Values.AddRange(values);
+        }
+        #endregion
     }
 }

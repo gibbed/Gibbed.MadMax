@@ -28,6 +28,8 @@ namespace Gibbed.MadMax.PropertyFormats
     {
         public static IVariant GetVariant(string type)
         {
+            // TODO(rick): move these to constants on the variant type itself
+
             switch (type)
             {
                 case "int":
@@ -84,56 +86,124 @@ namespace Gibbed.MadMax.PropertyFormats
             throw new ArgumentException("unknown variant type", "type");
         }
 
-        internal static IRawVariant GetVariant(RawVariantType type)
+        internal static RawPropertyContainerFile.IRawVariant GetVariant(RawPropertyContainerFile.VariantType type)
         {
             switch (type)
             {
-                case RawVariantType.Integer:
+                case RawPropertyContainerFile.VariantType.Integer:
                 {
                     return new Variants.IntegerVariant();
                 }
 
-                case RawVariantType.Float:
+                case RawPropertyContainerFile.VariantType.Float:
                 {
                     return new Variants.FloatVariant();
                 }
 
-                case RawVariantType.String:
+                case RawPropertyContainerFile.VariantType.String:
                 {
                     return new Variants.StringVariant();
                 }
 
-                case RawVariantType.Vector2:
+                case RawPropertyContainerFile.VariantType.Vector2:
                 {
                     return new Variants.Vector2Variant();
                 }
 
-                case RawVariantType.Vector3:
+                case RawPropertyContainerFile.VariantType.Vector3:
                 {
                     return new Variants.Vector3Variant();
                 }
 
-                case RawVariantType.Vector4:
+                case RawPropertyContainerFile.VariantType.Vector4:
                 {
                     return new Variants.Vector4Variant();
                 }
 
-                case RawVariantType.Matrix4x3:
+                case RawPropertyContainerFile.VariantType.Matrix4x3:
                 {
                     return new Variants.Matrix4x3Variant();
                 }
 
-                case RawVariantType.Integers:
+                case RawPropertyContainerFile.VariantType.Integers:
                 {
                     return new Variants.IntegersVariant();
                 }
 
-                case RawVariantType.Floats:
+                case RawPropertyContainerFile.VariantType.Floats:
                 {
                     return new Variants.FloatsVariant();
                 }
 
-                case RawVariantType.Events:
+                case RawPropertyContainerFile.VariantType.Events:
+                {
+                    return new Variants.EventsVariant();
+                }
+            }
+
+            throw new ArgumentException("unknown variant type", "type");
+        }
+
+        internal static PropertyContainerFile.IRawVariant GetVariant(PropertyContainerFile.VariantType type)
+        {
+            switch (type)
+            {
+                case PropertyContainerFile.VariantType.Integer:
+                {
+                    return new Variants.IntegerVariant();
+                }
+
+                case PropertyContainerFile.VariantType.Float:
+                {
+                    return new Variants.FloatVariant();
+                }
+
+                case PropertyContainerFile.VariantType.String:
+                {
+                    return new Variants.StringVariant();
+                }
+
+                case PropertyContainerFile.VariantType.Vector2:
+                {
+                    return new Variants.Vector2Variant();
+                }
+
+                case PropertyContainerFile.VariantType.Vector3:
+                {
+                    return new Variants.Vector3Variant();
+                }
+
+                case PropertyContainerFile.VariantType.Vector4:
+                {
+                    return new Variants.Vector4Variant();
+                }
+
+                case PropertyContainerFile.VariantType.Matrix4x3:
+                {
+                    return new Variants.Matrix4x3Variant();
+                }
+
+                case PropertyContainerFile.VariantType.Integers:
+                {
+                    return new Variants.IntegersVariant();
+                }
+
+                case PropertyContainerFile.VariantType.Floats:
+                {
+                    return new Variants.FloatsVariant();
+                }
+
+                case PropertyContainerFile.VariantType.Bytes:
+                {
+                    return new Variants.BytesVariant();
+                }
+
+                case PropertyContainerFile.VariantType.ObjectId:
+                {
+                    return new Variants.ObjectIdVariant();
+                }
+
+                case PropertyContainerFile.VariantType.Events:
                 {
                     return new Variants.EventsVariant();
                 }

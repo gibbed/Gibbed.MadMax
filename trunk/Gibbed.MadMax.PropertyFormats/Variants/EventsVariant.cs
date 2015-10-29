@@ -29,7 +29,7 @@ using Gibbed.IO;
 
 namespace Gibbed.MadMax.PropertyFormats.Variants
 {
-    public class EventsVariant : IVariant, IRawVariant
+    public class EventsVariant : IVariant, RawPropertyContainerFile.IRawVariant, PropertyContainerFile.IRawVariant
     {
         private readonly List<KeyValuePair<uint, uint>> _Values;
 
@@ -38,14 +38,14 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
             this._Values = new List<KeyValuePair<uint, uint>>();
         }
 
-        public string Tag
-        {
-            get { return "vec_events"; }
-        }
-
         public List<KeyValuePair<uint, uint>> Values
         {
             get { return this._Values; }
+        }
+
+        public string Tag
+        {
+            get { return "vec_events"; }
         }
 
         public void Parse(string text)
@@ -72,36 +72,73 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
 
         private static string Compose(KeyValuePair<uint, uint> kv)
         {
-            return string.Format("{0},{1}",
-                                 kv.Key.ToString(CultureInfo.InvariantCulture),
-                                 kv.Value.ToString(CultureInfo.InvariantCulture));
+            return string.Format(
+                "{0},{1}",
+                kv.Key.ToString(CultureInfo.InvariantCulture),
+                kv.Value.ToString(CultureInfo.InvariantCulture));
         }
 
-        RawVariantType IRawVariant.Type
+        #region RawPropertyContainerFile
+        RawPropertyContainerFile.VariantType RawPropertyContainerFile.IRawVariant.Type
         {
-            get { return RawVariantType.Events; }
+            get { return RawPropertyContainerFile.VariantType.Events; }
         }
 
-        void IRawVariant.Serialize(Stream output, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
         {
-            output.WriteValueS32(this._Values.Count, endian);
-            foreach (var kv in this._Values)
+            var values = this._Values;
+            output.WriteValueS32(values.Count, endian);
+            foreach (var kv in values)
             {
                 output.WriteValueU32(kv.Key, endian);
                 output.WriteValueU32(kv.Value, endian);
             }
         }
 
-        void IRawVariant.Deserialize(Stream input, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
         {
             int count = input.ReadValueS32(endian);
-            this._Values.Clear();
+            var values = new KeyValuePair<uint, uint>[count];
             for (int i = 0; i < count; i++)
             {
                 var left = input.ReadValueU32(endian);
                 var right = input.ReadValueU32(endian);
-                this._Values.Add(new KeyValuePair<uint, uint>(left, right));
+                values[i] = new KeyValuePair<uint, uint>(left, right);
             }
+            this._Values.Clear();
+            this._Values.AddRange(values);
         }
+        #endregion
+
+        #region PropertyContainerFile
+        PropertyContainerFile.VariantType PropertyContainerFile.IRawVariant.Type
+        {
+            get { return PropertyContainerFile.VariantType.Events; }
+        }
+
+        bool PropertyContainerFile.IRawVariant.IsSimple
+        {
+            get { return true; }
+        }
+
+        void PropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
+        {
+            throw new NotImplementedException();
+        }
+
+        void PropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
+        {
+            int count = input.ReadValueS32(endian);
+            var values = new KeyValuePair<uint, uint>[count];
+            for (int i = 0; i < count; i++)
+            {
+                var left = input.ReadValueU32(endian);
+                var right = input.ReadValueU32(endian);
+                values[i] = new KeyValuePair<uint, uint>(left, right);
+            }
+            this._Values.Clear();
+            this._Values.AddRange(values);
+        }
+        #endregion
     }
 }

@@ -26,9 +26,15 @@ using Gibbed.IO;
 
 namespace Gibbed.MadMax.PropertyFormats.Variants
 {
-    public class FloatVariant : IVariant, IRawVariant
+    public class FloatVariant : IVariant, RawPropertyContainerFile.IRawVariant, PropertyContainerFile.IRawVariant
     {
-        public float Value;
+        private float _Value;
+
+        public float Value
+        {
+            get { return this._Value; }
+            set { this._Value = value; }
+        }
 
         public string Tag
         {
@@ -37,27 +43,51 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
 
         public void Parse(string text)
         {
-            this.Value = float.Parse(text, CultureInfo.InvariantCulture);
+            this._Value = float.Parse(text, CultureInfo.InvariantCulture);
         }
 
         public string Compose()
         {
-            return this.Value.ToString(CultureInfo.InvariantCulture);
+            return this._Value.ToString(CultureInfo.InvariantCulture);
         }
 
-        RawVariantType IRawVariant.Type
+        #region RawPropertyContainerFile
+        RawPropertyContainerFile.VariantType RawPropertyContainerFile.IRawVariant.Type
         {
-            get { return RawVariantType.Float; }
+            get { return RawPropertyContainerFile.VariantType.Float; }
         }
 
-        void IRawVariant.Serialize(Stream output, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
         {
-            output.WriteValueF32(this.Value, endian);
+            output.WriteValueF32(this._Value, endian);
         }
 
-        void IRawVariant.Deserialize(Stream input, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
         {
-            this.Value = input.ReadValueF32(endian);
+            this._Value = input.ReadValueF32(endian);
         }
+        #endregion
+
+        #region PropertyContainerFile
+        PropertyContainerFile.VariantType PropertyContainerFile.IRawVariant.Type
+        {
+            get { return PropertyContainerFile.VariantType.Float; }
+        }
+
+        bool PropertyContainerFile.IRawVariant.IsSimple
+        {
+            get { return false; }
+        }
+
+        void PropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
+        {
+            output.WriteValueF32(this._Value, endian);
+        }
+
+        void PropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
+        {
+            this._Value = input.ReadValueF32(endian);
+        }
+        #endregion
     }
 }

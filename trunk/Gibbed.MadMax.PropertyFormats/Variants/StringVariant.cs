@@ -27,9 +27,15 @@ using Gibbed.IO;
 
 namespace Gibbed.MadMax.PropertyFormats.Variants
 {
-    public class StringVariant : IVariant, IRawVariant
+    public class StringVariant : IVariant, RawPropertyContainerFile.IRawVariant, PropertyContainerFile.IRawVariant
     {
-        public string Value = "";
+        private string _Value = "";
+
+        public string Value
+        {
+            get { return this._Value; }
+            set { this._Value = value; }
+        }
 
         public string Tag
         {
@@ -38,22 +44,23 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
 
         public void Parse(string text)
         {
-            this.Value = text;
+            this._Value = text;
         }
 
         public string Compose()
         {
-            return this.Value;
+            return this._Value;
         }
 
-        RawVariantType IRawVariant.Type
+        #region RawPropertyContainerFile
+        RawPropertyContainerFile.VariantType RawPropertyContainerFile.IRawVariant.Type
         {
-            get { return RawVariantType.String; }
+            get { return RawPropertyContainerFile.VariantType.String; }
         }
 
-        void IRawVariant.Serialize(Stream output, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
         {
-            string s = this.Value;
+            string s = this._Value;
             if (s.Length > 0xFFFF)
             {
                 throw new InvalidOperationException();
@@ -63,10 +70,33 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
             output.WriteString(s, Encoding.ASCII);
         }
 
-        void IRawVariant.Deserialize(Stream input, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
         {
-            ushort length = input.ReadValueU16(endian);
-            this.Value = input.ReadString(length, true, Encoding.ASCII);
+            var length = input.ReadValueU16(endian);
+            this._Value = input.ReadString(length, true, Encoding.ASCII);
         }
+        #endregion
+
+        #region PropertyContainerFile
+        PropertyContainerFile.VariantType PropertyContainerFile.IRawVariant.Type
+        {
+            get { return PropertyContainerFile.VariantType.String; }
+        }
+
+        bool PropertyContainerFile.IRawVariant.IsSimple
+        {
+            get { return true; }
+        }
+
+        void PropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
+        {
+            output.WriteStringZ(this._Value, Encoding.ASCII);
+        }
+
+        void PropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
+        {
+            this._Value = input.ReadStringZ(Encoding.ASCII);
+        }
+        #endregion
     }
 }

@@ -20,43 +20,42 @@
  *    distribution.
  */
 
-using System.Collections.Generic;
+using System.IO;
+using Gibbed.IO;
 
-namespace Gibbed.MadMax.PropertyFormats
+namespace Gibbed.MadMax.FileFormats
 {
-    public class Node
+    public struct Vector3
     {
-        private readonly Dictionary<uint, Node> _Children;
-        private readonly Dictionary<uint, IVariant> _Properties;
-        private readonly Dictionary<uint, string> _KnownNames;
-        private string _Tag;
+        public readonly float X;
+        public readonly float Y;
+        public readonly float Z;
 
-        public Node()
+        public Vector3(float x, float y, float z)
         {
-            this._Children = new Dictionary<uint, Node>();
-            this._Properties = new Dictionary<uint, IVariant>();
-            this._KnownNames = new Dictionary<uint, string>();
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
         }
 
-        public Dictionary<uint, Node> Children
+        public static Vector3 Read(Stream input, Endian endian)
         {
-            get { return this._Children; }
+            var x = input.ReadValueF32(endian);
+            var y = input.ReadValueF32(endian);
+            var z = input.ReadValueF32(endian);
+            return new Vector3(x, y, z);
         }
 
-        public Dictionary<uint, IVariant> Properties
+        public static void Write(Stream output, Vector3 value, Endian endian)
         {
-            get { return this._Properties; }
+            output.WriteValueF32(value.X, endian);
+            output.WriteValueF32(value.Y, endian);
+            output.WriteValueF32(value.Z, endian);
         }
 
-        public Dictionary<uint, string> KnownNames
+        public void Write(Stream output, Endian endian)
         {
-            get { return this._KnownNames; }
-        }
-
-        public string Tag
-        {
-            get { return this._Tag; }
-            set { this._Tag = value; }
+            Write(output, this, endian);
         }
     }
 }

@@ -27,12 +27,15 @@ using Gibbed.IO;
 
 namespace Gibbed.MadMax.PropertyFormats.Variants
 {
-    public class Vector4Variant : IVariant, IRawVariant
+    public class Vector4Variant : IVariant, RawPropertyContainerFile.IRawVariant, PropertyContainerFile.IRawVariant
     {
-        public float X;
-        public float Y;
-        public float Z;
-        public float W;
+        private FileFormats.Vector4 _Value;
+
+        public FileFormats.Vector4 Value
+        {
+            get { return this._Value; }
+            set { this._Value = value; }
+        }
 
         public string Tag
         {
@@ -47,40 +50,60 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
                 throw new FormatException("vec4 requires 2 float values delimited by commas");
             }
 
-            this.X = float.Parse(parts[0], CultureInfo.InvariantCulture);
-            this.Y = float.Parse(parts[1], CultureInfo.InvariantCulture);
-            this.Z = float.Parse(parts[2], CultureInfo.InvariantCulture);
-            this.W = float.Parse(parts[3], CultureInfo.InvariantCulture);
+            var x = float.Parse(parts[0], CultureInfo.InvariantCulture);
+            var y = float.Parse(parts[1], CultureInfo.InvariantCulture);
+            var z = float.Parse(parts[2], CultureInfo.InvariantCulture);
+            var w = float.Parse(parts[3], CultureInfo.InvariantCulture);
+            this._Value = new FileFormats.Vector4(x, y, z, w);
         }
 
         public string Compose()
         {
-            return String.Format("{0},{1},{2},{3}",
-                                 this.X.ToString(CultureInfo.InvariantCulture),
-                                 this.Y.ToString(CultureInfo.InvariantCulture),
-                                 this.Z.ToString(CultureInfo.InvariantCulture),
-                                 this.W.ToString(CultureInfo.InvariantCulture));
+            return String.Format(
+                "{0},{1},{2},{3}",
+                this._Value.X.ToString(CultureInfo.InvariantCulture),
+                this._Value.Y.ToString(CultureInfo.InvariantCulture),
+                this._Value.Z.ToString(CultureInfo.InvariantCulture),
+                this._Value.W.ToString(CultureInfo.InvariantCulture));
         }
 
-        RawVariantType IRawVariant.Type
+        #region RawPropertyContainerFile
+        RawPropertyContainerFile.VariantType RawPropertyContainerFile.IRawVariant.Type
         {
-            get { return RawVariantType.Vector4; }
+            get { return RawPropertyContainerFile.VariantType.Vector4; }
         }
 
-        void IRawVariant.Serialize(Stream output, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
         {
-            output.WriteValueF32(this.X, endian);
-            output.WriteValueF32(this.Y, endian);
-            output.WriteValueF32(this.Z, endian);
-            output.WriteValueF32(this.W, endian);
+            FileFormats.Vector4.Write(output, this._Value, endian);
         }
 
-        void IRawVariant.Deserialize(Stream input, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
         {
-            this.X = input.ReadValueF32(endian);
-            this.Y = input.ReadValueF32(endian);
-            this.Z = input.ReadValueF32(endian);
-            this.W = input.ReadValueF32(endian);
+            this._Value = FileFormats.Vector4.Read(input, endian);
         }
+        #endregion
+
+        #region PropertyContainerFile
+        PropertyContainerFile.VariantType PropertyContainerFile.IRawVariant.Type
+        {
+            get { return PropertyContainerFile.VariantType.Vector4; }
+        }
+
+        bool PropertyContainerFile.IRawVariant.IsSimple
+        {
+            get { return true; }
+        }
+
+        void PropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
+        {
+            FileFormats.Vector4.Write(output, this._Value, endian);
+        }
+
+        void PropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
+        {
+            this._Value = FileFormats.Vector4.Read(input, endian);
+        }
+        #endregion
     }
 }
