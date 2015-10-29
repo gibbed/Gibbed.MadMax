@@ -43,7 +43,11 @@
     <Compile Include="AdfFile.cs" />
     <Compile Include="ArchiveTableFile.cs" />
     <Compile Include="FileDetection.cs" />
+    <Compile Include="Matrix4x3.cs" />
     <Compile Include="SmallArchiveFile.cs" />
+    <Compile Include="Vector2.cs" />
+    <Compile Include="Vector3.cs" />
+    <Compile Include="Vector4.cs" />
     <Compile Include="XvmModule.cs" />
     <Compile Include="ProjectHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

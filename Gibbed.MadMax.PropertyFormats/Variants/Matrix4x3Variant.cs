@@ -28,24 +28,16 @@ using Gibbed.IO;
 namespace Gibbed.MadMax.PropertyFormats.Variants
 {
     // ReSharper disable InconsistentNaming
-    public class Matrix4x3Variant : IVariant, IRawVariant
+    public class Matrix4x3Variant : IVariant, RawPropertyContainerFile.IRawVariant, PropertyContainerFile.IRawVariant
         // ReSharper restore InconsistentNaming
     {
-        public float M11;
-        public float M12;
-        public float M13;
+        private FileFormats.Matrix4x3 _Value;
 
-        public float M21;
-        public float M22;
-        public float M23;
-
-        public float M31;
-        public float M32;
-        public float M33;
-
-        public float M41;
-        public float M42;
-        public float M43;
+        public FileFormats.Matrix4x3 Value
+        {
+            get { return this._Value; }
+            set { this._Value = value; }
+        }
 
         public string Tag
         {
@@ -60,74 +52,76 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
                 throw new FormatException("mat requires 12 float values delimited by commas");
             }
 
-            this.M11 = float.Parse(parts[0], CultureInfo.InvariantCulture);
-            this.M12 = float.Parse(parts[1], CultureInfo.InvariantCulture);
-            this.M13 = float.Parse(parts[2], CultureInfo.InvariantCulture);
-            this.M21 = float.Parse(parts[3], CultureInfo.InvariantCulture);
-            this.M22 = float.Parse(parts[4], CultureInfo.InvariantCulture);
-            this.M23 = float.Parse(parts[5], CultureInfo.InvariantCulture);
-            this.M31 = float.Parse(parts[6], CultureInfo.InvariantCulture);
-            this.M32 = float.Parse(parts[7], CultureInfo.InvariantCulture);
-            this.M33 = float.Parse(parts[8], CultureInfo.InvariantCulture);
-            this.M41 = float.Parse(parts[9], CultureInfo.InvariantCulture);
-            this.M42 = float.Parse(parts[10], CultureInfo.InvariantCulture);
-            this.M43 = float.Parse(parts[11], CultureInfo.InvariantCulture);
+            var m11 = float.Parse(parts[0], CultureInfo.InvariantCulture);
+            var m12 = float.Parse(parts[1], CultureInfo.InvariantCulture);
+            var m13 = float.Parse(parts[2], CultureInfo.InvariantCulture);
+            var m21 = float.Parse(parts[3], CultureInfo.InvariantCulture);
+            var m22 = float.Parse(parts[4], CultureInfo.InvariantCulture);
+            var m23 = float.Parse(parts[5], CultureInfo.InvariantCulture);
+            var m31 = float.Parse(parts[6], CultureInfo.InvariantCulture);
+            var m32 = float.Parse(parts[7], CultureInfo.InvariantCulture);
+            var m33 = float.Parse(parts[8], CultureInfo.InvariantCulture);
+            var m41 = float.Parse(parts[9], CultureInfo.InvariantCulture);
+            var m42 = float.Parse(parts[10], CultureInfo.InvariantCulture);
+            var m43 = float.Parse(parts[11], CultureInfo.InvariantCulture);
+            this._Value = new FileFormats.Matrix4x3(m11, m12, m13, m21, m22, m23, m31, m32, m33, m41, m42, m43);
         }
 
         public string Compose()
         {
             return String.Format(
                 "{0},{1},{2}, {3},{4},{5}, {6},{7},{8}, {9},{10},{11}",
-                this.M11.ToString(CultureInfo.InvariantCulture),
-                this.M12.ToString(CultureInfo.InvariantCulture),
-                this.M13.ToString(CultureInfo.InvariantCulture),
-                this.M21.ToString(CultureInfo.InvariantCulture),
-                this.M22.ToString(CultureInfo.InvariantCulture),
-                this.M23.ToString(CultureInfo.InvariantCulture),
-                this.M31.ToString(CultureInfo.InvariantCulture),
-                this.M32.ToString(CultureInfo.InvariantCulture),
-                this.M33.ToString(CultureInfo.InvariantCulture),
-                this.M41.ToString(CultureInfo.InvariantCulture),
-                this.M42.ToString(CultureInfo.InvariantCulture),
-                this.M43.ToString(CultureInfo.InvariantCulture));
+                this._Value.M11.ToString(CultureInfo.InvariantCulture),
+                this._Value.M12.ToString(CultureInfo.InvariantCulture),
+                this._Value.M13.ToString(CultureInfo.InvariantCulture),
+                this._Value.M21.ToString(CultureInfo.InvariantCulture),
+                this._Value.M22.ToString(CultureInfo.InvariantCulture),
+                this._Value.M23.ToString(CultureInfo.InvariantCulture),
+                this._Value.M31.ToString(CultureInfo.InvariantCulture),
+                this._Value.M32.ToString(CultureInfo.InvariantCulture),
+                this._Value.M33.ToString(CultureInfo.InvariantCulture),
+                this._Value.M41.ToString(CultureInfo.InvariantCulture),
+                this._Value.M42.ToString(CultureInfo.InvariantCulture),
+                this._Value.M43.ToString(CultureInfo.InvariantCulture));
         }
 
-        RawVariantType IRawVariant.Type
+        #region RawPropertyContainerFile
+        RawPropertyContainerFile.VariantType RawPropertyContainerFile.IRawVariant.Type
         {
-            get { return RawVariantType.Matrix4x3; }
+            get { return RawPropertyContainerFile.VariantType.Matrix4x3; }
         }
 
-        void IRawVariant.Serialize(Stream output, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
         {
-            output.WriteValueF32(this.M11, endian);
-            output.WriteValueF32(this.M12, endian);
-            output.WriteValueF32(this.M13, endian);
-            output.WriteValueF32(this.M21, endian);
-            output.WriteValueF32(this.M22, endian);
-            output.WriteValueF32(this.M23, endian);
-            output.WriteValueF32(this.M31, endian);
-            output.WriteValueF32(this.M32, endian);
-            output.WriteValueF32(this.M33, endian);
-            output.WriteValueF32(this.M41, endian);
-            output.WriteValueF32(this.M42, endian);
-            output.WriteValueF32(this.M43, endian);
+            FileFormats.Matrix4x3.Write(output, this._Value, endian);
         }
 
-
-        void IRawVariant.Deserialize(Stream input, Endian endian)
+        void RawPropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
         {
-            this.M11 = input.ReadValueF32(endian);
-            this.M12 = input.ReadValueF32(endian);
-            this.M13 = input.ReadValueF32(endian);
-            this.M21 = input.ReadValueF32(endian);
-            this.M22 = input.ReadValueF32(endian);
-            this.M23 = input.ReadValueF32(endian);
-            this.M31 = input.ReadValueF32(endian);
-            this.M32 = input.ReadValueF32(endian);
-            this.M33 = input.ReadValueF32(endian);
-            this.M41 = input.ReadValueF32(endian);
-            this.M42 = input.ReadValueF32(endian);
-            this.M43 = input.ReadValueF32(endian);
+            this._Value = FileFormats.Matrix4x3.Read(input, endian);
         }
+        #endregion
+
+        #region PropertyContainerFile
+        PropertyContainerFile.VariantType PropertyContainerFile.IRawVariant.Type
+        {
+            get { return PropertyContainerFile.VariantType.Matrix4x3; }
+        }
+
+        bool PropertyContainerFile.IRawVariant.IsSimple
+        {
+            get { return true; }
+        }
+
+        void PropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
+        {
+            FileFormats.Matrix4x3.Write(output, this._Value, endian);
+        }
+
+        void PropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
+        {
+            this._Value = FileFormats.Matrix4x3.Read(input, endian);
+        }
+        #endregion
     }
 }

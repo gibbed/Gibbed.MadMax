@@ -20,71 +20,47 @@
  *    distribution.
  */
 
-using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using Gibbed.IO;
 
 namespace Gibbed.MadMax.PropertyFormats.Variants
 {
-    public class Vector2Variant : IVariant, RawPropertyContainerFile.IRawVariant, PropertyContainerFile.IRawVariant
+    public class BytesVariant : IVariant, PropertyContainerFile.IRawVariant
     {
-        private FileFormats.Vector2 _Value;
+        private byte[] _Value;
 
-        public FileFormats.Vector2 Value
+        public byte[] Value
         {
             get { return this._Value; }
-            set { this._Value = value; }
         }
 
         public string Tag
         {
-            get { return "vec2"; }
+            get { return "vec_byte"; }
         }
 
         public void Parse(string text)
         {
             var parts = text.Split(',');
-
-            if (parts.Length != 2)
+            var bytes = new byte[parts.Length];
+            for (int i = 0; i < parts.Length; i += 2)
             {
-                throw new FormatException("vec2 requires 2 float values delimited by a comma");
+                bytes[i] = byte.Parse(parts[i], CultureInfo.InvariantCulture);
             }
-
-            var x = float.Parse(parts[0], CultureInfo.InvariantCulture);
-            var y = float.Parse(parts[1], CultureInfo.InvariantCulture);
-            this._Value = new FileFormats.Vector2(x, y);
+            this._Value = bytes;
         }
 
         public string Compose()
         {
-            return string.Format(
-                "{0},{1}",
-                this._Value.X.ToString(CultureInfo.InvariantCulture),
-                this._Value.Y.ToString(CultureInfo.InvariantCulture));
+            return string.Join(",", this._Value.Select(v => v.ToString(CultureInfo.InvariantCulture)));
         }
-
-        #region RawPropertyContainerFile
-        RawPropertyContainerFile.VariantType RawPropertyContainerFile.IRawVariant.Type
-        {
-            get { return RawPropertyContainerFile.VariantType.Vector2; }
-        }
-
-        void RawPropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
-        {
-            FileFormats.Vector2.Write(output, this._Value, endian);
-        }
-
-        void RawPropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
-        {
-            this._Value = FileFormats.Vector2.Read(input, endian);
-        }
-        #endregion
 
         #region PropertyContainerFile
         PropertyContainerFile.VariantType PropertyContainerFile.IRawVariant.Type
         {
-            get { return PropertyContainerFile.VariantType.Vector2; }
+            get { return PropertyContainerFile.VariantType.Bytes; }
         }
 
         bool PropertyContainerFile.IRawVariant.IsSimple
@@ -94,12 +70,22 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
 
         void PropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
         {
-            FileFormats.Vector2.Write(output, this._Value, endian);
+            var bytes = this._Value;
+            if (bytes == null)
+            {
+                output.WriteValueS32(0, endian);
+                return;
+            }
+
+            output.WriteValueS32(bytes.Length, endian);
+            output.WriteBytes(bytes);
         }
 
         void PropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
         {
-            this._Value = FileFormats.Vector2.Read(input, endian);
+            int count = input.ReadValueS32(endian);
+            var bytes = input.ReadBytes(count);
+            this._Value = bytes;
         }
         #endregion
     }

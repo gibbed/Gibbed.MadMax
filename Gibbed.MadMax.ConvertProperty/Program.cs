@@ -62,8 +62,10 @@ namespace Gibbed.MadMax.ConvertProperty
 
         internal enum FileFormat
         {
-            Unknown,
-            Raw,
+            // ReSharper disable InconsistentNaming
+            Bin, // RawPropertyContainerFile
+            RTPC, // PropertyContainerFile
+            // ReSharper restore InconsistentNaming
         }
 
         public static void Main(string[] args)
@@ -154,23 +156,22 @@ namespace Gibbed.MadMax.ConvertProperty
                 {
                     input.Seek(0, SeekOrigin.Begin);
 
-                    /*if (BlackboardPropertyFile.CheckMagic(input) == true)
+                    if (PropertyContainerFile.CheckSignature(input) == true)
                     {
-                        fileFormat = FileFormat.Blackboard;
+                        fileFormat = FileFormat.RTPC;
 
                         input.Seek(0, SeekOrigin.Begin);
-                        propertyFile = new BlackboardPropertyFile()
-                        {
-                            Endian = endian.Value,
-                        };
-                        propertyFile.Deserialize(input);
+                        var propertyContainerFile = new PropertyContainerFile();
+                        propertyContainerFile.Deserialize(input);
+                        endian = propertyContainerFile.Endian;
+                        propertyFile = propertyContainerFile;
                     }
-                    else*/
+                    else
                     {
-                        fileFormat = FileFormat.Raw;
+                        fileFormat = FileFormat.Bin;
 
                         input.Seek(0, SeekOrigin.Begin);
-                        propertyFile = new RawPropertyFile()
+                        propertyFile = new RawPropertyContainerFile()
                         {
                             Endian = endian.Value,
                         };
@@ -237,14 +238,14 @@ namespace Gibbed.MadMax.ConvertProperty
                     var formatAttribute = root.GetAttribute("format", "");
                     if (string.IsNullOrEmpty(formatAttribute) == false)
                     {
-                        if (Enum.TryParse(formatAttribute, out fileFormat) == false)
+                        if (Enum.TryParse(formatAttribute, true, out fileFormat) == false)
                         {
                             throw new FormatException();
                         }
                     }
                     else
                     {
-                        fileFormat = FileFormat.Raw;
+                        fileFormat = FileFormat.Bin;
                     }
 
                     var endianAttribute = root.GetAttribute("endian", "");
@@ -266,23 +267,23 @@ namespace Gibbed.MadMax.ConvertProperty
 
                     switch (fileFormat)
                     {
-                        case FileFormat.Raw:
+                        case FileFormat.Bin:
                         {
-                            propertyFile = new RawPropertyFile()
+                            propertyFile = new RawPropertyContainerFile()
                             {
                                 Endian = endian.Value,
                             };
                             break;
                         }
 
-                            /*case FileFormat.Blackboard:
+                        case FileFormat.RTPC:
                         {
-                            propertyFile = new BlackboardPropertyFile()
+                            propertyFile = new PropertyContainerFile()
                             {
                                 Endian = endian.Value,
                             };
                             break;
-                        }*/
+                        }
 
                         default:
                         {
@@ -328,41 +329,45 @@ namespace Gibbed.MadMax.ConvertProperty
             // is this ridiculous?
             // yeeeeep.
 
-            var nodesByName = node.Nodes
-                                  .Where(kv => node.KnownNames.ContainsKey(kv.Key) == true)
-                                  .Select(kv => new KeyValuePair<string, Node>(node.KnownNames[kv.Key], kv.Value))
-                                  .Concat(node.Nodes
-                                              .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false &&
-                                                           _Names.Contains(kv.Key) == true)
-                                              .Select(kv => new KeyValuePair<string, Node>(_Names[kv.Key], kv.Value)))
-                                  .ToArray();
+            var childrenByName =
+                node.Children
+                    .Where(kv => node.KnownNames.ContainsKey(kv.Key) == true)
+                    .Select(kv => new KeyValuePair<string, Node>(node.KnownNames[kv.Key], kv.Value))
+                    .Concat(node.Children
+                                .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false &&
+                                             _Names.Contains(kv.Key) == true)
+                                .Select(kv => new KeyValuePair<string, Node>(_Names[kv.Key], kv.Value)))
+                    .ToArray();
 
-            var nodesByHash = node.Nodes
-                                  .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false &&
-                                               _Names.Contains(kv.Key) == false)
-                                  .Select(kv => kv)
-                                  .ToArray();
+            var childrenByNameHash =
+                node.Children
+                    .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false &&
+                                 _Names.Contains(kv.Key) == false)
+                    .Select(kv => kv)
+                    .ToArray();
 
-            var variantsByName = node.Variants
-                                     .Where(kv => node.KnownNames.ContainsKey(kv.Key) == true)
-                                     .Select(kv => new KeyValuePair<string, IVariant>(node.KnownNames[kv.Key], kv.Value))
-                                     .Concat(node.Variants
-                                                 .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false &&
-                                                              _Names.Contains(kv.Key) == true)
-                                                 .Select(kv => new KeyValuePair<string, IVariant>(
-                                                                   _Names[kv.Key],
-                                                                   kv.Value)))
-                                     .ToArray();
+            var propertiesByName =
+                node.Properties
+                    .Where(kv => node.KnownNames.ContainsKey(kv.Key) == true)
+                    .Select(kv => new KeyValuePair<string, IVariant>(node.KnownNames[kv.Key], kv.Value))
+                    .Concat(node.Properties
+                                .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false &&
+                                             _Names.Contains(kv.Key) == true)
+                                .Select(kv => new KeyValuePair<string, IVariant>(
+                                                  _Names[kv.Key],
+                                                  kv.Value)))
+                    .ToArray();
 
-            var variantsByHash = node.Variants
-                                     .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false &&
-                                                  _Names.Contains(kv.Key) == false)
-                                     .Select(kv => kv)
-                                     .ToArray();
+            var propertiesByNameHash =
+                node.Properties
+                    .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false &&
+                                 _Names.Contains(kv.Key) == false)
+                    .Select(kv => kv)
+                    .ToArray();
 
-            if (variantsByName.Length > 0)
+            if (propertiesByName.Length > 0)
             {
-                foreach (var kv in variantsByName.OrderBy(kv => kv.Key))
+                foreach (var kv in propertiesByName.OrderBy(kv => kv.Key))
                 {
                     writer.WriteStartElement("value");
                     writer.WriteAttributeString("name", kv.Key);
@@ -371,9 +376,9 @@ namespace Gibbed.MadMax.ConvertProperty
                 }
             }
 
-            if (nodesByName.Length > 0)
+            if (childrenByName.Length > 0)
             {
-                foreach (var kv in nodesByName.OrderBy(kv => kv.Key))
+                foreach (var kv in childrenByName.OrderBy(kv => kv.Key))
                 {
                     writer.WriteStartElement("object");
                     writer.WriteAttributeString("name", kv.Key);
@@ -382,9 +387,9 @@ namespace Gibbed.MadMax.ConvertProperty
                 }
             }
 
-            if (variantsByHash.Length > 0)
+            if (propertiesByNameHash.Length > 0)
             {
-                foreach (var kv in variantsByHash.OrderBy(p => p.Key, new NameComparer(_Names)))
+                foreach (var kv in propertiesByNameHash.OrderBy(p => p.Key, new NameComparer(_Names)))
                 {
                     writer.WriteStartElement("value");
 
@@ -402,9 +407,9 @@ namespace Gibbed.MadMax.ConvertProperty
                 }
             }
 
-            if (nodesByHash.Length > 0)
+            if (childrenByNameHash.Length > 0)
             {
-                foreach (var kv in nodesByHash.OrderBy(n => n.Key, new NameComparer(_Names)))
+                foreach (var kv in childrenByNameHash.OrderBy(n => n.Key, new NameComparer(_Names)))
                 {
                     writer.WriteStartElement("object");
 
@@ -477,7 +482,7 @@ namespace Gibbed.MadMax.ConvertProperty
                 var variant = VariantFactory.GetVariant(type);
                 variant.Parse(current.Value);
 
-                if (node.Variants.ContainsKey(id) == true)
+                if (node.Properties.ContainsKey(id) == true)
                 {
                     var lineInfo = (IXmlLineInfo)current;
 
@@ -498,7 +503,7 @@ namespace Gibbed.MadMax.ConvertProperty
                                       lineInfo.LinePosition));
                 }
 
-                node.Variants.Add(id, variant);
+                node.Properties.Add(id, variant);
             }
 
             var children = nav.Select("object");
@@ -514,7 +519,7 @@ namespace Gibbed.MadMax.ConvertProperty
                 uint id = GetIdOrName(child, out name);
                 var obj = ParseObject(child);
 
-                if (node.Nodes.ContainsKey(id) == true)
+                if (node.Children.ContainsKey(id) == true)
                 {
                     var lineInfo = (IXmlLineInfo)child;
 
@@ -535,7 +540,7 @@ namespace Gibbed.MadMax.ConvertProperty
                                       lineInfo.LinePosition));
                 }
 
-                node.Nodes.Add(id, obj);
+                node.Children.Add(id, obj);
             }
 
             return node;

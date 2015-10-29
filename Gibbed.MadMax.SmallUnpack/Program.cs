@@ -41,7 +41,7 @@ namespace Gibbed.MadMax.SmallUnpack
             bool verbose = false;
             bool overwriteFiles = false;
             bool listing = false;
-            bool useFullPaths = false;
+            bool useFullPaths = true;
             bool showHelp = false;
 
             var options = new OptionSet()

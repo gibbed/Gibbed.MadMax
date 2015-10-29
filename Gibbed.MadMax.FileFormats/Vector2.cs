@@ -23,13 +23,35 @@
 using System.IO;
 using Gibbed.IO;
 
-namespace Gibbed.MadMax.PropertyFormats
+namespace Gibbed.MadMax.FileFormats
 {
-    internal interface IRawVariant
+    public struct Vector2
     {
-        RawVariantType Type { get; }
+        public readonly float X;
+        public readonly float Y;
 
-        void Serialize(Stream output, Endian endian);
-        void Deserialize(Stream input, Endian endian);
+        public Vector2(float x, float y)
+        {
+            this.X = x;
+            this.Y = y;
+        }
+
+        public static Vector2 Read(Stream input, Endian endian)
+        {
+            var x = input.ReadValueF32(endian);
+            var y = input.ReadValueF32(endian);
+            return new Vector2(x, y);
+        }
+
+        public static void Write(Stream output, Vector2 value, Endian endian)
+        {
+            output.WriteValueF32(value.X, endian);
+            output.WriteValueF32(value.Y, endian);
+        }
+
+        public void Write(Stream output, Endian endian)
+        {
+            Write(output, this, endian);
+        }
     }
 }

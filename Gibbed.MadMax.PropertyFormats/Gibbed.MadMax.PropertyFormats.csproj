@@ -41,19 +41,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPropertyFile.cs" />
-    <Compile Include="IRawVariant.cs" />
     <Compile Include="IVariant.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="ProjectHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RawPropertyFile.cs" />
-    <Compile Include="RawVariantType.cs" />
+    <Compile Include="PropertyContainerFile.cs" />
+    <Compile Include="RawPropertyContainerFile.cs" />
+    <Compile Include="Variants\BytesVariant.cs" />
     <Compile Include="Variants\EventsVariant.cs" />
     <Compile Include="Variants\FloatsVariant.cs" />
     <Compile Include="Variants\FloatVariant.cs" />
     <Compile Include="Variants\IntegersVariant.cs" />
     <Compile Include="Variants\IntegerVariant.cs" />
     <Compile Include="Variants\Matrix4x3Variant.cs" />
+    <Compile Include="Variants\ObjectIdVariant.cs" />
     <Compile Include="Variants\StringVariant.cs" />
     <Compile Include="VariantFactory.cs" />
     <Compile Include="Variants\Vector2Variant.cs" />

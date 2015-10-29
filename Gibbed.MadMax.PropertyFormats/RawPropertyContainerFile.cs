@@ -30,12 +30,12 @@ using Gibbed.MadMax.FileFormats;
 
 namespace Gibbed.MadMax.PropertyFormats
 {
-    public class RawPropertyFile : IPropertyFile
+    public class RawPropertyContainerFile : IPropertyFile
     {
         private Endian _Endian;
         private readonly List<Node> _Nodes;
 
-        public RawPropertyFile()
+        public RawPropertyContainerFile()
         {
             this._Nodes = new List<Node>();
         }
@@ -51,6 +51,42 @@ namespace Gibbed.MadMax.PropertyFormats
             get { return this._Nodes; }
         }
 
+        // ReSharper disable InconsistentNaming
+        internal enum VariantType : byte
+        {
+            Unassigned = 0,
+            Integer = 1,
+            Float = 2,
+            String = 3,
+            Vector2 = 4,
+            Vector3 = 5,
+            Vector4 = 6,
+
+            [Obsolete]
+            DoNotUse1 = 7, // Matrix3x3
+
+            Matrix4x3 = 8,
+            Integers = 9,
+            Floats = 10,
+            Bytes = 11,
+
+            [Obsolete]
+            DoNutUse2 = 12,
+
+            ObjectId = 13,
+            Events = 14,
+        }
+
+        // ReSharper restore InconsistentNaming
+
+        internal interface IRawVariant
+        {
+            VariantType Type { get; }
+
+            void Serialize(Stream output, Endian endian);
+            void Deserialize(Stream input, Endian endian);
+        }
+
         #region SectionType
         private enum SectionType : byte
         {
@@ -58,10 +94,10 @@ namespace Gibbed.MadMax.PropertyFormats
             Invalid = 0,
             // ReSharper restore UnusedMember.Local
             Node = 1,
-            Variant = 2,
+            Property = 2,
             Tag = 3,
             NodeByHash = 4,
-            VariantByHash = 5,
+            PropertyByHash = 5,
         }
         #endregion
 
@@ -85,38 +121,35 @@ namespace Gibbed.MadMax.PropertyFormats
 
             byte count = 0;
 
-            var nodesByName = node.Nodes
-                                  .Where(kv => node.KnownNames.ContainsKey(kv.Key) == true)
-                                  .ToArray();
-
-            var variantsByName = node.Variants
+            var childrenByName = node.Children
                                      .Where(kv => node.KnownNames.ContainsKey(kv.Key) == true)
                                      .ToArray();
+            var propertiesByName = node.Properties
+                                       .Where(kv => node.KnownNames.ContainsKey(kv.Key) == true)
+                                       .ToArray();
+            var childrenByNameHash = node.Children
+                                         .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false)
+                                         .ToArray();
+            var propertiesByNameHash = node.Properties
+                                           .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false)
+                                           .ToArray();
 
-            var nodesByHash = node.Nodes
-                                  .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false)
-                                  .ToArray();
-
-            var variantsByHash = node.Variants
-                                     .Where(kv => node.KnownNames.ContainsKey(kv.Key) == false)
-                                     .ToArray();
-
-            if (nodesByName.Length > 0)
+            if (childrenByName.Length > 0)
             {
                 count++;
             }
 
-            if (variantsByName.Length > 0)
+            if (propertiesByName.Length > 0)
             {
                 count++;
             }
 
-            if (nodesByHash.Length > 0)
+            if (childrenByNameHash.Length > 0)
             {
                 count++;
             }
 
-            if (variantsByHash.Length > 0)
+            if (propertiesByNameHash.Length > 0)
             {
                 count++;
             }
@@ -128,16 +161,16 @@ namespace Gibbed.MadMax.PropertyFormats
 
             output.WriteValueU8(count);
 
-            if (nodesByName.Length > 0)
+            if (childrenByName.Length > 0)
             {
-                if (nodesByName.Length > 0xFFFF)
+                if (childrenByName.Length > 0xFFFF)
                 {
                     throw new InvalidOperationException();
                 }
 
                 output.WriteValueU16((ushort)SectionType.Node, endian);
-                output.WriteValueU16((ushort)nodesByName.Length, endian);
-                foreach (var kv in nodesByName)
+                output.WriteValueU16((ushort)childrenByName.Length, endian);
+                foreach (var kv in childrenByName)
                 {
                     var name = node.KnownNames[kv.Key];
                     output.WriteValueS32(name.Length, endian);
@@ -146,16 +179,16 @@ namespace Gibbed.MadMax.PropertyFormats
                 }
             }
 
-            if (variantsByName.Length > 0)
+            if (propertiesByName.Length > 0)
             {
-                if (variantsByName.Length > 0xFFFF)
+                if (propertiesByName.Length > 0xFFFF)
                 {
                     throw new InvalidOperationException();
                 }
 
-                output.WriteValueU16((ushort)SectionType.Variant, endian);
-                output.WriteValueU16((ushort)variantsByName.Length, endian);
-                foreach (var kv in variantsByName)
+                output.WriteValueU16((ushort)SectionType.Property, endian);
+                output.WriteValueU16((ushort)propertiesByName.Length, endian);
+                foreach (var kv in propertiesByName)
                 {
                     var name = node.KnownNames[kv.Key];
                     output.WriteValueS32(name.Length, endian);
@@ -178,32 +211,32 @@ namespace Gibbed.MadMax.PropertyFormats
                 output.WriteBytes(bytes);
             }
 
-            if (nodesByHash.Length > 0)
+            if (childrenByNameHash.Length > 0)
             {
-                if (nodesByHash.Length > 0xFFFF)
+                if (childrenByNameHash.Length > 0xFFFF)
                 {
                     throw new InvalidOperationException();
                 }
 
                 output.WriteValueU16((ushort)SectionType.NodeByHash, endian);
-                output.WriteValueU16((ushort)nodesByHash.Length, endian);
-                foreach (var kv in nodesByHash)
+                output.WriteValueU16((ushort)childrenByNameHash.Length, endian);
+                foreach (var kv in childrenByNameHash)
                 {
                     output.WriteValueU32(kv.Key, endian);
                     this.SerializeNode(output, kv.Value);
                 }
             }
 
-            if (variantsByHash.Length > 0)
+            if (propertiesByNameHash.Length > 0)
             {
-                if (variantsByHash.Length > 0xFFFF)
+                if (propertiesByNameHash.Length > 0xFFFF)
                 {
                     throw new InvalidOperationException();
                 }
 
-                output.WriteValueU16((ushort)SectionType.VariantByHash, endian);
-                output.WriteValueU16((ushort)variantsByHash.Length, endian);
-                foreach (var kv in variantsByHash)
+                output.WriteValueU16((ushort)SectionType.PropertyByHash, endian);
+                output.WriteValueU16((ushort)propertiesByNameHash.Length, endian);
+                foreach (var kv in propertiesByNameHash)
                 {
                     output.WriteValueU32(kv.Key, endian);
                     this.SerializeVariant(output, kv.Value);
@@ -222,7 +255,7 @@ namespace Gibbed.MadMax.PropertyFormats
         private IVariant DeserializeVariant(Stream input)
         {
             var endian = this._Endian;
-            var type = (RawVariantType)input.ReadValueU8();
+            var type = (VariantType)input.ReadValueU8();
 
             var rawVariant = VariantFactory.GetVariant(type);
             rawVariant.Deserialize(input, endian);
@@ -272,13 +305,13 @@ namespace Gibbed.MadMax.PropertyFormats
                                 throw new FormatException();
                             }
 
-                            node.Nodes.Add(id, this.DeserializeNode(input));
+                            node.Children.Add(id, this.DeserializeNode(input));
                         }
 
                         break;
                     }
 
-                    case SectionType.Variant:
+                    case SectionType.Property:
                     {
                         for (ushort j = 0; j < elementCount; j++)
                         {
@@ -300,7 +333,7 @@ namespace Gibbed.MadMax.PropertyFormats
                                 throw new FormatException();
                             }
 
-                            node.Variants.Add(id, this.DeserializeVariant(input));
+                            node.Properties.Add(id, this.DeserializeVariant(input));
                         }
 
                         break;
@@ -317,18 +350,18 @@ namespace Gibbed.MadMax.PropertyFormats
                         for (ushort j = 0; j < elementCount; j++)
                         {
                             var id = input.ReadValueU32(endian);
-                            node.Nodes.Add(id, this.DeserializeNode(input));
+                            node.Children.Add(id, this.DeserializeNode(input));
                         }
 
                         break;
                     }
 
-                    case SectionType.VariantByHash:
+                    case SectionType.PropertyByHash:
                     {
                         for (ushort j = 0; j < elementCount; j++)
                         {
                             var id = input.ReadValueU32(endian);
-                            node.Variants.Add(id, this.DeserializeVariant(input));
+                            node.Properties.Add(id, this.DeserializeVariant(input));
                         }
 
                         break;

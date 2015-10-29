@@ -21,17 +21,18 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using Gibbed.IO;
 
 namespace Gibbed.MadMax.PropertyFormats.Variants
 {
-    public class Vector2Variant : IVariant, RawPropertyContainerFile.IRawVariant, PropertyContainerFile.IRawVariant
+    public class ObjectIdVariant : IVariant, PropertyContainerFile.IRawVariant
     {
-        private FileFormats.Vector2 _Value;
+        private KeyValuePair<uint, uint> _Value;
 
-        public FileFormats.Vector2 Value
+        public KeyValuePair<uint, uint> Value
         {
             get { return this._Value; }
             set { this._Value = value; }
@@ -39,52 +40,34 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
 
         public string Tag
         {
-            get { return "vec2"; }
+            get { return "objectid"; }
         }
 
         public void Parse(string text)
         {
             var parts = text.Split(',');
-
             if (parts.Length != 2)
             {
-                throw new FormatException("vec2 requires 2 float values delimited by a comma");
+                throw new FormatException("objectid requires a pair of uints delimited by a comma");
             }
 
-            var x = float.Parse(parts[0], CultureInfo.InvariantCulture);
-            var y = float.Parse(parts[1], CultureInfo.InvariantCulture);
-            this._Value = new FileFormats.Vector2(x, y);
+            var left = uint.Parse(parts[0], CultureInfo.InvariantCulture);
+            var right = uint.Parse(parts[1], CultureInfo.InvariantCulture);
+            this._Value = new KeyValuePair<uint, uint>(left, right);
         }
 
         public string Compose()
         {
-            return string.Format(
+            return String.Format(
                 "{0},{1}",
-                this._Value.X.ToString(CultureInfo.InvariantCulture),
-                this._Value.Y.ToString(CultureInfo.InvariantCulture));
+                this._Value.Key.ToString(CultureInfo.InvariantCulture),
+                this._Value.Value.ToString(CultureInfo.InvariantCulture));
         }
-
-        #region RawPropertyContainerFile
-        RawPropertyContainerFile.VariantType RawPropertyContainerFile.IRawVariant.Type
-        {
-            get { return RawPropertyContainerFile.VariantType.Vector2; }
-        }
-
-        void RawPropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
-        {
-            FileFormats.Vector2.Write(output, this._Value, endian);
-        }
-
-        void RawPropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
-        {
-            this._Value = FileFormats.Vector2.Read(input, endian);
-        }
-        #endregion
 
         #region PropertyContainerFile
         PropertyContainerFile.VariantType PropertyContainerFile.IRawVariant.Type
         {
-            get { return PropertyContainerFile.VariantType.Vector2; }
+            get { return PropertyContainerFile.VariantType.ObjectId; }
         }
 
         bool PropertyContainerFile.IRawVariant.IsSimple
@@ -94,12 +77,14 @@ namespace Gibbed.MadMax.PropertyFormats.Variants
 
         void PropertyContainerFile.IRawVariant.Serialize(Stream output, Endian endian)
         {
-            FileFormats.Vector2.Write(output, this._Value, endian);
+            throw new NotImplementedException();
         }
 
         void PropertyContainerFile.IRawVariant.Deserialize(Stream input, Endian endian)
         {
-            this._Value = FileFormats.Vector2.Read(input, endian);
+            var left = input.ReadValueU32(endian);
+            var right = input.ReadValueU32(endian);
+            this._Value = new KeyValuePair<uint, uint>(left, right);
         }
         #endregion
     }
