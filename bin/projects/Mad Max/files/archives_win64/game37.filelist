@@ -1,4 +1,4 @@
-; 2160/4334 (49%)
+; 2163/4334 (49%)
 a0_ec_delivery_system.gsrc
 a0_ec_delivery_system_dialogue_intents.gsrc
 a0_ec_delivery_system_enterlogic.gsrc
@@ -1349,6 +1349,7 @@ terrain_h_16_45.dat
 terrain_h_16_46.dat
 terrain_h_16_47.dat
 terrain_h_16_48.dat
+terrain_h_17_21.dat
 terrain_h_17_22.dat
 terrain_h_17_23.dat
 terrain_h_17_24.dat
@@ -1571,6 +1572,7 @@ terrain_h_24_46.dat
 terrain_h_24_47.dat
 terrain_h_24_48.dat
 terrain_h_24_49.dat
+terrain_h_25_21.dat
 terrain_h_25_22.dat
 terrain_h_25_23.dat
 terrain_h_25_24.dat
@@ -2138,6 +2140,7 @@ v6_4.revc
 v8_0.revc
 v8_1.revc
 v8_2.revc
+v8_3.revc
 v8_carrier.revc
 vantage_balloon_enable.gsrc
 vantage_point_logic.gsrc
