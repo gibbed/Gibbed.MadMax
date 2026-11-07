@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Company>Gibbed</Company>
+    <Authors>Gibbed</Authors>
+    <Description>http://gib.me/</Description>
+    <Copyright>Copyright © Gibbed 2026</Copyright>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(GibbedMadMax_TargetFrameworksToBuild)' == '' ">
+    <GibbedMadMax_TargetFrameworksToBuild>$(TargetFrameworksToBuild)</GibbedMadMax_TargetFrameworksToBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(GibbedMadMax_TargetFrameworksToBuild)' == '' ">
+    <TargetFrameworks>net8.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(GibbedMadMax_TargetFrameworksToBuild)' != '' ">
+    <TargetFrameworks>$(GibbedMadMax_TargetFrameworksToBuild)</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gibbed.IO\Gibbed.IO.csproj" />
+    <ProjectReference Include="..\Gibbed.MadMax.FileFormats\Gibbed.MadMax.FileFormats.csproj" />
+    <ProjectReference Include="..\Gibbed.ProjectData\Gibbed.ProjectData.csproj" />
+  </ItemGroup>
+</Project>

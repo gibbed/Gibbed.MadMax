@@ -1,0 +1,16 @@
+[submodule "projects/Gibbed.ProjectData"]
+	path = projects/Gibbed.ProjectData
+	url = https://github.com/gibbed/Gibbed.ProjectData.git
+	branch = main
+[submodule "projects/Gibbed.IO"]
+	path = projects/Gibbed.IO
+	url = https://github.com/gibbed/Gibbed.IO.git
+	branch = main
+[submodule "projects/NDesk.Options"]
+	path = projects/NDesk.Options
+	url = https://github.com/gibbed/NDesk.Options.git
+	branch = main
+[submodule "configs/Mad Max/files"]
+	path = configs/Mad Max/files
+	url = https://github.com/gibbed/MadMax-File-Lists.git
+	branch = main

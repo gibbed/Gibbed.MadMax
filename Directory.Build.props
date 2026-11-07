@@ -1,0 +1,11 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <GibbedMadMax_TargetFrameworksToBuild>net8.0</GibbedMadMax_TargetFrameworksToBuild>
+    <GibbedIO_TargetFrameworksToBuild>net8.0</GibbedIO_TargetFrameworksToBuild>
+    <GibbedMemory_TargetFrameworksToBuild>net8.0</GibbedMemory_TargetFrameworksToBuild>
+    <NDeskOptions_TargetFrameworksToBuild>net8.0</NDeskOptions_TargetFrameworksToBuild>
+  </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(OutputPath)'=='..\..\bin\tools\'">
+    <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;call &quot;make_project_bat.bat&quot; &quot;$(ProjectName)&quot;" />
+  </Target>
+</Project>
